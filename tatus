@@ -1,0 +1,50 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 0b5a8c1..750e0c9 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -446,7 +446,8 @@[m
+       <a href="#home">Home</a>[m
+       <a href="about.html">About</a>[m
+       <a href="services.html">Services</a>[m
+[31m-      <a href="industries.html">Industries</a>[m
+[32m+[m[32m      <a href="ai-marketing.html">AI Marketing</a>[m
+[32m+[m[32m      <a href="app-software.html">App & Software</a>[m
+       <a href="pricing.html">Pricing</a>[m
+       <a href="contact.html">Contact</a>[m
+     </div>[m
+[36m@@ -463,7 +464,8 @@[m
+   <a href="#home">Home</a>[m
+   <a href="about.html">About</a>[m
+   <a href="services.html">Services</a>[m
+[31m-  <a href="industries.html">Industries</a>[m
+[32m+[m[32m  <a href="ai-marketing.html">AI Marketing</a>[m
+[32m+[m[32m  <a href="app-software.html">App & Software</a>[m
+   <a href="pricing.html">Pricing</a>[m
+   <a href="contact.html">Contact</a>[m
+   <a href="contact.html" class="btn btn-secondary">Get Proposal</a>[m
+[36m@@ -526,7 +528,7 @@[m
+           <li>AI chatbot &amp; voice agent</li>[m
+           <li>CRM / WhatsApp automation</li>[m
+         </ul>[m
+[31m-        <a href="services.html#marketing" class="link">Explore Service →</a>[m
+[32m+[m[32m        <a href="ai-marketing.html" class="link">Explore Service →</a>[m
+       </div>[m
+       <div class="v-card">[m
+         <span class="num">VERTICAL 02</span>[m
+[36m@@ -538,7 +540,7 @@[m
+           <li>MVP development for startups</li>[m
+           <li>Custom SaaS &amp; admin dashboards</li>[m
+         </ul>[m
+[31m-        <a href="services.html#software" class="link">Explore Service →</a>[m
+[32m+[m[32m        <a href="app-software.html" class="link">Explore Service →</a>[m
+       </div>[m
+       <div class="v-card">[m
+         <span class="num">VERTICAL 03</span>[m
+[36m@@ -760,4 +762,4 @@[m
+ </script>[m
+ [m
+ </body>[m
+[31m-</html>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
