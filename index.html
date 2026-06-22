@@ -106,18 +106,29 @@
     color:var(--off-white);
     letter-spacing:0.02em;
   }
-  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links{display:flex;gap:8px;align-items:center;}
   .nav-links a{
-    color:var(--navy);
-    font-size:12.5px;
+    color:var(--navy-deep);
+    font-size:12px;
     font-weight:700;
-    transition:all .2s;
-    padding:5px 11px;
-    border-radius:6px;
+    transition:all .2s ease;
+    padding:7px 12px;
+    border-radius:8px;
+    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%);
+    box-shadow:0 2px 6px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.15);
+    border:1px solid rgba(0,0,0,0.12);
   }
-  .nav-links a:nth-child(odd){background:linear-gradient(135deg,#FFC928,#F28C00);}
-  .nav-links a:nth-child(even){background:linear-gradient(135deg,#0d2d5e,#1a4a8a);color:#fff;border:1px solid rgba(255,201,40,0.25);}
-  .nav-links a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+  .nav-links a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);}
+  .nav-more-btn{
+    color:var(--off-white) !important;
+    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%) !important;
+    border-radius:8px !important;
+    box-shadow:0 2px 6px rgba(0,0,0,0.18) !important;
+    border:1px solid rgba(0,0,0,0.12) !important;
+    font-weight:700 !important;
+    padding:7px 12px !important;
+    font-size:12px !important;
+  }
   .nav-cta{display:flex;gap:12px;align-items:center;}
   .nav-cta .btn{padding:12px 20px;font-size:13.5px;}
   .nav-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:26px;cursor:pointer;}
@@ -432,7 +443,16 @@
     transition:transform .3s ease;
   }
   .mobile-menu.open{transform:translateX(0);display:flex;}
-  .mobile-menu a{color:var(--off-white);font-size:16px;font-weight:600;}
+  .mobile-menu a{
+    color:var(--off-white);
+    font-size:15px;
+    font-weight:700;
+    padding:12px 16px;
+    border-radius:8px;
+    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%);
+    box-shadow:0 2px 8px rgba(0,0,0,0.25);
+    border:1px solid rgba(0,0,0,0.15);
+  }
   .mobile-menu .btn{margin-top:10px;}
   .menu-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050;}
   .menu-backdrop.open{display:block;}
@@ -453,7 +473,7 @@
       <a href="ai-marketing.html">AI Marketing</a>
       <a href="app-software.html">App & Software</a>
       <a href="industries.html">Industries</a><a href="course.html">Course</a>
-      <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" style="color:rgba(255,255,255,0.8);font-size:13px;background:none;border:none;cursor:pointer;padding:6px 12px">More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html" style="margin-left:-8px">Contact</a>
+      <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
     </div>
     <div class="nav-cta">
     
@@ -471,7 +491,7 @@
   <a href="ai-marketing.html">AI Marketing</a>
   <a href="app-software.html">App & Software</a>
   <a href="industries.html">Industries</a><a href="pricing.html">Pricing</a>
-  <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" style="color:rgba(255,255,255,0.8);font-size:13px;background:none;border:none;cursor:pointer;padding:6px 12px">More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html" style="margin-left:-8px">Contact</a>
+  <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
   <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
   <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
 </div>
@@ -767,10 +787,3 @@
 
 <script>document.querySelectorAll(".nav-more-btn").forEach(b=>b.addEventListener("click",function(){this.closest(".nav-more").classList.toggle("active")}));</script></body>
 </html>
-
-
-
-
-
-
-
