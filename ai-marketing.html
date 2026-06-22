@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Marketing & Automation | Prodiga AI Infinity Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#0A1F44;
+    --navy-mid:#112a5a;
+    --gold:#FFC928;
+    --orange:#F28C00;
+    --white:#fff;
+    --off:#FFF9EE;
+    --gray:#6B7280;
+    --light:#F8F9FA;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--navy);background:#fff;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,31,68,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,201,40,0.15)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-badge{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--orange));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--navy)}
+  .logo-text{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--white);line-height:1.2}
+  .logo-text span{display:block;font-size:10px;font-weight:400;color:var(--gold);font-family:'Inter',sans-serif;letter-spacing:.05em}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;transition:.2s}
+  .nav-links a:hover{color:#fff;background:rgba(255,201,40,0.12)}
+  .nav-links a.active{color:var(--gold)}
+  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy)!important;font-weight:600!important;border-radius:8px!important}
+  .nav-cta:hover{opacity:.9;background:linear-gradient(135deg,var(--gold),var(--orange))!important}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .nav-toggle span{width:24px;height:2px;background:var(--gold);border-radius:2px;transition:.3s}
+  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);padding:20px 24px;flex-direction:column;gap:4px;z-index:998;border-bottom:2px solid var(--gold)}
+  .mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .mobile-menu a:last-child{border:none}
+  .mobile-menu.open{display:flex}
+
+  /* HERO */
+  .hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0d2a5e 40%,#1a3a7a 70%,var(--navy-mid) 100%);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:68px}
+  .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,201,40,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,201,40,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+  .hero-orbs{position:absolute;inset:0;pointer-events:none}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);animation:float 8s ease-in-out infinite}
+  .orb1{width:400px;height:400px;background:rgba(255,201,40,0.12);top:-100px;right:-100px;animation-delay:0s}
+  .orb2{width:300px;height:300px;background:rgba(242,140,0,0.1);bottom:-50px;left:-80px;animation-delay:3s}
+  .orb3{width:200px;height:200px;background:rgba(255,201,40,0.08);top:50%;left:40%;animation-delay:5s}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+
+  .hero-inner{max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,201,40,0.12);border:1px solid rgba(255,201,40,0.3);border-radius:100px;padding:6px 16px;margin-bottom:24px}
+  .hero-eyebrow span{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+  .hero-eyebrow-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-family:'Fraunces',serif;font-size:clamp(38px,5vw,62px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero-sub{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:32px;max-width:520px}
+  .hero-stats{display:flex;gap:32px;margin-bottom:36px}
+  .hero-stat{text-align:center}
+  .hero-stat-num{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--gold)}
+  .hero-stat-label{font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy);font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,201,40,0.4)}
+  .btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff;font-weight:600;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* Hero SVG visual */
+  .hero-visual{position:relative}
+  .hero-svg-wrap{position:relative;border-radius:20px;overflow:hidden}
+  .hero-img{width:100%;border-radius:20px;display:block}
+
+  /* TRUST STRIP */
+  .trust{background:var(--gold);padding:14px 24px}
+  .trust-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--navy)}
+  .trust-item svg{width:16px;height:16px;flex-shrink:0}
+
+  /* SECTION COMMON */
+  section{padding:80px 24px}
+  .section-inner{max-width:1200px;margin:0 auto}
+  .section-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  .section-title{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,44px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:16px}
+  .section-sub{font-size:17px;color:var(--gray);line-height:1.7;max-width:640px}
+
+  /* WHAT WE DO */
+  .what{background:var(--light)}
+  .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:48px}
+  .what-content p{font-size:16px;color:#374151;line-height:1.8;margin-bottom:16px}
+  .what-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .pill{background:#fff;border:1.5px solid rgba(10,31,68,0.12);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:500;color:var(--navy);display:flex;align-items:center;gap:6px}
+  .pill-dot{width:7px;height:7px;background:var(--gold);border-radius:50%}
+
+  /* SERVICES GRID */
+  .services-section{background:#fff}
+  .services-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding:6px;background:var(--light);border-radius:12px;width:fit-content}
+  .svc-tab{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:.2s}
+  .svc-tab.active{background:var(--navy);color:#fff}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc-card{background:#fff;border:1.5px solid rgba(10,31,68,0.08);border-radius:16px;padding:28px;transition:.3s;position:relative;overflow:hidden}
+  .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--orange));transform:scaleX(0);transition:.3s;transform-origin:left}
+  .svc-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(255,201,40,0.15);transform:translateY(-4px)}
+  .svc-card:hover::before{transform:scaleX(1)}
+  .svc-icon{width:52px;height:52px;background:linear-gradient(135deg,rgba(255,201,40,0.12),rgba(242,140,0,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:24px}
+  .svc-card h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .svc-card p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:16px}
+  .svc-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .svc-features li{font-size:13px;color:#374151;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+  .svc-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+
+  /* RESULTS / NUMBERS */
+  .results{background:var(--navy);padding:80px 24px;position:relative;overflow:hidden}
+  .results::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:rgba(255,201,40,0.06);border-radius:50%}
+  .results-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+  .results-header{text-align:center;margin-bottom:56px}
+  .results-header .section-title{color:#fff}
+  .results-header .section-sub{color:rgba(255,255,255,0.65);margin:0 auto}
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px}
+  .result-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,201,40,0.15);border-radius:16px;padding:28px;text-align:center;transition:.3s}
+  .result-card:hover{background:rgba(255,201,40,0.08);border-color:rgba(255,201,40,0.4)}
+  .result-num{font-family:'Fraunces',serif;font-size:42px;font-weight:700;color:var(--gold);margin-bottom:6px}
+  .result-label{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5}
+  .result-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px}
+
+  /* CASE STUDY */
+  .case-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .case-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px}
+  .case-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .case-card h4{font-family:'Fraunces',serif;font-size:17px;color:#fff;margin-bottom:10px;line-height:1.3}
+  .case-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:14px}
+  .case-result{display:flex;gap:16px}
+  .case-metric{text-align:center}
+  .case-metric-val{font-size:20px;font-weight:700;color:var(--gold);font-family:'Fraunces',serif}
+  .case-metric-label{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.06em}
+
+  /* PROCESS */
+  .process{background:var(--light)}
+  .process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;position:relative}
+  .process-steps::before{content:'';position:absolute;top:36px;left:calc(10% + 8px);right:calc(10% + 8px);height:2px;background:linear-gradient(90deg,var(--gold),var(--orange));z-index:0}
+  .process-step{text-align:center;position:relative;z-index:1;padding:0 12px}
+  .step-num{width:72px;height:72px;background:#fff;border:3px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--navy);box-shadow:0 4px 16px rgba(255,201,40,0.2);position:relative}
+  .step-icon{font-size:26px}
+  .process-step h4{font-weight:700;font-size:13px;color:var(--navy);margin-bottom:6px;line-height:1.3}
+  .process-step p{font-size:12px;color:var(--gray);line-height:1.6}
+
+  /* TESTIMONIALS */
+  .testi{background:#fff}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .testi-card{background:var(--light);border-radius:16px;padding:28px;position:relative;border:1.5px solid transparent;transition:.3s}
+  .testi-card:hover{border-color:var(--gold);background:#fff;box-shadow:0 8px 32px rgba(255,201,40,0.1)}
+  .testi-quote{font-size:48px;color:var(--gold);font-family:'Fraunces',serif;line-height:1;margin-bottom:4px}
+  .testi-text{font-size:15px;color:#374151;line-height:1.7;margin-bottom:20px;font-style:italic}
+  .testi-author{display:flex;align-items:center;gap:12px}
+  .testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:var(--gold);font-size:16px;flex-shrink:0}
+  .testi-name{font-weight:600;font-size:14px;color:var(--navy)}
+  .testi-role{font-size:12px;color:var(--gray);margin-top:2px}
+  .testi-stars{color:var(--gold);font-size:13px;margin-bottom:12px}
+
+  /* INDUSTRIES */
+  .industries{background:var(--navy)}
+  .industries .section-title{color:#fff}
+  .industries .section-sub{color:rgba(255,255,255,0.65)}
+  .ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .ind-card{border:1px solid rgba(255,201,40,0.15);border-radius:14px;padding:24px 20px;text-align:center;transition:.3s;cursor:pointer;text-decoration:none}
+  .ind-card:hover{background:rgba(255,201,40,0.08);border-color:var(--gold);transform:translateY(-4px)}
+  .ind-icon{font-size:36px;margin-bottom:12px;display:block}
+  .ind-card h4{font-family:'Fraunces',serif;font-size:16px;color:#fff;margin-bottom:6px}
+  .ind-card p{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5}
+
+  /* CTA */
+  .cta-section{background:linear-gradient(135deg,var(--navy) 0%,#0d2a5e 50%,var(--navy-mid) 100%);padding:100px 24px;text-align:center;position:relative;overflow:hidden}
+  .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(255,201,40,0.12) 0%,transparent 70%);pointer-events:none}
+  .cta-section h2{font-family:'Fraunces',serif;font-size:clamp(32px,5vw,52px);font-weight:700;color:#fff;margin-bottom:16px;position:relative;z-index:1}
+  .cta-section h2 em{font-style:italic;color:var(--gold)}
+  .cta-section p{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:36px;position:relative;z-index:1}
+  .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+  .cta-trust{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.45);position:relative;z-index:1}
+
+  /* FOOTER */
+  footer{background:#060F22;padding:56px 24px 24px}
+  .footer-inner{max-width:1200px;margin:0 auto}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .footer-brand p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:14px;max-width:280px}
+  .footer-contact{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+  .footer-contact a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;display:flex;align-items:center;gap:8px}
+  .footer-contact a:hover{color:var(--gold)}
+  .footer-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col ul li a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:.2s}
+  .footer-col ul li a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+  .footer-legal{display:flex;gap:20px}
+  .footer-legal a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+  .footer-legal a:hover{color:var(--gold)}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero-visual{display:none}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .results-grid{grid-template-columns:1fr 1fr}
+    .case-strip{grid-template-columns:1fr}
+    .process-steps{grid-template-columns:1fr 1fr;gap:24px}
+    .process-steps::before{display:none}
+    .ind-grid{grid-template-columns:1fr 1fr}
+    .footer-top{grid-template-columns:1fr 1fr;gap:28px}
+    .testi-grid{grid-template-columns:1fr}
+    .what-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .svc-grid{grid-template-columns:1fr}
+    .results-grid{grid-template-columns:1fr 1fr}
+    .ind-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .nav-toggle{display:flex}
+    .hero-stats{gap:20px}
+    .hero-stat-num{font-size:22px}
+    .footer-top{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-badge">P</div>
+      <div class="logo-text">Prodiga AI Infinity<span>Ventures</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="ai-marketing.html" class="active">AI Marketing</a>
+      <a href="app-software.html">App & Software</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="book-strategy-call.html" class="nav-cta">Book Strategy Call — ₹999</a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="ai-marketing.html">AI Marketing</a>
+  <a href="app-software.html">App & Software</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="book-strategy-call.html" style="color:var(--gold);font-weight:700">Book Strategy Call — ₹999</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>AI Marketing & Automation</span>
+      </div>
+      <h1>Marketing that runs on <em>intelligence,</em> not guesswork</h1>
+      <p class="hero-sub">Prodiga deploys AI-powered campaigns, chatbots, voice agents, and automation workflows that generate leads, nurture prospects, and close deals — while you focus on running your business.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-label">AI Services</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Avg. Lead Increase</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">60%</div>
+          <div class="hero-stat-label">Cost Reduction</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-label">Automation</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="book-strategy-call.html" class="btn-primary">Book Free Strategy Call →</a>
+        <a href="#services" class="btn-outline">See All Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Premium SVG: AI Marketing Dashboard Illustration -->
+      <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" class="hero-img">
+        <defs>
+          <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#112a5a;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#0A1F44;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFC928"/>
+            <stop offset="100%" style="stop-color:#F28C00"/>
+          </linearGradient>
+          <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFC928;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#FFC928;stop-opacity:0"/>
+          </linearGradient>
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.3)"/>
+          </filter>
+          <clipPath id="cardClip">
+            <rect x="20" y="20" width="480" height="440" rx="20"/>
+          </clipPath>
+        </defs>
+
+        <!-- Main card background -->
+        <rect x="20" y="20" width="480" height="440" rx="20" fill="url(#bgGrad)" filter="url(#shadow)"/>
+        <rect x="20" y="20" width="480" height="440" rx="20" fill="none" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+
+        <!-- Top header bar -->
+        <rect x="20" y="20" width="480" height="52" rx="20" fill="rgba(255,201,40,0.06)"/>
+        <rect x="20" y="52" width="480" height="20" fill="rgba(255,201,40,0.06)"/>
+
+        <!-- Traffic lights -->
+        <circle cx="48" cy="46" r="7" fill="#FF5F57"/>
+        <circle cx="68" cy="46" r="7" fill="#FFBD2E"/>
+        <circle cx="88" cy="46" r="7" fill="#28C840"/>
+
+        <!-- Title in header -->
+        <text x="260" y="51" text-anchor="middle" font-family="'Fraunces',serif" font-size="14" fill="rgba(255,255,255,0.7)" font-weight="600">Prodiga AI Dashboard</text>
+
+        <!-- KPI Cards row -->
+        <rect x="36" y="92" width="100" height="68" rx="10" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.2)" stroke-width="1"/>
+        <text x="86" y="118" text-anchor="middle" font-family="'Fraunces',serif" font-size="20" fill="#FFC928" font-weight="700">847</text>
+        <text x="86" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">LEADS / MONTH</text>
+        <text x="86" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4ADE80">↑ 312%</text>
+
+        <rect x="148" y="92" width="100" height="68" rx="10" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.2)" stroke-width="1"/>
+        <text x="198" y="118" text-anchor="middle" font-family="'Fraunces',serif" font-size="20" fill="#FFC928" font-weight="700">₹4.2L</text>
+        <text x="198" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">REVENUE</text>
+        <text x="198" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4ADE80">↑ 189%</text>
+
+        <rect x="260" y="92" width="100" height="68" rx="10" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.2)" stroke-width="1"/>
+        <text x="310" y="118" text-anchor="middle" font-family="'Fraunces',serif" font-size="20" fill="#FFC928" font-weight="700">94%</text>
+        <text x="310" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">BOT RESOLVED</text>
+        <text x="310" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4ADE80">↑ 41pts</text>
+
+        <rect x="372" y="92" width="104" height="68" rx="10" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.2)" stroke-width="1"/>
+        <text x="424" y="118" text-anchor="middle" font-family="'Fraunces',serif" font-size="20" fill="#FFC928" font-weight="700">2.1s</text>
+        <text x="424" y="133" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">RESPONSE TIME</text>
+        <text x="424" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4ADE80">↓ 87%</text>
+
+        <!-- Chart area -->
+        <rect x="36" y="176" width="280" height="150" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="50" y="198" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="600">Lead Growth</text>
+
+        <!-- Chart bars -->
+        <g transform="translate(50,210)">
+          <rect x="0" y="75" width="22" height="25" rx="4" fill="url(#goldGrad)" opacity="0.4"/>
+          <rect x="30" y="55" width="22" height="45" rx="4" fill="url(#goldGrad)" opacity="0.5"/>
+          <rect x="60" y="40" width="22" height="60" rx="4" fill="url(#goldGrad)" opacity="0.6"/>
+          <rect x="90" y="20" width="22" height="80" rx="4" fill="url(#goldGrad)" opacity="0.7"/>
+          <rect x="120" y="5" width="22" height="95" rx="4" fill="url(#goldGrad)" opacity="0.85"/>
+          <rect x="150" y="0" width="22" height="100" rx="4" fill="url(#goldGrad)"/>
+          <!-- Line overlay -->
+          <polyline points="11,75 41,55 71,40 101,20 131,5 161,0" fill="none" stroke="#FFC928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="161" cy="0" r="4" fill="#FFC928"/>
+          <text x="48" y="115" font-family="Inter,sans-serif" font-size="8" fill="rgba(255,255,255,0.35)">Jan Feb Mar Apr May Jun</text>
+        </g>
+
+        <!-- Automation flow -->
+        <rect x="330" y="176" width="146" height="150" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="344" y="198" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="600">Active Flows</text>
+
+        <!-- Flow nodes -->
+        <g transform="translate(344, 210)">
+          <rect x="4" y="2" width="118" height="22" rx="6" fill="rgba(255,201,40,0.15)" stroke="rgba(255,201,40,0.4)" stroke-width="1"/>
+          <text x="63" y="17" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#FFC928">📲 WhatsApp Lead</text>
+          <line x1="63" y1="24" x2="63" y2="36" stroke="rgba(255,201,40,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <rect x="4" y="36" width="118" height="22" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <text x="63" y="51" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)">🤖 AI Qualifies</text>
+          <line x1="63" y1="58" x2="63" y2="70" stroke="rgba(255,201,40,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <rect x="4" y="70" width="118" height="22" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <text x="63" y="85" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.7)">📧 Email Sequence</text>
+          <line x1="63" y1="92" x2="63" y2="104" stroke="rgba(255,201,40,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <rect x="4" y="104" width="118" height="22" rx="6" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.4)" stroke-width="1"/>
+          <text x="63" y="119" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#4ADE80">✅ Deal Closed</text>
+        </g>
+
+        <!-- Channel breakdown -->
+        <rect x="36" y="340" width="438" height="98" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="50" y="362" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="600">Channel Performance</text>
+
+        <!-- Channel bars -->
+        <g transform="translate(50, 374)">
+          <text x="0" y="12" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">WhatsApp</text>
+          <rect x="70" y="2" width="220" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+          <rect x="70" y="2" width="176" height="10" rx="5" fill="url(#goldGrad)"/>
+          <text x="296" y="12" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)">80%</text>
+
+          <text x="0" y="30" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Meta Ads</text>
+          <rect x="70" y="20" width="220" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+          <rect x="70" y="20" width="154" height="10" rx="5" fill="rgba(255,201,40,0.6)"/>
+          <text x="296" y="30" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)">70%</text>
+
+          <text x="0" y="48" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Google Ads</text>
+          <rect x="70" y="38" width="220" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+          <rect x="70" y="38" width="132" height="10" rx="5" fill="rgba(255,201,40,0.4)"/>
+          <text x="296" y="48" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)">60%</text>
+        </g>
+
+        <!-- Live pulse indicator -->
+        <circle cx="454" cy="46" r="6" fill="#4ADE80" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="6;9;6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="446" y="51" text-anchor="end" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">Live</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="#0A1F44"/></svg>
+      12 AI Marketing Services
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#0A1F44" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#0A1F44" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Certified Meta & Google Partner
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8" rx="2" stroke="#0A1F44" stroke-width="1.5"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#0A1F44" stroke-width="1.5"/></svg>
+      West Bengal & Delhi NCR
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2C5 2 3 5 3 8s2 6 5 6 5-3 5-6-2-6-5-6z" stroke="#0A1F44" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="#0A1F44" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Results in 30 Days
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="what">
+  <div class="section-inner">
+    <div class="what-grid">
+      <div class="what-content">
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">AI-powered marketing that works while you sleep</h2>
+        <p>Most businesses waste 60–70% of their marketing budget on manual tasks, guesswork targeting, and slow follow-ups. Prodiga replaces all of that with intelligent automation — from the first WhatsApp message to the closed deal.</p>
+        <p>We don't just run ads. We build complete AI-driven systems: chatbots that qualify leads, voice agents that call prospects, email sequences that nurture, and CRM pipelines that track every rupee.</p>
+        <div class="what-pills">
+          <div class="pill"><div class="pill-dot"></div>WhatsApp Automation</div>
+          <div class="pill"><div class="pill-dot"></div>AI Chatbots</div>
+          <div class="pill"><div class="pill-dot"></div>Voice Agents</div>
+          <div class="pill"><div class="pill-dot"></div>Meta & Google Ads</div>
+          <div class="pill"><div class="pill-dot"></div>SEO & Content</div>
+          <div class="pill"><div class="pill-dot"></div>Email Sequences</div>
+          <div class="pill"><div class="pill-dot"></div>CRM Automation</div>
+          <div class="pill"><div class="pill-dot"></div>Sales Funnels</div>
+        </div>
+      </div>
+      <div>
+        <!-- SVG: AI Brain / Neural Network -->
+        <svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px">
+          <defs>
+            <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#0A1F44"/>
+              <stop offset="100%" style="stop-color:#112a5a"/>
+            </linearGradient>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:rgba(255,201,40,0.25)"/>
+              <stop offset="100%" style="stop-color:rgba(255,201,40,0)"/>
+            </radialGradient>
+          </defs>
+          <rect width="440" height="400" rx="16" fill="url(#bg2)"/>
+          <circle cx="220" cy="200" r="140" fill="url(#glow)"/>
+
+          <!-- Neural network connections -->
+          <!-- Input layer -->
+          <line x1="60" y1="100" x2="160" y2="140" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="60" y1="100" x2="160" y2="200" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="60" y1="200" x2="160" y2="140" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="60" y1="200" x2="160" y2="200" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+          <line x1="60" y1="200" x2="160" y2="260" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="60" y1="300" x2="160" y2="200" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="60" y1="300" x2="160" y2="260" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+
+          <!-- Hidden layer 1 to 2 -->
+          <line x1="160" y1="140" x2="280" y2="160" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="160" y1="140" x2="280" y2="240" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="160" y1="200" x2="280" y2="160" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+          <line x1="160" y1="200" x2="280" y2="240" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="160" y1="260" x2="280" y2="160" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="160" y1="260" x2="280" y2="240" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+
+          <!-- Hidden 2 to output -->
+          <line x1="280" y1="160" x2="380" y2="140" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+          <line x1="280" y1="160" x2="380" y2="200" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+          <line x1="280" y1="160" x2="380" y2="260" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="280" y1="240" x2="380" y2="140" stroke="rgba(255,201,40,0.15)" stroke-width="1.5"/>
+          <line x1="280" y1="240" x2="380" y2="200" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+          <line x1="280" y1="240" x2="380" y2="260" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+
+          <!-- Input nodes -->
+          <circle cx="60" cy="100" r="18" fill="rgba(255,201,40,0.1)" stroke="rgba(255,201,40,0.4)" stroke-width="1.5"/>
+          <text x="60" y="105" text-anchor="middle" font-size="14">📲</text>
+          <circle cx="60" cy="200" r="18" fill="rgba(255,201,40,0.1)" stroke="rgba(255,201,40,0.4)" stroke-width="1.5"/>
+          <text x="60" y="205" text-anchor="middle" font-size="14">📧</text>
+          <circle cx="60" cy="300" r="18" fill="rgba(255,201,40,0.1)" stroke="rgba(255,201,40,0.4)" stroke-width="1.5"/>
+          <text x="60" y="305" text-anchor="middle" font-size="14">🎯</text>
+
+          <!-- Hidden layer 1 -->
+          <circle cx="160" cy="140" r="16" fill="rgba(255,201,40,0.15)" stroke="rgba(255,201,40,0.5)" stroke-width="2"/>
+          <circle cx="160" cy="200" r="16" fill="rgba(255,201,40,0.15)" stroke="rgba(255,201,40,0.5)" stroke-width="2"/>
+          <circle cx="160" cy="260" r="16" fill="rgba(255,201,40,0.15)" stroke="rgba(255,201,40,0.5)" stroke-width="2"/>
+
+          <!-- Hidden layer 2 (AI core) - larger -->
+          <circle cx="280" cy="160" r="22" fill="rgba(255,201,40,0.2)" stroke="#FFC928" stroke-width="2"/>
+          <text x="280" y="166" text-anchor="middle" font-size="16">🤖</text>
+          <circle cx="280" cy="240" r="22" fill="rgba(255,201,40,0.2)" stroke="#FFC928" stroke-width="2"/>
+          <text x="280" y="246" text-anchor="middle" font-size="16">⚡</text>
+
+          <!-- Output nodes -->
+          <circle cx="380" cy="140" r="18" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+          <text x="380" y="145" text-anchor="middle" font-size="14">💰</text>
+          <circle cx="380" cy="200" r="18" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+          <text x="380" y="205" text-anchor="middle" font-size="14">📈</text>
+          <circle cx="380" cy="260" r="18" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+          <text x="380" y="265" text-anchor="middle" font-size="14">🏆</text>
+
+          <!-- Labels -->
+          <text x="60" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">Channels</text>
+          <text x="220" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">AI Processing</text>
+          <text x="380" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="rgba(255,255,255,0.4)">Results</text>
+
+          <!-- Animated pulse on AI nodes -->
+          <circle cx="280" cy="160" r="30" fill="none" stroke="rgba(255,201,40,0.15)" stroke-width="1">
+            <animate attributeName="r" values="22;38;22" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- Title -->
+          <text x="220" y="378" text-anchor="middle" font-family="'Fraunces',serif" font-size="13" fill="rgba(255,255,255,0.5)">AI Learns. AI Acts. You Grow.</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <span class="section-eyebrow">12 Specialized Services</span>
+    <h2 class="section-title">Every tool your marketing needs</h2>
+    <p class="section-sub">From conversation to conversion — AI-powered, results-driven, and built for Indian businesses ready to scale.</p>
+
+    <div class="svc-grid" style="margin-top:40px">
+
+      <div class="svc-card">
+        <div class="svc-icon">📲</div>
+        <h3>WhatsApp Automation</h3>
+        <p>Turn WhatsApp into your most powerful sales channel with automated follow-ups, broadcasts, and AI responses.</p>
+        <ul class="svc-features">
+          <li>Automated lead capture & welcome sequences</li>
+          <li>Broadcast campaigns to 10,000+ contacts</li>
+          <li>AI-powered reply handling 24/7</li>
+          <li>CRM integration & deal tracking</li>
+          <li>Template approval & compliance management</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🤖</div>
+        <h3>AI Chatbots</h3>
+        <p>Deploy intelligent chatbots that qualify leads, answer questions, and book appointments — without human intervention.</p>
+        <ul class="svc-features">
+          <li>Natural language understanding (NLU)</li>
+          <li>Multi-platform: Website, WhatsApp, Instagram</li>
+          <li>Lead scoring & qualification flows</li>
+          <li>Appointment booking integration</li>
+          <li>Handoff to human agents when needed</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🎙️</div>
+        <h3>AI Voice Agents</h3>
+        <p>AI-powered voice bots that call your leads, qualify them, and set appointments — at a fraction of human cost.</p>
+        <ul class="svc-features">
+          <li>Outbound calling at scale (1000+ calls/day)</li>
+          <li>Natural conversation flow in Hindi & English</li>
+          <li>Real-time transcription & analytics</li>
+          <li>Automatic CRM updates after each call</li>
+          <li>Follow-up scheduling & reminders</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🎯</div>
+        <h3>Lead Generation</h3>
+        <p>Precision-targeted lead generation campaigns across Meta, Google, and LinkedIn to fill your pipeline every month.</p>
+        <ul class="svc-features">
+          <li>Multi-platform campaign strategy</li>
+          <li>Audience research & lookalike targeting</li>
+          <li>Lead magnet design & distribution</li>
+          <li>Real-time lead tracking dashboard</li>
+          <li>Cost-per-lead optimization</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">⚙️</div>
+        <h3>CRM Automation</h3>
+        <p>Automate your entire sales pipeline — from lead entry to deal closure — without manual data entry.</p>
+        <ul class="svc-features">
+          <li>CRM setup & configuration (Zoho, HubSpot)</li>
+          <li>Automated lead assignment & follow-up</li>
+          <li>Pipeline stage automation & alerts</li>
+          <li>Sales team performance reporting</li>
+          <li>Integration with WhatsApp & email</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📧</div>
+        <h3>Email Marketing</h3>
+        <p>AI-personalized email sequences that nurture leads over weeks and months — converting cold contacts to hot buyers.</p>
+        <ul class="svc-features">
+          <li>Drip sequence design & automation</li>
+          <li>AI-generated personalized subject lines</li>
+          <li>Segmentation & behavioral triggers</li>
+          <li>A/B testing & optimization</li>
+          <li>Open rate & conversion tracking</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📘</div>
+        <h3>Meta Ads (Facebook & Instagram)</h3>
+        <p>High-ROI paid social campaigns that bring in qualified leads at the lowest possible cost per acquisition.</p>
+        <ul class="svc-features">
+          <li>Campaign strategy & creative direction</li>
+          <li>Audience targeting & retargeting</li>
+          <li>Ad creative design (image + video)</li>
+          <li>Budget optimization & scaling</li>
+          <li>Pixel setup & conversion tracking</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🔍</div>
+        <h3>Google Ads</h3>
+        <p>Capture high-intent buyers actively searching for your product or service on Google — and convert them fast.</p>
+        <ul class="svc-features">
+          <li>Search, Display & Shopping campaigns</li>
+          <li>Keyword research & negative keywords</li>
+          <li>Landing page creation & optimization</li>
+          <li>Quality Score improvement</li>
+          <li>Monthly reporting & scaling strategy</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <h3>SEO</h3>
+        <p>Long-term organic growth strategy that drives free traffic and makes your business the top result for high-value searches.</p>
+        <ul class="svc-features">
+          <li>Technical SEO audit & fixes</li>
+          <li>Keyword strategy & content planning</li>
+          <li>On-page & off-page optimization</li>
+          <li>Local SEO for Google Maps ranking</li>
+          <li>Monthly backlink building</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">📱</div>
+        <h3>Social Media Management</h3>
+        <p>Consistent, on-brand social presence that builds trust, engagement, and brand authority across all platforms.</p>
+        <ul class="svc-features">
+          <li>Content calendar & scheduling (30 posts/month)</li>
+          <li>Reel & short-form video creation</li>
+          <li>Community management & DM responses</li>
+          <li>Hashtag research & reach optimization</li>
+          <li>Monthly growth & engagement reporting</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">✍️</div>
+        <h3>Content Creation</h3>
+        <p>AI-assisted content that ranks, engages, and converts — blogs, scripts, captions, and ad copy tailored for your audience.</p>
+        <ul class="svc-features">
+          <li>SEO blog articles (4–8 per month)</li>
+          <li>Video scripts & storyboards</li>
+          <li>Social media captions & copy</li>
+          <li>Ad copywriting & landing page text</li>
+          <li>Brand voice guidelines & templates</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">🔄</div>
+        <h3>Sales Funnel Automation</h3>
+        <p>End-to-end automated sales systems that capture, nurture, and convert leads — completely hands-free.</p>
+        <ul class="svc-features">
+          <li>Multi-step funnel design & build</li>
+          <li>Lead magnet & opt-in page creation</li>
+          <li>Automated follow-up across channels</li>
+          <li>Upsell & cross-sell sequences</li>
+          <li>Funnel analytics & optimization</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner">
+    <div class="results-header">
+      <span class="section-eyebrow" style="color:var(--gold)">Proven Results</span>
+      <h2 class="section-title">Numbers that speak for themselves</h2>
+      <p class="section-sub">Real outcomes from real clients across Real Estate, Healthcare, Education, and Coaching industries.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">312%</div>
+        <div class="result-label">Average increase in qualified leads within 90 days</div>
+        <div class="result-sub">vs. manual marketing</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">60%</div>
+        <div class="result-label">Reduction in cost-per-lead using AI targeting</div>
+        <div class="result-sub">compared to industry average</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">94%</div>
+        <div class="result-label">Leads handled automatically by AI bots</div>
+        <div class="result-sub">without human involvement</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">2.1s</div>
+        <div class="result-label">Average response time to new leads</div>
+        <div class="result-sub">vs. industry avg. 47 hours</div>
+      </div>
+    </div>
+
+    <div class="case-strip">
+      <div class="case-card">
+        <div class="case-tag">Case Study • Real Estate</div>
+        <h4>Kolkata builder generates 847 apartment enquiries in 60 days</h4>
+        <p>WhatsApp automation + Meta Ads combined to flood the sales team with pre-qualified buyer leads at ₹87 per lead.</p>
+        <div class="case-result">
+          <div class="case-metric"><div class="case-metric-val">847</div><div class="case-metric-label">Leads</div></div>
+          <div class="case-metric"><div class="case-metric-val">₹87</div><div class="case-metric-label">Cost/Lead</div></div>
+          <div class="case-metric"><div class="case-metric-val">23%</div><div class="case-metric-label">Conversion</div></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">Case Study • Healthcare</div>
+        <h4>Diagnostic centre fills 300+ appointment slots monthly on autopilot</h4>
+        <p>AI chatbot on WhatsApp handles booking, reminders, and rescheduling — freeing up the front desk entirely.</p>
+        <div class="case-result">
+          <div class="case-metric"><div class="case-metric-val">300+</div><div class="case-metric-label">Bookings</div></div>
+          <div class="case-metric"><div class="case-metric-val">0</div><div class="case-metric-label">Staff Calls</div></div>
+          <div class="case-metric"><div class="case-metric-val">91%</div><div class="case-metric-label">Show Rate</div></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">Case Study • Coaching</div>
+        <h4>Business coach scales from ₹2L to ₹14L monthly revenue in 4 months</h4>
+        <p>Full-funnel automation — Meta Ads → webinar → email → WhatsApp closer — built and managed by Prodiga.</p>
+        <div class="case-result">
+          <div class="case-metric"><div class="case-metric-val">7×</div><div class="case-metric-label">Revenue</div></div>
+          <div class="case-metric"><div class="case-metric-val">4mo</div><div class="case-metric-label">Timeline</div></div>
+          <div class="case-metric"><div class="case-metric-val">₹14L</div><div class="case-metric-label">Monthly</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:16px">
+      <span class="section-eyebrow">How It Works</span>
+      <h2 class="section-title">From strategy to results in 5 steps</h2>
+      <p class="section-sub" style="margin:0 auto">A proven process we've refined across 50+ client engagements.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num"><span class="step-icon">🔍</span></div>
+        <h4>Discovery Call</h4>
+        <p>We audit your current marketing, understand your goals, and identify the biggest growth opportunities.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span class="step-icon">📋</span></div>
+        <h4>Custom Strategy</h4>
+        <p>A tailored AI marketing plan built specifically for your business, industry, and target audience.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span class="step-icon">⚙️</span></div>
+        <h4>Setup & Build</h4>
+        <p>We build all the automation workflows, ad campaigns, chatbots, and tracking systems.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span class="step-icon">🚀</span></div>
+        <h4>Launch & Optimize</h4>
+        <p>Go live and continuously optimize based on real data — improving performance every week.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num"><span class="step-icon">📈</span></div>
+        <h4>Scale & Grow</h4>
+        <p>Once proven, we scale what works — increasing budget, expanding channels, and adding new services.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="section-inner">
+    <span class="section-eyebrow">Client Stories</span>
+    <h2 class="section-title">What our clients say</h2>
+    <p class="section-sub">Real feedback from business owners who've transformed their marketing with Prodiga.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Before Prodiga, we were spending ₹80,000/month on ads and barely getting 30 leads. Now we get 200+ qualified leads at ₹400 each. The WhatsApp automation alone changed our business completely.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rajesh Kumar</div>
+            <div class="testi-role">Real Estate Developer, Kolkata</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The AI chatbot handles 94% of patient queries without any staff. Our receptionist now focuses on actual patient care instead of answering the same questions 50 times a day. ROI was visible in week 2.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">D</div>
+          <div>
+            <div class="testi-name">Dr. Priya Sharma</div>
+            <div class="testi-role">Diagnostic Centre Owner, Delhi</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">I was skeptical about AI marketing, but P K Sarkar showed me the exact numbers — leads, cost, conversion. Within 4 months my course revenue went from ₹2L to ₹14L monthly. I wish I had found them sooner.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ananya Dutta</div>
+            <div class="testi-role">Business Coach, Bangalore</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:16px">
+      <span class="section-eyebrow" style="color:var(--gold)">Industries We Serve</span>
+      <h2 class="section-title">Deep expertise in 4 verticals</h2>
+      <p class="section-sub" style="margin:0 auto">We don't do generic marketing. Our strategies are built around the specific buyer journey in your industry.</p>
+    </div>
+    <div class="ind-grid">
+      <a href="real-estate.html" class="ind-card">
+        <span class="ind-icon">🏢</span>
+        <h4>Real Estate</h4>
+        <p>Property developers, builders, brokers. Lead gen funnels that convert property seekers into buyers.</p>
+      </a>
+      <a href="healthcare.html" class="ind-card">
+        <span class="ind-icon">🏥</span>
+        <h4>Healthcare</h4>
+        <p>Clinics, hospitals, diagnostic centres. Appointment automation and patient acquisition at scale.</p>
+      </a>
+      <a href="coaches.html" class="ind-card">
+        <span class="ind-icon">🎓</span>
+        <h4>Coaches & Trainers</h4>
+        <p>Business coaches, fitness trainers, consultants. Webinar funnels and high-ticket course sales.</p>
+      </a>
+      <a href="startups.html" class="ind-card">
+        <span class="ind-icon">🚀</span>
+        <h4>Startups</h4>
+        <p>Early-stage to growth-stage. Rapid user acquisition and product-market fit testing at low cost.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <span class="section-eyebrow" style="color:var(--gold)">Ready to Scale?</span>
+  <h2>Let's build your <em>AI marketing machine</em></h2>
+  <p>Book a 45-minute strategy call with P K Sarkar. Walk away with a clear roadmap — even if you don't hire us.</p>
+  <div class="cta-btns">
+    <a href="https://rzp.io/rzp/0EnJrDp" class="btn-primary" target="_blank">Book Strategy Call — ₹999 →</a>
+    <a href="contact.html" class="btn-outline">Get a Free Proposal</a>
+  </div>
+  <p class="cta-trust">✓ 45-min deep-dive &nbsp;&nbsp; ✓ Custom AI marketing plan &nbsp;&nbsp; ✓ Zero obligation</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="text-decoration:none">
+          <div class="logo-badge">P</div>
+          <div class="logo-text" style="color:#fff">Prodiga AI Infinity<span>Ventures</span></div>
+        </a>
+        <p>AI-powered marketing, automation & software for growth-focused businesses across India. A venture of Skybull E Learning OPC Pvt. Ltd.</p>
+        <div class="footer-contact">
+          <a href="tel:+917001xxxxxx">📞 +91 70015 XXXXX</a>
+          <a href="mailto:hello@prodigainfinity.com">✉️ hello@prodigainfinity.com</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="ai-marketing.html">AI Marketing</a></li>
+          <li><a href="app-software.html">App & Software</a></li>
+          <li><a href="services.html#marketing">WhatsApp Automation</a></li>
+          <li><a href="services.html#marketing">AI Chatbots</a></li>
+          <li><a href="services.html#marketing">Voice Agents</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="book-strategy-call.html">Book Strategy Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Prodiga AI Infinity Ventures. All rights reserved. A venture of Skybull E Learning OPC Pvt. Ltd.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="refund.html">Refund</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+// Scroll animation
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:0.1});
+document.querySelectorAll('.svc-card,.result-card,.testi-card,.case-card,.ind-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s ease,transform .5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
