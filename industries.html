@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industries We Serve | Prodiga AI Infinity Ventures</title>
+<meta name="description" content="Prodiga AI Infinity Ventures builds AI marketing, automation and software systems for real estate, healthcare, coaching and startup businesses across West Bengal & Tripura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1F44;--navy-deep:#071833;--royal:#1E4FA8;
+    --gold:#FFC928;--saffron:#F28C00;--off-white:#FFFDF8;
+    --text-dark:#111827;--text-gray:#5B6475;
+    --gradient:linear-gradient(135deg,#0A1F44 0%,#FFC928 52%,#F28C00 100%);
+    --gradient-cta:linear-gradient(120deg,#FFC928 0%,#F28C00 100%);
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Manrope',sans-serif;color:var(--text-dark);background:var(--off-white);line-height:1.6;overflow-x:hidden;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--saffron);margin-bottom:14px;display:inline-flex;align-items:center;gap:8px;}
+  .eyebrow::before{content:'';width:18px;height:2px;background:var(--saffron);display:inline-block;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease;white-space:nowrap;}
+  .btn-primary{background:var(--gradient-cta);color:var(--navy-deep);box-shadow:0 8px 24px rgba(242,140,0,0.35);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(242,140,0,0.45);}
+  .btn-secondary{background:transparent;color:var(--off-white);border:1.5px solid rgba(255,253,248,0.4);}
+  .btn-secondary:hover{background:rgba(255,253,248,0.1);border-color:var(--off-white);}
+  .btn-secondary.dark{color:var(--navy);border-color:rgba(10,31,68,0.3);}
+  .btn-secondary.dark:hover{background:rgba(10,31,68,0.06);border-color:var(--navy);}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,31,68,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--max);margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{height:42px;width:auto;}
+  .brand span{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--off-white);letter-spacing:0.02em;}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{color:rgba(255,253,248,0.85);font-size:14px;font-weight:600;transition:color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+  .nav-cta{display:flex;gap:12px;align-items:center;}
+  .nav-cta .btn{padding:12px 20px;font-size:13.5px;}
+  .nav-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:26px;cursor:pointer;}
+  @media(max-width:980px){.nav-links{display:none;}.nav-cta .btn-secondary{display:none;}.nav-toggle{display:block;}}
+
+  /* Page Hero */
+  .page-hero{background:var(--gradient);padding:160px 0 80px;position:relative;overflow:hidden;text-align:center;}
+  .page-hero .eyebrow{color:#fff;justify-content:center;}
+  .page-hero .eyebrow::before{background:#fff;}
+  .page-hero h1{font-size:clamp(30px,4vw,48px);line-height:1.15;color:#fff;text-shadow:0 2px 10px rgba(10,31,68,0.45);max-width:800px;margin:0 auto 18px;}
+  .page-hero p{font-size:17px;color:#fff;text-shadow:0 1px 6px rgba(10,31,68,0.4);max-width:620px;margin:0 auto 32px;}
+
+  /* Industry jump nav */
+  .ind-nav{background:var(--navy-deep);padding:0;}
+  .ind-nav-inner{display:flex;overflow-x:auto;gap:0;}
+  .ind-nav-inner a{
+    flex:1;min-width:160px;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    padding:20px 16px;
+    color:rgba(255,253,248,0.65);font-size:13px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;
+    border-bottom:3px solid transparent;
+    transition:.2s;white-space:nowrap;
+  }
+  .ind-nav-inner a:hover,.ind-nav-inner a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .ind-nav-inner a .ind-icon{font-size:22px;}
+
+  /* Industry sections */
+  .ind-section{padding:100px 0;position:relative;}
+  .ind-section:nth-child(even){background:#fff;}
+  .ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .ind-grid.reverse{direction:rtl;}
+  .ind-grid.reverse > *{direction:ltr;}
+
+  .ind-content .eyebrow{color:var(--saffron);}
+  .ind-content h2{font-size:clamp(26px,3vw,36px);line-height:1.2;margin-bottom:18px;}
+  .ind-content .lead{font-size:16px;color:var(--text-gray);margin-bottom:28px;line-height:1.7;}
+
+  .pain-points{margin-bottom:28px;}
+  .pain-points h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:14px;font-family:'Manrope',sans-serif;}
+  .pain-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .pain-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--text-gray);}
+  .pain-list li::before{content:'✗';color:#E53E3E;font-weight:700;flex-shrink:0;margin-top:1px;}
+
+  .solutions h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:14px;font-family:'Manrope',sans-serif;}
+  .sol-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
+  .sol-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--text-dark);}
+  .sol-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;}
+
+  /* SVG visual containers */
+  .ind-visual{position:relative;border-radius:24px;overflow:hidden;min-height:380px;display:flex;align-items:center;justify-content:center;}
+  .ind-visual svg{width:100%;height:100%;position:absolute;top:0;left:0;}
+
+  /* Real Estate visual */
+  .visual-realestate{background:linear-gradient(145deg,#0A1F44 0%,#1E4FA8 100%);}
+  /* Healthcare visual */
+  .visual-health{background:linear-gradient(145deg,#071833 0%,#0A3D62 100%);}
+  /* Coaching visual */
+  .visual-coach{background:linear-gradient(145deg,#1a0a2e 0%,#2d1b69 100%);}
+  /* Startup visual */
+  .visual-startup{background:linear-gradient(145deg,#0A1F44 0%,#0d3b2e 100%);}
+
+  @media(max-width:900px){
+    .ind-grid{grid-template-columns:1fr;gap:40px;}
+    .ind-grid.reverse{direction:ltr;}
+    .ind-visual{min-height:280px;}
+  }
+
+  /* Results strip */
+  .results-strip{
+    background:var(--navy);
+    padding:60px 0;
+  }
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .result-card{text-align:center;padding:28px 16px;border:1px solid rgba(255,253,248,0.1);border-radius:16px;}
+  .result-card strong{display:block;font-family:'Fraunces',serif;font-size:36px;color:var(--gold);margin-bottom:6px;}
+  .result-card span{font-size:13px;color:rgba(255,253,248,0.6);text-transform:uppercase;letter-spacing:.06em;}
+  @media(max-width:900px){.results-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* Final CTA */
+  .final-cta{background:var(--gradient);text-align:center;padding:90px 0;}
+  .final-cta h2{color:var(--navy-deep);font-size:clamp(26px,3.4vw,40px);margin-bottom:16px;}
+  .final-cta p{color:rgba(10,31,68,0.75);font-size:17px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;}
+  .final-cta .btn-primary{background:var(--navy-deep);color:var(--off-white);box-shadow:0 10px 30px rgba(10,31,68,0.35);}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* Footer */
+  footer{background:var(--navy-deep);color:rgba(255,253,248,0.7);padding:70px 0 28px;}
+  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+  .f-brand p{font-size:13.5px;color:rgba(255,253,248,0.55);max-width:280px;margin-bottom:14px;margin-top:14px;}
+  .f-brand .powered{font-size:12px;color:rgba(255,201,40,0.8);font-weight:700;}
+  footer h5{color:var(--off-white);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px;font-size:14px;}
+  footer a:hover{color:var(--gold);}
+  .f-bottom{border-top:1px solid rgba(255,253,248,0.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,253,248,0.45);}
+  .f-bottom a{margin-left:18px;}
+  @media(max-width:900px){.f-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.f-grid{grid-template-columns:1fr;}}
+
+  .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--navy-deep);padding:12px 16px;box-shadow:0 -8px 24px rgba(0,0,0,0.25);}
+  .sticky-cta .btn-primary{width:100%;padding:14px;}
+  @media(max-width:980px){.sticky-cta{display:block;}body{padding-bottom:70px;}}
+
+  .mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--navy);z-index:1100;padding:90px 28px 28px;flex-direction:column;gap:22px;box-shadow:-10px 0 30px rgba(0,0,0,0.3);transform:translateX(100%);transition:transform .3s ease;}
+  .mobile-menu.open{transform:translateX(0);display:flex;}
+  .mobile-menu a{color:var(--off-white);font-size:16px;font-weight:600;}
+  .mobile-menu .btn{margin-top:10px;}
+  .menu-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050;}
+  .menu-backdrop.open{display:block;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Prodiga AI Infinity Ventures logo">
+      <span>Prodiga AI Infinity</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="ai-marketing.html">AI Marketing</a>
+      <a href="app-software.html">App & Software</a>
+      <a href="industries.html" class="active">Industries</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="course.html">Course</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call</a>
+    </div>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="industries.html">Industries</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="course.html">Course</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
+  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Industries We Serve</span>
+    <h1>AI-powered growth systems built for your industry — not a generic template</h1>
+    <p>Every industry has its own sales cycle, compliance needs and customer journey. We build around yours.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="#real-estate" class="btn btn-primary">Real Estate</a>
+      <a href="#healthcare" class="btn btn-secondary">Healthcare</a>
+      <a href="#coaching" class="btn btn-secondary">Coaches</a>
+      <a href="#startup" class="btn btn-secondary">Startups</a>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY JUMP NAV -->
+<div class="ind-nav">
+  <div class="wrap">
+    <div class="ind-nav-inner">
+      <a href="#real-estate"><span class="ind-icon">🏠</span>Real Estate</a>
+      <a href="#healthcare"><span class="ind-icon">🏥</span>Healthcare</a>
+      <a href="#coaching"><span class="ind-icon">🎯</span>Coaches & Trainers</a>
+      <a href="#startup"><span class="ind-icon">🚀</span>Startup Founders</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======== REAL ESTATE ======== -->
+<section class="ind-section" id="real-estate">
+  <div class="wrap ind-grid">
+    <div class="ind-content">
+      <span class="eyebrow">Real Estate</span>
+      <h2>Turn property listings into a predictable lead engine</h2>
+      <p class="lead">Real estate in West Bengal & Tripura is competitive and trust-driven. Buyers research for months before calling. We build the AI systems that keep you visible, capture serious leads and automate follow-up — so no opportunity slips through.</p>
+
+      <div class="pain-points">
+        <h4>Common pain points we solve</h4>
+        <ul class="pain-list">
+          <li>Spending on Meta/Google ads with no clear leads coming in</li>
+          <li>Leads go cold because follow-up is manual and slow</li>
+          <li>No system to qualify buyers vs window-shoppers</li>
+          <li>Website looks outdated — builders don't trust it</li>
+          <li>WhatsApp inquiries get lost, no tracking</li>
+        </ul>
+      </div>
+
+      <div class="solutions">
+        <h4>What we build for you</h4>
+        <ul class="sol-list">
+          <li>AI-powered Meta & Google lead campaigns with property targeting</li>
+          <li>WhatsApp automation — instant reply + lead qualification bot</li>
+          <li>CRM integration — every lead tracked from inquiry to site visit</li>
+          <li>Property showcase website with virtual tour support</li>
+          <li>Automated follow-up sequences (WhatsApp + email)</li>
+          <li>AI chatbot for 24/7 project FAQs and site visit booking</li>
+        </ul>
+      </div>
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+    </div>
+
+    <div class="ind-visual visual-realestate">
+      <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sky background -->
+        <rect width="480" height="380" fill="url(#skyGrad)"/>
+        <defs>
+          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0A1F44"/>
+            <stop offset="100%" stop-color="#1E4FA8"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+        </defs>
+        <!-- Stars -->
+        <circle cx="60" cy="40" r="1.5" fill="#FFC928" opacity="0.8"/>
+        <circle cx="120" cy="25" r="1" fill="#fff" opacity="0.6"/>
+        <circle cx="200" cy="50" r="1.5" fill="#fff" opacity="0.5"/>
+        <circle cx="300" cy="30" r="1" fill="#FFC928" opacity="0.7"/>
+        <circle cx="380" cy="55" r="1.5" fill="#fff" opacity="0.6"/>
+        <circle cx="440" cy="20" r="1" fill="#FFC928" opacity="0.8"/>
+        <!-- Ground -->
+        <rect x="0" y="310" width="480" height="70" fill="#071833"/>
+        <!-- Road -->
+        <rect x="180" y="310" width="120" height="70" fill="#0d2a5c"/>
+        <rect x="235" y="315" width="10" height="20" fill="#FFC928" opacity="0.4" rx="2"/>
+        <rect x="235" y="345" width="10" height="20" fill="#FFC928" opacity="0.4" rx="2"/>
+        <!-- Building 1 - tall -->
+        <rect x="60" y="160" width="80" height="155" fill="#0d2a5c" rx="4"/>
+        <rect x="60" y="155" width="80" height="12" fill="url(#goldGrad)" rx="2"/>
+        <!-- Windows B1 -->
+        <rect x="72" y="175" width="14" height="12" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="94" y="175" width="14" height="12" fill="#FFC928" opacity="0.7" rx="1"/>
+        <rect x="116" y="175" width="14" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="72" y="198" width="14" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="94" y="198" width="14" height="12" fill="#FFC928" opacity="0.8" rx="1"/>
+        <rect x="116" y="198" width="14" height="12" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="72" y="221" width="14" height="12" fill="#FFC928" opacity="0.5" rx="1"/>
+        <rect x="94" y="221" width="14" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="116" y="221" width="14" height="12" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="72" y="244" width="14" height="12" fill="#FFC928" opacity="0.7" rx="1"/>
+        <rect x="94" y="244" width="14" height="12" fill="#FFC928" opacity="0.4" rx="1"/>
+        <rect x="116" y="244" width="14" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="72" y="267" width="14" height="12" fill="#fff" opacity="0.2" rx="1"/>
+        <rect x="94" y="267" width="14" height="12" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="116" y="267" width="14" height="12" fill="#FFC928" opacity="0.8" rx="1"/>
+        <!-- Door B1 -->
+        <rect x="87" y="285" width="26" height="30" fill="#FFC928" opacity="0.5" rx="2"/>
+
+        <!-- Building 2 - hero center -->
+        <rect x="170" y="110" width="140" height="205" fill="#122e6b" rx="4"/>
+        <rect x="170" y="104" width="140" height="14" fill="url(#goldGrad)" rx="2"/>
+        <!-- Antenna -->
+        <rect x="237" y="70" width="6" height="38" fill="#FFC928" opacity="0.7"/>
+        <circle cx="240" cy="68" r="5" fill="#F28C00"/>
+        <!-- Windows B2 -->
+        <rect x="184" y="125" width="18" height="14" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="212" y="125" width="18" height="14" fill="#fff" opacity="0.4" rx="1"/>
+        <rect x="240" y="125" width="18" height="14" fill="#FFC928" opacity="0.8" rx="1"/>
+        <rect x="268" y="125" width="18" height="14" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="184" y="152" width="18" height="14" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="212" y="152" width="18" height="14" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="240" y="152" width="18" height="14" fill="#FFC928" opacity="0.5" rx="1"/>
+        <rect x="268" y="152" width="18" height="14" fill="#fff" opacity="0.4" rx="1"/>
+        <rect x="184" y="179" width="18" height="14" fill="#FFC928" opacity="0.7" rx="1"/>
+        <rect x="212" y="179" width="18" height="14" fill="#FFC928" opacity="0.4" rx="1"/>
+        <rect x="240" y="179" width="18" height="14" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="268" y="179" width="18" height="14" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="184" y="206" width="18" height="14" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="212" y="206" width="18" height="14" fill="#fff" opacity="0.2" rx="1"/>
+        <rect x="240" y="206" width="18" height="14" fill="#FFC928" opacity="0.8" rx="1"/>
+        <rect x="268" y="206" width="18" height="14" fill="#FFC928" opacity="0.5" rx="1"/>
+        <rect x="184" y="233" width="18" height="14" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="212" y="233" width="18" height="14" fill="#FFC928" opacity="0.7" rx="1"/>
+        <rect x="240" y="233" width="18" height="14" fill="#FFC928" opacity="0.4" rx="1"/>
+        <rect x="268" y="233" width="18" height="14" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="184" y="260" width="18" height="14" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="212" y="260" width="18" height="14" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="240" y="260" width="18" height="14" fill="#fff" opacity="0.2" rx="1"/>
+        <rect x="268" y="260" width="18" height="14" fill="#FFC928" opacity="0.8" rx="1"/>
+        <!-- Door B2 -->
+        <rect x="221" y="282" width="38" height="33" fill="#FFC928" opacity="0.4" rx="3"/>
+
+        <!-- Building 3 - right -->
+        <rect x="340" y="185" width="90" height="130" fill="#0d2a5c" rx="4"/>
+        <rect x="340" y="179" width="90" height="12" fill="url(#goldGrad)" rx="2"/>
+        <!-- Windows B3 -->
+        <rect x="352" y="198" width="16" height="12" fill="#FFC928" opacity="0.8" rx="1"/>
+        <rect x="378" y="198" width="16" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="404" y="198" width="16" height="12" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="352" y="220" width="16" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="378" y="220" width="16" height="12" fill="#FFC928" opacity="0.9" rx="1"/>
+        <rect x="404" y="220" width="16" height="12" fill="#FFC928" opacity="0.5" rx="1"/>
+        <rect x="352" y="242" width="16" height="12" fill="#FFC928" opacity="0.7" rx="1"/>
+        <rect x="378" y="242" width="16" height="12" fill="#FFC928" opacity="0.4" rx="1"/>
+        <rect x="404" y="242" width="16" height="12" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="352" y="264" width="16" height="12" fill="#FFC928" opacity="0.6" rx="1"/>
+        <rect x="378" y="264" width="16" height="12" fill="#fff" opacity="0.2" rx="1"/>
+        <rect x="404" y="264" width="16" height="12" fill="#FFC928" opacity="0.9" rx="1"/>
+        <!-- Door B3 -->
+        <rect x="362" y="290" width="22" height="25" fill="#FFC928" opacity="0.4" rx="2"/>
+
+        <!-- AI connection dots -->
+        <circle cx="100" cy="230" r="4" fill="#FFC928" opacity="0.9"/>
+        <circle cx="240" cy="200" r="6" fill="#F28C00"/>
+        <circle cx="385" cy="240" r="4" fill="#FFC928" opacity="0.9"/>
+        <line x1="104" y1="230" x2="234" y2="202" stroke="#FFC928" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+        <line x1="246" y1="202" x2="381" y2="240" stroke="#FFC928" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6"/>
+
+        <!-- AI badge -->
+        <rect x="196" y="28" width="88" height="30" rx="15" fill="url(#goldGrad)"/>
+        <text x="240" y="48" text-anchor="middle" font-family="Manrope,sans-serif" font-size="12" font-weight="700" fill="#071833">AI GROWTH</text>
+
+        <!-- Moon -->
+        <circle cx="420" cy="50" r="22" fill="#1a3d7c"/>
+        <circle cx="428" cy="43" r="18" fill="#0A1F44"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======== HEALTHCARE ======== -->
+<section class="ind-section" id="healthcare" style="background:#fff;">
+  <div class="wrap ind-grid reverse">
+    <div class="ind-content">
+      <span class="eyebrow">Healthcare</span>
+      <h2>Fill your appointment slots with patients who actually show up</h2>
+      <p class="lead">Doctors, clinics and diagnostic centers in West Bengal face a trust gap online — patients search, but don't book. We build digital systems that build credibility, automate appointment flows and keep patients coming back.</p>
+
+      <div class="pain-points">
+        <h4>Common pain points we solve</h4>
+        <ul class="pain-list">
+          <li>No-shows and last-minute cancellations hurt daily revenue</li>
+          <li>Patients can't find you online — Google profile incomplete</li>
+          <li>Staff manually managing WhatsApp appointment requests</li>
+          <li>No follow-up system for post-visit care or reviews</li>
+          <li>Competitors with worse doctors ranking higher on Google</li>
+        </ul>
+      </div>
+
+      <div class="solutions">
+        <h4>What we build for you</h4>
+        <ul class="sol-list">
+          <li>AI appointment booking bot on WhatsApp & website</li>
+          <li>Automated reminder sequences — reduce no-shows by 60%+</li>
+          <li>Google Business optimization — rank for local searches</li>
+          <li>Patient review generation system (post-visit automation)</li>
+          <li>Clinic / hospital website with doctor profiles & services</li>
+          <li>CRM for patient history, follow-up & re-engagement</li>
+        </ul>
+      </div>
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+    </div>
+
+    <div class="ind-visual visual-health">
+      <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="healthBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#071833"/>
+            <stop offset="100%" stop-color="#0A3D62"/>
+          </linearGradient>
+          <linearGradient id="goldH" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+        </defs>
+        <rect width="480" height="380" fill="url(#healthBg)"/>
+
+        <!-- Hospital building -->
+        <rect x="140" y="120" width="200" height="210" fill="#0d2a5c" rx="6"/>
+        <rect x="140" y="112" width="200" height="16" fill="url(#goldH)" rx="3"/>
+        <!-- Cross symbol -->
+        <rect x="222" y="78" width="36" height="36" rx="4" fill="url(#goldH)"/>
+        <rect x="231" y="82" width="18" height="28" fill="#071833" rx="2"/>
+        <rect x="224" y="89" width="32" height="14" fill="#071833" rx="2"/>
+
+        <!-- Windows -->
+        <rect x="158" y="135" width="28" height="22" fill="#FFC928" opacity="0.8" rx="2"/>
+        <rect x="196" y="135" width="28" height="22" fill="#fff" opacity="0.3" rx="2"/>
+        <rect x="234" y="135" width="28" height="22" fill="#FFC928" opacity="0.6" rx="2"/>
+        <rect x="272" y="135" width="28" height="22" fill="#FFC928" opacity="0.9" rx="2"/>
+        <rect x="158" y="170" width="28" height="22" fill="#fff" opacity="0.3" rx="2"/>
+        <rect x="196" y="170" width="28" height="22" fill="#FFC928" opacity="0.7" rx="2"/>
+        <rect x="234" y="170" width="28" height="22" fill="#FFC928" opacity="0.4" rx="2"/>
+        <rect x="272" y="170" width="28" height="22" fill="#fff" opacity="0.3" rx="2"/>
+        <rect x="158" y="205" width="28" height="22" fill="#FFC928" opacity="0.6" rx="2"/>
+        <rect x="196" y="205" width="28" height="22" fill="#fff" opacity="0.2" rx="2"/>
+        <rect x="234" y="205" width="28" height="22" fill="#FFC928" opacity="0.9" rx="2"/>
+        <rect x="272" y="205" width="28" height="22" fill="#FFC928" opacity="0.5" rx="2"/>
+        <!-- Entrance -->
+        <rect x="196" y="280" width="88" height="50" fill="#FFC928" opacity="0.3" rx="4"/>
+        <rect x="220" y="285" width="18" height="45" fill="#FFC928" opacity="0.5" rx="2"/>
+        <rect x="242" y="285" width="18" height="45" fill="#FFC928" opacity="0.5" rx="2"/>
+
+        <!-- Ambulance -->
+        <rect x="30" y="300" width="80" height="40" fill="#1a4a8c" rx="6"/>
+        <rect x="30" y="300" width="80" height="16" fill="#FFC928" opacity="0.3"/>
+        <rect x="52" y="304" width="16" height="10" fill="#071833" rx="2"/>
+        <rect x="38" y="306" width="10" height="7" fill="#fff" opacity="0.5" rx="1"/>
+        <circle cx="48" cy="342" r="8" fill="#0A1F44" stroke="#FFC928" stroke-width="2"/>
+        <circle cx="94" cy="342" r="8" fill="#0A1F44" stroke="#FFC928" stroke-width="2"/>
+        <rect x="56" y="306" width="8" height="4" fill="#F28C00" rx="1"/>
+        <rect x="60" y="302" width="4" height="12" fill="#F28C00" rx="1"/>
+        <!-- Ambulance label -->
+        <text x="70" y="325" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" font-weight="700" fill="#FFC928">AMBULANCE</text>
+
+        <!-- Heartbeat line -->
+        <polyline points="30,220 80,220 100,180 120,260 140,220 160,220 480,220" stroke="#F28C00" stroke-width="2.5" fill="none" opacity="0.5"/>
+
+        <!-- Phone with appointment -->
+        <rect x="360" y="140" width="80" height="130" fill="#122e6b" rx="12" stroke="#FFC928" stroke-width="1.5" stroke-opacity="0.5"/>
+        <rect x="368" y="155" width="64" height="80" fill="#0A1F44" rx="4"/>
+        <!-- Screen content -->
+        <rect x="372" y="160" width="56" height="8" fill="#FFC928" opacity="0.8" rx="2"/>
+        <rect x="372" y="174" width="40" height="5" fill="#fff" opacity="0.4" rx="1"/>
+        <rect x="372" y="184" width="48" height="5" fill="#fff" opacity="0.3" rx="1"/>
+        <rect x="372" y="194" width="36" height="5" fill="#fff" opacity="0.4" rx="1"/>
+        <rect x="372" y="208" width="56" height="18" fill="url(#goldH)" rx="4"/>
+        <text x="400" y="221" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#071833">BOOK APPT</text>
+        <circle cx="400" cy="248" r="4" fill="#FFC928" opacity="0.6"/>
+
+        <!-- Connection line -->
+        <line x1="360" y1="200" x2="340" y2="200" stroke="#FFC928" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+
+        <!-- AI tag -->
+        <rect x="168" y="38" width="144" height="28" rx="14" fill="url(#goldH)"/>
+        <text x="240" y="57" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#071833">AI PATIENT SYSTEM</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======== COACHING ======== -->
+<section class="ind-section" id="coaching">
+  <div class="wrap ind-grid">
+    <div class="ind-content">
+      <span class="eyebrow">Coaches & Trainers</span>
+      <h2>Build a personal brand that sells your programs while you coach</h2>
+      <p class="lead">Coaches, fitness trainers, life coaches and educators need a digital presence that works 24/7 — nurturing leads, handling inquiries and converting program enrollments automatically. We build exactly that.</p>
+
+      <div class="pain-points">
+        <h4>Common pain points we solve</h4>
+        <ul class="pain-list">
+          <li>Spending hours on DMs and calls that don't convert</li>
+          <li>No system to capture and nurture leads from Reels/posts</li>
+          <li>Program enrollment is manual — Google Form chaos</li>
+          <li>No email list — entire audience depends on Instagram</li>
+          <li>Can't scale beyond 1-on-1 without a proper funnel</li>
+        </ul>
+      </div>
+
+      <div class="solutions">
+        <h4>What we build for you</h4>
+        <ul class="sol-list">
+          <li>Personal brand website with program sales pages</li>
+          <li>Lead magnet + email automation funnel</li>
+          <li>WhatsApp bot for program inquiries & enrollment</li>
+          <li>AI content calendar — consistent posts without burnout</li>
+          <li>Webinar / live session landing pages with payment</li>
+          <li>Online course platform integration (LMS setup)</li>
+        </ul>
+      </div>
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+    </div>
+
+    <div class="ind-visual visual-coach">
+      <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="coachBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1a0a2e"/>
+            <stop offset="100%" stop-color="#2d1b69"/>
+          </linearGradient>
+          <linearGradient id="goldC" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+        </defs>
+        <rect width="480" height="380" fill="url(#coachBg)"/>
+
+        <!-- Laptop / screen -->
+        <rect x="100" y="100" width="280" height="180" fill="#0d0a1a" rx="12" stroke="#FFC928" stroke-width="2" stroke-opacity="0.4"/>
+        <rect x="110" y="110" width="260" height="160" fill="#1a0f3a" rx="6"/>
+
+        <!-- Screen: brand page content -->
+        <rect x="118" y="118" width="244" height="30" fill="url(#goldC)" rx="4" opacity="0.9"/>
+        <text x="240" y="138" text-anchor="middle" font-family="Fraunces,serif" font-size="13" font-weight="700" fill="#0d0a1a">COACH BRAND · AI GROWTH</text>
+
+        <!-- Profile circle on screen -->
+        <circle cx="150" cy="175" r="28" fill="#2d1b69" stroke="#FFC928" stroke-width="2"/>
+        <circle cx="150" cy="168" r="11" fill="#FFC928" opacity="0.8"/>
+        <path d="M128 198 Q150 185 172 198" fill="#FFC928" opacity="0.6"/>
+
+        <!-- Stats on screen -->
+        <rect x="190" y="152" width="156" height="18" fill="#FFC928" opacity="0.15" rx="3"/>
+        <text x="196" y="165" font-family="Manrope,sans-serif" font-size="10" fill="#FFC928" font-weight="700">12,400 Followers</text>
+        <rect x="190" y="176" width="100" height="14" fill="#fff" opacity="0.08" rx="3"/>
+        <text x="196" y="187" font-family="Manrope,sans-serif" font-size="9" fill="#fff" opacity="0.6">₹4.2L This Month</text>
+        <rect x="190" y="196" width="120" height="14" fill="#fff" opacity="0.08" rx="3"/>
+        <text x="196" y="207" font-family="Manrope,sans-serif" font-size="9" fill="#FFC928" opacity="0.8">38 Active Students</text>
+        <rect x="190" y="216" width="80" height="14" fill="#fff" opacity="0.08" rx="3"/>
+        <text x="196" y="227" font-family="Manrope,sans-serif" font-size="9" fill="#fff" opacity="0.5">4.9★ Rating</text>
+
+        <!-- Laptop base -->
+        <rect x="80" y="278" width="320" height="14" fill="#0d0a1a" rx="4" stroke="#FFC928" stroke-width="1" stroke-opacity="0.3"/>
+        <rect x="180" y="290" width="120" height="8" fill="#0d0a1a" rx="3"/>
+
+        <!-- Floating phone -->
+        <rect x="360" y="120" width="68" height="118" fill="#1a0f3a" rx="10" stroke="#FFC928" stroke-width="1.5" stroke-opacity="0.6"/>
+        <rect x="367" y="130" width="54" height="80" fill="#0d0a1a" rx="4"/>
+        <!-- Reel -->
+        <rect x="367" y="130" width="54" height="80" fill="#2d1b69" rx="4"/>
+        <circle cx="394" cy="170" r="18" fill="#FFC928" opacity="0.15" stroke="#FFC928" stroke-width="1.5" stroke-opacity="0.6"/>
+        <polygon points="390,162 390,178 404,170" fill="#FFC928" opacity="0.8"/>
+        <rect x="367" y="205" width="54" height="5" fill="#FFC928" opacity="0.4" rx="2"/>
+        <circle cx="379" cy="224" r="5" fill="#FFC928" opacity="0.7"/>
+        <circle cx="394" cy="224" r="5" fill="#fff" opacity="0.3"/>
+        <circle cx="409" cy="224" r="5" fill="#FFC928" opacity="0.5"/>
+
+        <!-- Floating notification -->
+        <rect x="28" y="150" width="140" height="52" fill="#FFC928" rx="10"/>
+        <text x="42" y="170" font-family="Manrope,sans-serif" font-size="10" font-weight="700" fill="#071833">🔔 New Enrollment!</text>
+        <text x="42" y="186" font-family="Manrope,sans-serif" font-size="9" fill="#0A1F44">Priya joined Gold Program</text>
+        <text x="42" y="198" font-family="Manrope,sans-serif" font-size="8" fill="#0A1F44" opacity="0.7">2 min ago · ₹25,000</text>
+
+        <!-- Stars -->
+        <circle cx="60" cy="40" r="1.5" fill="#FFC928" opacity="0.6"/>
+        <circle cx="160" cy="20" r="1" fill="#fff" opacity="0.4"/>
+        <circle cx="320" cy="35" r="1.5" fill="#FFC928" opacity="0.7"/>
+        <circle cx="430" cy="55" r="1" fill="#fff" opacity="0.5"/>
+
+        <!-- AI tag -->
+        <rect x="155" y="328" width="170" height="28" rx="14" fill="url(#goldC)"/>
+        <text x="240" y="347" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#0d0a1a">AI BRAND AUTOMATION</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ======== STARTUP ======== -->
+<section class="ind-section" id="startup" style="background:#fff;">
+  <div class="wrap ind-grid reverse">
+    <div class="ind-content">
+      <span class="eyebrow">Startup Founders</span>
+      <h2>Go from idea to market with a team that builds and markets</h2>
+      <p class="lead">Early-stage startups in West Bengal need speed — validate fast, build lean, market smart. We combine product development and growth marketing in one team so you're not managing two separate vendors while trying to build a company.</p>
+
+      <div class="pain-points">
+        <h4>Common pain points we solve</h4>
+        <ul class="pain-list">
+          <li>MVP taking too long — developer + designer communication gaps</li>
+          <li>Launched but no one knows you exist — zero marketing system</li>
+          <li>Investor deck looks unprofessional — no brand identity</li>
+          <li>Burning budget on ads before product-market fit</li>
+          <li>Can't afford a full team — need one partner for everything</li>
+        </ul>
+      </div>
+
+      <div class="solutions">
+        <h4>What we build for you</h4>
+        <ul class="sol-list">
+          <li>MVP development — web app, mobile app or SaaS dashboard</li>
+          <li>Brand identity + pitch deck design</li>
+          <li>Landing page with waitlist / early access funnel</li>
+          <li>Product hunt launch strategy & execution</li>
+          <li>Growth marketing — organic + paid for early traction</li>
+          <li>AI-powered onboarding & support bot for your product</li>
+        </ul>
+      </div>
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+    </div>
+
+    <div class="ind-visual visual-startup">
+      <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="startBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0A1F44"/>
+            <stop offset="100%" stop-color="#0d3b2e"/>
+          </linearGradient>
+          <linearGradient id="goldS" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+        </defs>
+        <rect width="480" height="380" fill="url(#startBg)"/>
+
+        <!-- Grid lines -->
+        <line x1="0" y1="100" x2="480" y2="100" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+        <line x1="0" y1="200" x2="480" y2="200" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+        <line x1="0" y1="300" x2="480" y2="300" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+        <line x1="120" y1="0" x2="120" y2="380" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+        <line x1="240" y1="0" x2="240" y2="380" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+        <line x1="360" y1="0" x2="360" y2="380" stroke="#fff" stroke-width="0.5" opacity="0.05"/>
+
+        <!-- Rocket -->
+        <g transform="translate(200, 40) rotate(0)">
+          <!-- Body -->
+          <ellipse cx="40" cy="80" rx="22" ry="50" fill="#1E4FA8"/>
+          <ellipse cx="40" cy="80" rx="18" ry="46" fill="#122e6b"/>
+          <!-- Nose -->
+          <path d="M18 45 Q40 5 62 45" fill="url(#goldS)"/>
+          <!-- Window -->
+          <circle cx="40" cy="70" r="12" fill="#0A3D62" stroke="#FFC928" stroke-width="2"/>
+          <circle cx="40" cy="70" r="7" fill="#FFC928" opacity="0.3"/>
+          <!-- Fins -->
+          <path d="M18 110 L5 140 L22 125" fill="#1E4FA8"/>
+          <path d="M62 110 L75 140 L58 125" fill="#1E4FA8"/>
+          <!-- Flame -->
+          <ellipse cx="40" cy="132" rx="10" ry="18" fill="#F28C00" opacity="0.9"/>
+          <ellipse cx="40" cy="135" rx="6" ry="14" fill="#FFC928"/>
+          <ellipse cx="40" cy="138" rx="3" ry="10" fill="#fff" opacity="0.7"/>
+        </g>
+
+        <!-- Growth chart -->
+        <rect x="30" y="200" width="200" height="130" fill="#071833" rx="10" stroke="#FFC928" stroke-width="1" stroke-opacity="0.4"/>
+        <text x="45" y="220" font-family="Manrope,sans-serif" font-size="10" font-weight="700" fill="#FFC928">GROWTH METRICS</text>
+        <!-- Chart bars -->
+        <rect x="45" y="280" width="20" height="35" fill="#FFC928" opacity="0.4" rx="2"/>
+        <rect x="75" y="265" width="20" height="50" fill="#FFC928" opacity="0.6" rx="2"/>
+        <rect x="105" y="250" width="20" height="65" fill="#FFC928" opacity="0.8" rx="2"/>
+        <rect x="135" y="235" width="20" height="80" fill="#F28C00" rx="2"/>
+        <rect x="165" y="215" width="20" height="100" fill="url(#goldS)" rx="2"/>
+        <!-- Chart line -->
+        <polyline points="55,278 85,263 115,248 145,233 175,213" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="4,3"/>
+
+        <!-- Kanban / task board -->
+        <rect x="270" y="180" width="180" height="160" fill="#071833" rx="10" stroke="#FFC928" stroke-width="1" stroke-opacity="0.3"/>
+        <text x="285" y="200" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#FFC928">MVP ROADMAP</text>
+        <!-- Column headers -->
+        <rect x="280" y="206" width="44" height="12" fill="#1E4FA8" rx="3"/>
+        <text x="302" y="215" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#fff">TODO</text>
+        <rect x="330" y="206" width="44" height="12" fill="#F28C00" opacity="0.7" rx="3"/>
+        <text x="352" y="215" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#071833">IN PROGRESS</text>
+        <rect x="380" y="206" width="44" height="12" fill="#16A34A" opacity="0.8" rx="3"/>
+        <text x="402" y="215" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#fff">DONE</text>
+        <!-- Cards -->
+        <rect x="280" y="224" width="44" height="20" fill="#122e6b" rx="3"/>
+        <text x="302" y="237" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#fff" opacity="0.7">API Design</text>
+        <rect x="280" y="250" width="44" height="20" fill="#122e6b" rx="3"/>
+        <text x="302" y="263" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#fff" opacity="0.7">Dashboard</text>
+        <rect x="330" y="224" width="44" height="20" fill="#2d4a1a" rx="3"/>
+        <text x="352" y="237" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#FFC928">Auth System</text>
+        <rect x="330" y="250" width="44" height="20" fill="#2d4a1a" rx="3"/>
+        <text x="352" y="263" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#FFC928">Landing Pg</text>
+        <rect x="380" y="224" width="44" height="20" fill="#0d3b2e" rx="3"/>
+        <text x="402" y="237" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#4ade80">Branding</text>
+        <rect x="380" y="250" width="44" height="20" fill="#0d3b2e" rx="3"/>
+        <text x="402" y="263" text-anchor="middle" font-family="Manrope,sans-serif" font-size="7" fill="#4ade80">Logo Done</text>
+        <rect x="280" y="276" width="144" height="18" fill="#FFC928" opacity="0.1" rx="3" stroke="#FFC928" stroke-width="0.5" stroke-opacity="0.4"/>
+        <text x="352" y="289" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#FFC928">LAUNCH IN 8 WEEKS →</text>
+
+        <!-- Stars -->
+        <circle cx="30" cy="30" r="1.5" fill="#FFC928" opacity="0.7"/>
+        <circle cx="100" cy="15" r="1" fill="#fff" opacity="0.5"/>
+        <circle cx="400" cy="25" r="1.5" fill="#FFC928" opacity="0.6"/>
+        <circle cx="460" cy="50" r="1" fill="#fff" opacity="0.4"/>
+
+        <!-- AI tag -->
+        <rect x="140" y="335" width="200" height="28" rx="14" fill="url(#goldS)"/>
+        <text x="240" y="354" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#071833">BUILD · MARKET · SCALE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS STRIP -->
+<section class="results-strip">
+  <div class="wrap">
+    <div class="section-head center" style="margin-bottom:40px;">
+      <span class="eyebrow" style="color:var(--gold);justify-content:center;">What clients see</span>
+      <h2 style="color:var(--off-white);">Results across industries</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <strong>3×</strong>
+        <span>More qualified leads for real estate clients in 90 days</span>
+      </div>
+      <div class="result-card">
+        <strong>60%</strong>
+        <span>Reduction in no-shows for healthcare clients using AI reminders</span>
+      </div>
+      <div class="result-card">
+        <strong>₹4L+</strong>
+        <span>Monthly program revenue generated for coaching clients</span>
+      </div>
+      <div class="result-card">
+        <strong>8 wks</strong>
+        <span>Average MVP-to-launch timeline for startup clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Which industry are you in?</h2>
+    <p>Book a 45-minute strategy call — we'll map out a custom AI growth system for your business, no generic templates.</p>
+    <div class="cta-btns">
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+      <a href="contact.html" class="btn btn-secondary dark">Get Proposal</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="index.html" class="brand">
+          <img src="assets/logo.png" alt="Prodiga logo" style="height:38px;">
+          <span>Prodiga AI Infinity</span>
+        </a>
+        <p>AI marketing, automation, software and learning ecosystems for growth-focused businesses across West Bengal & Tripura.</p>
+        <p class="powered">Powered by Skybull E Learning (OPC) Pvt. Ltd.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#marketing">AI Marketing & Automation</a></li>
+          <li><a href="services.html#software">App & Software</a></li>
+          <li><a href="course.html">AI Online Course</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Industries</h5>
+        <ul>
+          <li><a href="industries.html#real-estate">Real Estate</a></li>
+          <li><a href="industries.html#healthcare">Healthcare</a></li>
+          <li><a href="industries.html#coaching">Coaches & Trainers</a></li>
+          <li><a href="industries.html#startup">Startup Founders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Dhubulia, 6 No. Nadia, West Bengal – 741139</li>
+          <li>Mani Casadona, Newtown, Kolkata – 700160</li>
+          <li><a href="tel:+916294645885">6294645885</a> / <a href="tel:+919903022477">9903022477</a></li>
+          <li><a href="mailto:info@prodigainfinity.com">info@prodigainfinity.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Prodiga AI Infinity Ventures. All rights reserved.</span>
+      <span>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="refund.html">Refund Policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBackdrop = document.getElementById('menuBackdrop');
+  function closeMenu(){mobileMenu.classList.remove('open');menuBackdrop.classList.remove('open');}
+  navToggle.addEventListener('click',()=>{mobileMenu.classList.add('open');menuBackdrop.classList.add('open');});
+  menuBackdrop.addEventListener('click',closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+
+  // Active ind-nav highlight on scroll
+  const sections = ['real-estate','healthcare','coaching','startup'];
+  const navLinks = document.querySelectorAll('.ind-nav-inner a');
+  window.addEventListener('scroll',()=>{
+    let current='';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el && window.scrollY >= el.offsetTop - 200) current=id;
+    });
+    navLinks.forEach(a=>{
+      a.classList.remove('active');
+      if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
