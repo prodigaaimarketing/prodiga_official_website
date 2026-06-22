@@ -107,13 +107,17 @@
     letter-spacing:0.02em;
   }
   .nav-links{display:flex;gap:30px;align-items:center;}
-  .nav-links a{font-size:12px;
-    color:rgba(255,253,248,0.85);
-    font-size:14.5px;
-    font-weight:600;
-    transition:color .2s;
+  .nav-links a{
+    color:var(--navy);
+    font-size:12.5px;
+    font-weight:700;
+    transition:all .2s;
+    padding:5px 11px;
+    border-radius:6px;
   }
-  .nav-links a:hover{color:var(--gold);}
+  .nav-links a:nth-child(odd){background:linear-gradient(135deg,#FFC928,#F28C00);}
+  .nav-links a:nth-child(even){background:linear-gradient(135deg,#0d2d5e,#1a4a8a);color:#fff;border:1px solid rgba(255,201,40,0.25);}
+  .nav-links a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
   .nav-cta{display:flex;gap:12px;align-items:center;}
   .nav-cta .btn{padding:12px 20px;font-size:13.5px;}
   .nav-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:26px;cursor:pointer;}
@@ -763,6 +767,7 @@
 
 <script>document.querySelectorAll(".nav-more-btn").forEach(b=>b.addEventListener("click",function(){this.closest(".nav-more").classList.toggle("active")}));</script></body>
 </html>
+
 
 
 
