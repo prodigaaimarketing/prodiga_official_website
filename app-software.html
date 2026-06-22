@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App & Software Development | Prodiga Infinity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0A1F44;
+      --navy-light: #112755;
+      --gold: #FFC928;
+      --orange: #F28C00;
+      --orange-dark: #D97A00;
+      --white: #FFFFFF;
+      --gray-100: #F8F9FA;
+      --gray-200: #E9ECEF;
+      --gray-600: #6B7280;
+      --gray-800: #1F2937;
+      --success: #10B981;
+      --accent-blue: #3B82F6;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; background:#fff; color:var(--navy); overflow-x:hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:999;
+      background:rgba(10,31,68,0.97); backdrop-filter:blur(12px);
+      padding:18px 40px; display:flex; align-items:center; justify-content:space-between;
+      border-bottom:1px solid rgba(255,201,40,0.15);
+    }
+    .nav-logo { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:700; color:var(--gold); text-decoration:none; }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.82); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:linear-gradient(135deg,var(--gold),var(--orange)); color:var(--navy); font-weight:700; padding:10px 24px; border-radius:8px; text-decoration:none; font-size:0.9rem; transition:transform 0.2s, box-shadow 0.2s; }
+    .nav-cta:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(242,140,0,0.4); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height:100vh; padding:120px 40px 80px;
+      background:linear-gradient(135deg, var(--gold) 0%, var(--orange) 45%, #C96A00 80%, #8B4200 100%);
+      display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 60% at 70% 40%, rgba(10,31,68,0.18) 0%, transparent 70%);
+    }
+    /* floating shape decorations */
+    .hero-shape {
+      position:absolute; border-radius:50%; opacity:0.12;
+      animation: floatShape 8s ease-in-out infinite;
+    }
+    .hero-shape.s1 { width:400px; height:400px; background:#fff; top:-100px; right:-80px; animation-delay:0s; }
+    .hero-shape.s2 { width:200px; height:200px; background:var(--navy); bottom:60px; left:-60px; animation-delay:3s; }
+    .hero-shape.s3 { width:120px; height:120px; background:#fff; bottom:200px; right:12%; animation-delay:5s; }
+    @keyframes floatShape {
+      0%,100% { transform:translateY(0) rotate(0deg); }
+      50% { transform:translateY(-24px) rotate(8deg); }
+    }
+
+    .hero-inner { max-width:1200px; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(10,31,68,0.18); backdrop-filter:blur(8px);
+      border:1px solid rgba(10,31,68,0.25);
+      color:var(--navy); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      padding:7px 16px; border-radius:100px; margin-bottom:20px;
+    }
+    .hero-eyebrow span { width:6px; height:6px; border-radius:50%; background:var(--navy); display:inline-block; }
+    .hero h1 {
+      font-family:'Fraunces',serif; font-size:clamp(2.4rem,4vw,3.8rem); font-weight:900; line-height:1.1;
+      color:var(--navy); margin-bottom:22px;
+    }
+    .hero h1 em { font-style:normal; text-decoration:underline; text-decoration-color:rgba(10,31,68,0.3); text-underline-offset:6px; }
+    .hero-desc { font-size:1.1rem; line-height:1.75; color:rgba(10,31,68,0.82); margin-bottom:36px; max-width:500px; }
+    .hero-stats { display:flex; gap:32px; margin-bottom:40px; }
+    .hero-stat strong { font-family:'Fraunces',serif; font-size:2rem; font-weight:900; color:var(--navy); display:block; }
+    .hero-stat span { font-size:0.8rem; font-weight:600; color:rgba(10,31,68,0.65); text-transform:uppercase; letter-spacing:0.06em; }
+    .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn-primary { background:var(--navy); color:var(--gold); font-weight:700; padding:15px 32px; border-radius:10px; text-decoration:none; font-size:1rem; transition:all 0.25s; display:inline-flex; align-items:center; gap:8px; }
+    .btn-primary:hover { background:#0d2a5c; transform:translateY(-3px); box-shadow:0 12px 32px rgba(10,31,68,0.35); }
+    .btn-outline { background:transparent; color:var(--navy); border:2px solid var(--navy); font-weight:700; padding:13px 28px; border-radius:10px; text-decoration:none; font-size:1rem; transition:all 0.25s; }
+    .btn-outline:hover { background:rgba(10,31,68,0.1); }
+
+    /* Hero SVG: Phone + Dashboard mockup */
+    .hero-visual { position:relative; display:flex; align-items:center; justify-content:center; }
+    .hero-visual svg { width:100%; max-width:480px; filter:drop-shadow(0 24px 48px rgba(10,31,68,0.28)); }
+
+    /* ── TRUST STRIP ── */
+    .trust { background:var(--navy); padding:24px 40px; }
+    .trust-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
+    .trust-item { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.7); font-size:0.85rem; font-weight:500; }
+    .trust-icon { width:28px; height:28px; background:rgba(255,201,40,0.15); border-radius:6px; display:flex; align-items:center; justify-content:center; }
+
+    /* ── SECTION BASE ── */
+    section { padding:90px 40px; }
+    .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+    .section-title { font-family:'Fraunces',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:800; color:var(--navy); line-height:1.15; margin-bottom:18px; }
+    .section-desc { font-size:1.05rem; line-height:1.75; color:var(--gray-600); max-width:640px; }
+    .inner { max-width:1200px; margin:0 auto; }
+
+    /* ── WHAT WE BUILD ── */
+    .what-we-build { background:var(--gray-100); }
+    .build-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-top:60px; }
+    .build-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .build-card {
+      background:#fff; border-radius:16px; padding:28px 24px;
+      border:1.5px solid var(--gray-200);
+      transition:all 0.3s; position:relative; overflow:hidden;
+    }
+    .build-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--gold),var(--orange));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.3s;
+    }
+    .build-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(10,31,68,0.1); border-color:var(--gold); }
+    .build-card:hover::before { transform:scaleX(1); }
+    .build-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:1.4rem; }
+    .build-card h4 { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+    .build-card p { font-size:0.87rem; line-height:1.65; color:var(--gray-600); }
+
+    /* ── SERVICES DEEP DIVE ── */
+    .services-deep { background:#fff; }
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .svc-card {
+      background:var(--gray-100); border-radius:20px; padding:36px 28px;
+      border:1.5px solid transparent; transition:all 0.3s; position:relative; overflow:hidden;
+    }
+    .svc-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg,var(--gold),var(--orange));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.35s;
+    }
+    .svc-card:hover { background:#fff; border-color:var(--gold); transform:translateY(-8px); box-shadow:0 20px 50px rgba(10,31,68,0.1); }
+    .svc-card:hover::after { transform:scaleX(1); }
+    .svc-num { font-family:'Fraunces',serif; font-size:3rem; font-weight:900; color:rgba(10,31,68,0.06); line-height:1; margin-bottom:12px; }
+    .svc-icon-box { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+    .svc-card h3 { font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+    .svc-card p { font-size:0.88rem; line-height:1.7; color:var(--gray-600); margin-bottom:16px; }
+    .svc-tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .tag { background:rgba(255,201,40,0.12); color:var(--orange-dark); font-size:0.72rem; font-weight:600; padding:4px 10px; border-radius:20px; }
+
+    /* ── PROCESS ── */
+    .process { background:var(--navy); }
+    .process .section-title { color:#fff; }
+    .process .section-desc { color:rgba(255,255,255,0.65); }
+    .process-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:60px; position:relative; }
+    .process-steps::before {
+      content:''; position:absolute; top:32px; left:10%; right:10%; height:2px;
+      background:linear-gradient(90deg,var(--gold),var(--orange));
+    }
+    .step { text-align:center; padding:0 16px; position:relative; }
+    .step-circle {
+      width:64px; height:64px; border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--orange));
+      color:var(--navy); font-family:'Fraunces',serif; font-size:1.3rem; font-weight:900;
+      display:flex; align-items:center; justify-content:center; margin:0 auto 20px;
+      position:relative; z-index:1; box-shadow:0 0 0 6px rgba(255,201,40,0.15);
+    }
+    .step h4 { font-family:'Fraunces',serif; font-size:0.95rem; font-weight:700; color:#fff; margin-bottom:8px; }
+    .step p { font-size:0.8rem; line-height:1.6; color:rgba(255,255,255,0.58); }
+
+    /* ── TECH STACK ── */
+    .tech-stack { background:var(--gray-100); }
+    .tech-categories { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:52px; }
+    .tech-cat { background:#fff; border-radius:16px; padding:28px 24px; }
+    .tech-cat-title { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
+    .tech-items { display:flex; flex-direction:column; gap:10px; }
+    .tech-item { display:flex; align-items:center; gap:10px; font-size:0.88rem; font-weight:500; color:var(--navy); }
+    .tech-dot { width:8px; height:8px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--orange)); flex-shrink:0; }
+
+    /* ── RESULTS ── */
+    .results { background:#fff; }
+    .results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:52px 0 60px; }
+    .result-kpi {
+      background:linear-gradient(135deg,var(--navy),var(--navy-light));
+      border-radius:20px; padding:36px 28px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .result-kpi::before {
+      content:''; position:absolute; top:-20px; right:-20px;
+      width:80px; height:80px; border-radius:50%;
+      background:rgba(255,201,40,0.08);
+    }
+    .result-kpi strong { font-family:'Fraunces',serif; font-size:2.6rem; font-weight:900; color:var(--gold); display:block; margin-bottom:8px; }
+    .result-kpi span { font-size:0.82rem; color:rgba(255,255,255,0.65); font-weight:500; }
+    .case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .case-card { background:var(--gray-100); border-radius:20px; overflow:hidden; transition:transform 0.3s; }
+    .case-card:hover { transform:translateY(-6px); }
+    .case-top { padding:28px 28px 0; }
+    .case-industry { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:10px; }
+    .case-title { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+    .case-desc { font-size:0.87rem; line-height:1.65; color:var(--gray-600); margin-bottom:20px; }
+    .case-metrics { display:flex; gap:20px; padding:20px 28px; background:linear-gradient(135deg,var(--gold),var(--orange)); }
+    .case-metric strong { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:900; color:var(--navy); display:block; }
+    .case-metric span { font-size:0.72rem; font-weight:600; color:rgba(10,31,68,0.7); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background:var(--gray-100); }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .testi-card { background:#fff; border-radius:20px; padding:36px 28px; border:1.5px solid var(--gray-200); }
+    .stars { color:var(--gold); font-size:1.1rem; margin-bottom:16px; }
+    .testi-text { font-size:0.92rem; line-height:1.75; color:var(--gray-800); margin-bottom:24px; font-style:italic; }
+    .testi-author { display:flex; align-items:center; gap:14px; }
+    .testi-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--orange)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:900; color:var(--navy); font-size:1rem; }
+    .testi-name { font-weight:700; font-size:0.88rem; color:var(--navy); }
+    .testi-role { font-size:0.78rem; color:var(--gray-600); }
+
+    /* ── PRICING ── */
+    .pricing { background:var(--navy); }
+    .pricing .section-title { color:#fff; }
+    .pricing .section-desc { color:rgba(255,255,255,0.65); }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:52px; }
+    .price-card { background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1); border-radius:24px; padding:40px 32px; transition:all 0.3s; }
+    .price-card.featured { background:linear-gradient(135deg,var(--gold),var(--orange)); border-color:transparent; transform:scale(1.04); }
+    .price-card:hover:not(.featured) { background:rgba(255,255,255,0.08); border-color:rgba(255,201,40,0.3); }
+    .plan-name { font-size:0.78rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:12px; }
+    .price-card.featured .plan-name { color:rgba(10,31,68,0.65); }
+    .plan-price { font-family:'Fraunces',serif; font-size:2.8rem; font-weight:900; color:#fff; margin-bottom:6px; }
+    .price-card.featured .plan-price { color:var(--navy); }
+    .plan-period { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-bottom:24px; }
+    .price-card.featured .plan-period { color:rgba(10,31,68,0.6); }
+    .plan-features { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+    .plan-features li { font-size:0.88rem; color:rgba(255,255,255,0.78); display:flex; align-items:flex-start; gap:10px; }
+    .price-card.featured .plan-features li { color:rgba(10,31,68,0.8); }
+    .plan-features li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+    .price-card.featured .plan-features li::before { color:var(--navy); }
+    .plan-cta { display:block; text-align:center; padding:14px; border-radius:10px; font-weight:700; font-size:0.9rem; text-decoration:none; transition:all 0.25s; }
+    .plan-cta.light { background:rgba(255,255,255,0.1); color:#fff; border:1.5px solid rgba(255,255,255,0.2); }
+    .plan-cta.light:hover { background:rgba(255,255,255,0.15); }
+    .plan-cta.dark { background:var(--navy); color:var(--gold); }
+    .plan-cta.dark:hover { background:#0d2a5c; }
+
+    /* ── CTA ── */
+    .final-cta {
+      background:linear-gradient(135deg,var(--gold) 0%,var(--orange) 60%,#C96A00 100%);
+      padding:100px 40px; text-align:center;
+    }
+    .final-cta h2 { font-family:'Fraunces',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:900; color:var(--navy); margin-bottom:18px; }
+    .final-cta p { font-size:1.1rem; color:rgba(10,31,68,0.75); margin-bottom:40px; max-width:560px; margin-left:auto; margin-right:auto; }
+    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+    /* ── FOOTER ── */
+    footer { background:#060F22; padding:60px 40px 32px; }
+    .footer-inner { max-width:1200px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-brand .logo { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:700; color:var(--gold); display:block; margin-bottom:14px; }
+    .footer-brand p { font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.5); }
+    .footer-col h5 { font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-col a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.87rem; transition:color 0.2s; }
+    .footer-col a:hover { color:var(--gold); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.07); padding-top:24px; display:flex; align-items:center; justify-content:space-between; }
+    .footer-bottom p { font-size:0.82rem; color:rgba(255,255,255,0.35); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    @media(max-width:900px){
+      .hero-inner, .build-grid { grid-template-columns:1fr; }
+      .hero-visual { display:none; }
+      .services-grid, .tech-categories { grid-template-columns:1fr 1fr; }
+      .results-grid, .pricing-grid, .testi-grid, .case-grid, .process-steps { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      .process-steps::before { display:none; }
+    }
+    @media(max-width:600px){
+      nav { padding:14px 20px; }
+      .nav-links { display:none; }
+      section { padding:60px 20px; }
+      .services-grid, .tech-categories, .results-grid, .pricing-grid, .testi-grid, .case-grid, .process-steps, .build-cards { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Prodiga Infinity</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="book-strategy-call.html" class="nav-cta">Book Free Call →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-shape s1"></div>
+  <div class="hero-shape s2"></div>
+  <div class="hero-shape s3"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span> App & Software Development</div>
+      <h1>Apps That <em>Work</em> as Hard as You Do</h1>
+      <p class="hero-desc">From MVPs to enterprise platforms — we build fast, scalable, AI-powered apps that automate your ops and delight your customers. Web, mobile, SaaS — all under one roof.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>80+</strong><span>Apps Delivered</span></div>
+        <div class="hero-stat"><strong>3×</strong><span>Avg ROI</span></div>
+        <div class="hero-stat"><strong>14 days</strong><span>MVP Delivery</span></div>
+      </div>
+      <div class="hero-btns">
+        <a href="book-strategy-call.html" class="btn-primary">Start Your App →</a>
+        <a href="#services" class="btn-outline">See What We Build</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Premium App / Dashboard SVG -->
+      <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0A1F44"/>
+            <stop offset="100%" stop-color="#1a3a6e"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+          <linearGradient id="barGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#FFC928"/>
+            <stop offset="100%" stop-color="#F28C00"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#0A1F44" flood-opacity="0.4"/>
+          </filter>
+        </defs>
+
+        <!-- Phone frame -->
+        <rect x="80" y="20" width="200" height="400" rx="28" ry="28" fill="url(#phoneGrad)" filter="url(#shadow)"/>
+        <rect x="88" y="28" width="184" height="384" rx="22" ry="22" fill="#0d2550"/>
+        <!-- notch -->
+        <rect x="148" y="30" width="64" height="12" rx="6" fill="#0A1F44"/>
+
+        <!-- Phone screen content -->
+        <!-- Top bar -->
+        <rect x="96" y="52" width="168" height="40" rx="8" fill="url(#goldGrad)" opacity="0.95"/>
+        <text x="108" y="76" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#0A1F44">📱 Dashboard</text>
+        <circle cx="248" cy="72" r="10" fill="rgba(10,31,68,0.2)"/>
+        <text x="244" y="76" font-family="Arial" font-size="10" fill="#0A1F44">🔔</text>
+
+        <!-- Stats row -->
+        <rect x="96" y="100" width="76" height="60" rx="10" fill="rgba(255,201,40,0.12)" stroke="rgba(255,201,40,0.2)" stroke-width="1"/>
+        <text x="134" y="122" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#FFC928">₹4.2L</text>
+        <text x="134" y="137" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.5)">Revenue</text>
+        <text x="134" y="150" text-anchor="middle" font-family="Arial" font-size="8" fill="#10B981">↑ 38%</text>
+
+        <rect x="184" y="100" width="80" height="60" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="224" y="122" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#fff">1,240</text>
+        <text x="224" y="137" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.5)">Users</text>
+        <text x="224" y="150" text-anchor="middle" font-family="Arial" font-size="8" fill="#10B981">↑ 22%</text>
+
+        <!-- Mini bar chart -->
+        <rect x="96" y="172" width="168" height="90" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <text x="104" y="187" font-family="Arial" font-size="8" font-weight="bold" fill="rgba(255,255,255,0.5)">WEEKLY SALES</text>
+        <rect x="104" y="215" width="18" height="36" rx="3" fill="url(#barGrad1)" opacity="0.6"/>
+        <rect x="128" y="205" width="18" height="46" rx="3" fill="url(#barGrad1)" opacity="0.7"/>
+        <rect x="152" y="198" width="18" height="53" rx="3" fill="url(#barGrad1)" opacity="0.8"/>
+        <rect x="176" y="190" width="18" height="61" rx="3" fill="url(#barGrad1)" opacity="0.9"/>
+        <rect x="200" y="195" width="18" height="56" rx="3" fill="url(#barGrad1)"/>
+        <rect x="224" y="185" width="18" height="66" rx="3" fill="url(#barGrad1)" filter="url(#glow)"/>
+
+        <!-- Bottom tabs -->
+        <rect x="96" y="272" width="168" height="130" rx="10" fill="rgba(255,255,255,0.03)"/>
+        <!-- Order items -->
+        <circle cx="114" cy="296" r="10" fill="url(#goldGrad)"/>
+        <text x="114" y="300" text-anchor="middle" font-size="8" fill="#0A1F44">📦</text>
+        <rect x="130" y="288" width="70" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+        <rect x="130" y="298" width="50" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+        <text x="248" y="296" text-anchor="end" font-size="8" font-weight="bold" fill="#10B981">✓ Done</text>
+
+        <circle cx="114" cy="326" r="10" fill="rgba(242,140,0,0.2)" stroke="rgba(242,140,0,0.4)" stroke-width="1"/>
+        <text x="114" y="330" text-anchor="middle" font-size="8" fill="#F28C00">🔄</text>
+        <rect x="130" y="318" width="60" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+        <rect x="130" y="328" width="44" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+        <text x="248" y="326" text-anchor="end" font-size="8" fill="#F28C00">Pending</text>
+
+        <circle cx="114" cy="356" r="10" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+        <text x="114" y="360" text-anchor="middle" font-size="8" fill="#3B82F6">🚀</text>
+        <rect x="130" y="348" width="55" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+        <rect x="130" y="358" width="40" height="4" rx="2" fill="rgba(255,255,255,0.08)"/>
+        <text x="248" y="356" text-anchor="end" font-size="8" fill="#3B82F6">Shipped</text>
+
+        <!-- Home button -->
+        <circle cx="180" cy="400" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+        <!-- Floating notification badge -->
+        <rect x="260" y="60" width="120" height="56" rx="12" fill="#fff" opacity="0.97" filter="url(#shadow)"/>
+        <circle cx="278" cy="88" r="10" fill="url(#goldGrad)"/>
+        <text x="278" y="92" text-anchor="middle" font-size="10">🎉</text>
+        <text x="295" y="82" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#0A1F44">New Order!</text>
+        <text x="295" y="96" font-family="Arial" font-size="8" fill="#6B7280">₹18,500 received</text>
+        <text x="295" y="108" font-family="Arial" font-size="7" fill="#10B981">2 sec ago</text>
+
+        <!-- Floating AI chip -->
+        <rect x="300" y="150" width="110" height="50" rx="12" fill="url(#phoneGrad)" filter="url(#shadow)"/>
+        <circle cx="320" cy="175" r="10" fill="url(#goldGrad)"/>
+        <text x="320" y="179" text-anchor="middle" font-size="10">🤖</text>
+        <text x="337" y="170" font-family="Arial" font-size="8" font-weight="bold" fill="#FFC928">AI Insight</text>
+        <text x="337" y="183" font-family="Arial" font-size="7" fill="rgba(255,255,255,0.6)">Upsell +₹4,200</text>
+
+        <!-- Floating web frame -->
+        <rect x="290" y="240" width="145" height="100" rx="12" fill="#fff" filter="url(#shadow)"/>
+        <rect x="290" y="240" width="145" height="22" rx="12" fill="#F1F3F6"/>
+        <rect x="290" y="252" width="145" height="10" rx="0"/>
+        <circle cx="305" cy="251" r="4" fill="#FF5F57"/>
+        <circle cx="318" cy="251" r="4" fill="#FEBC2E"/>
+        <circle cx="331" cy="251" r="4" fill="#28C840"/>
+        <rect x="298" y="272" width="60" height="6" rx="3" fill="#0A1F44" opacity="0.7"/>
+        <rect x="298" y="284" width="115" height="4" rx="2" fill="#E5E7EB"/>
+        <rect x="298" y="292" width="95" height="4" rx="2" fill="#E5E7EB"/>
+        <rect x="298" y="300" width="105" height="4" rx="2" fill="#E5E7EB"/>
+        <rect x="298" y="312" width="80" height="20" rx="6" fill="url(#goldGrad)"/>
+        <text x="338" y="325" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold" fill="#0A1F44">BUY NOW</text>
+
+        <!-- Animated ping on phone -->
+        <circle cx="270" cy="38" r="6" fill="#10B981" filter="url(#glow)">
+          <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="270" cy="38" r="4" fill="#10B981"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#FFC928" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="#FFC928" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      Scalable Architecture
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="9" rx="2" stroke="#FFC928" stroke-width="1.5"/><path d="M1 6h12" stroke="#FFC928" stroke-width="1.5"/></svg>
+      </div>
+      Web & Mobile Both
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9l-4 2.5 1.5-4L1 5h4.5z" stroke="#FFC928" stroke-width="1.2"/></svg>
+      </div>
+      AI-Powered Features
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v6l3 2" stroke="#FFC928" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="7" r="6" stroke="#FFC928" stroke-width="1.5"/></svg>
+      </div>
+      MVP in 14 Days
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z" stroke="#FFC928" stroke-width="1.5"/><path d="M5 7l1.5 1.5L9 5" stroke="#FFC928" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      Post-Launch Support
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE BUILD -->
+<section class="what-we-build">
+  <div class="inner">
+    <p class="section-label">What We Build</p>
+    <h2 class="section-title">Every App Type, Built Right</h2>
+    <div class="build-grid">
+      <div>
+        <p class="section-desc">Whether it's a customer-facing mobile app, an internal business tool, or a full SaaS platform — we architect it for speed, scale, and real results.</p>
+        <!-- Tech diagram SVG -->
+        <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:32px;border-radius:16px;overflow:hidden;">
+          <defs>
+            <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0A1F44"/>
+              <stop offset="100%" stop-color="#1a3a6e"/>
+            </linearGradient>
+          </defs>
+          <rect width="380" height="220" fill="url(#bgGrad)" rx="16"/>
+          <!-- Node connections -->
+          <line x1="190" y1="60" x2="90" y2="130" stroke="rgba(255,201,40,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="190" y1="60" x2="190" y2="130" stroke="rgba(255,201,40,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="190" y1="60" x2="290" y2="130" stroke="rgba(255,201,40,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Center node -->
+          <circle cx="190" cy="60" r="28" fill="rgba(255,201,40,0.12)" stroke="#FFC928" stroke-width="1.5"/>
+          <text x="190" y="55" text-anchor="middle" font-size="16">🤖</text>
+          <text x="190" y="73" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#FFC928">AI CORE</text>
+          <!-- Satellite nodes -->
+          <circle cx="90" cy="155" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="90" y="150" text-anchor="middle" font-size="14">📱</text>
+          <text x="90" y="168" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.6)">Mobile</text>
+          <circle cx="190" cy="155" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="190" y="150" text-anchor="middle" font-size="14">🌐</text>
+          <text x="190" y="168" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.6)">Web</text>
+          <circle cx="290" cy="155" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="290" y="150" text-anchor="middle" font-size="14">☁️</text>
+          <text x="290" y="168" text-anchor="middle" font-family="Arial" font-size="8" fill="rgba(255,255,255,0.6)">SaaS</text>
+          <!-- animated pulse on center -->
+          <circle cx="190" cy="60" r="28" fill="none" stroke="#FFC928" stroke-width="1">
+            <animate attributeName="r" values="28;42;28" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+      <div class="build-cards">
+        <div class="build-card fade-up">
+          <div class="build-icon" style="background:rgba(255,201,40,0.12);">📱</div>
+          <h4>Mobile Apps</h4>
+          <p>iOS & Android apps built with React Native or Flutter — fast, native-feel, one codebase.</p>
+        </div>
+        <div class="build-card fade-up">
+          <div class="build-icon" style="background:rgba(59,130,246,0.1);">🌐</div>
+          <h4>Web Applications</h4>
+          <p>Full-stack web apps with React, Next.js frontends and Node.js / Python backends.</p>
+        </div>
+        <div class="build-card fade-up">
+          <div class="build-icon" style="background:rgba(16,185,129,0.1);">🚀</div>
+          <h4>SaaS Platforms</h4>
+          <p>End-to-end SaaS with auth, billing, multi-tenant architecture, and admin dashboard.</p>
+        </div>
+        <div class="build-card fade-up">
+          <div class="build-icon" style="background:rgba(242,140,0,0.1);">🤖</div>
+          <h4>AI-Powered Apps</h4>
+          <p>Apps with GPT, Gemini, or custom ML — chatbots, recommendations, smart automation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES DEEP DIVE -->
+<section class="services-deep" id="services">
+  <div class="inner">
+    <p class="section-label">Our Services</p>
+    <h2 class="section-title">Everything Your App Needs</h2>
+    <p class="section-desc">From wireframe to live product — we cover every layer.</p>
+    <div class="services-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-num">01</div>
+        <div class="svc-icon-box" style="background:rgba(255,201,40,0.1);">💡</div>
+        <h3>Product Strategy & MVP</h3>
+        <p>We validate your idea fast — wireframes, user flows, and a lean MVP to test with real users in 2 weeks.</p>
+        <div class="svc-tags"><span class="tag">Discovery</span><span class="tag">Wireframes</span><span class="tag">MVP</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">02</div>
+        <div class="svc-icon-box" style="background:rgba(59,130,246,0.1);">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Figma prototypes that feel like finished products. User research, design system, and interactive mockups.</p>
+        <div class="svc-tags"><span class="tag">Figma</span><span class="tag">UX Research</span><span class="tag">Prototyping</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">03</div>
+        <div class="svc-icon-box" style="background:rgba(16,185,129,0.1);">📱</div>
+        <h3>Mobile App Development</h3>
+        <p>Cross-platform apps with React Native or Flutter — camera, GPS, push notifications, payments all included.</p>
+        <div class="svc-tags"><span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">iOS/Android</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">04</div>
+        <div class="svc-icon-box" style="background:rgba(168,85,247,0.1);">⚡</div>
+        <h3>Web App Development</h3>
+        <p>Lightning-fast web apps with React/Next.js. Server-side rendering, PWA support, 90+ Lighthouse score.</p>
+        <div class="svc-tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">PWA</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">05</div>
+        <div class="svc-icon-box" style="background:rgba(242,140,0,0.1);">🔗</div>
+        <h3>API & Backend Dev</h3>
+        <p>Robust REST/GraphQL APIs, cloud infrastructure (AWS/GCP), database design, and microservices architecture.</p>
+        <div class="svc-tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">AWS</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">06</div>
+        <div class="svc-icon-box" style="background:rgba(239,68,68,0.1);">🤖</div>
+        <h3>AI Feature Integration</h3>
+        <p>Add AI to your existing app — chatbots, smart search, recommendation engines, document processing.</p>
+        <div class="svc-tags"><span class="tag">OpenAI</span><span class="tag">LangChain</span><span class="tag">ML</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">07</div>
+        <div class="svc-icon-box" style="background:rgba(20,184,166,0.1);">💳</div>
+        <h3>Payment Integration</h3>
+        <p>Razorpay, Stripe, UPI, subscriptions, wallets — we handle the full billing stack securely.</p>
+        <div class="svc-tags"><span class="tag">Razorpay</span><span class="tag">Stripe</span><span class="tag">Subscriptions</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">08</div>
+        <div class="svc-icon-box" style="background:rgba(99,102,241,0.1);">📊</div>
+        <h3>Analytics & Dashboard</h3>
+        <p>Admin panels, custom analytics dashboards, and real-time reporting built right into your app.</p>
+        <div class="svc-tags"><span class="tag">Analytics</span><span class="tag">Admin Panel</span><span class="tag">Real-time</span></div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">09</div>
+        <div class="svc-icon-box" style="background:rgba(245,158,11,0.1);">🛠️</div>
+        <h3>Maintenance & Scaling</h3>
+        <p>Post-launch care — bug fixes, feature updates, performance tuning, and cloud scaling as you grow.</p>
+        <div class="svc-tags"><span class="tag">DevOps</span><span class="tag">CI/CD</span><span class="tag">Scaling</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="inner">
+    <p class="section-label" style="color:var(--gold);">How We Work</p>
+    <h2 class="section-title">From Idea to Live App</h2>
+    <p class="section-desc">A proven 5-step process that eliminates guesswork and delivers on time.</p>
+    <div class="process-steps">
+      <div class="step fade-up">
+        <div class="step-circle">1</div>
+        <h4>Discovery Call</h4>
+        <p>We understand your goals, users, and business model in a free 30-min strategy session.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-circle">2</div>
+        <h4>Scope & Design</h4>
+        <p>Wireframes, tech stack selection, timeline, and Figma prototype for your approval.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-circle">3</div>
+        <h4>Agile Build</h4>
+        <p>2-week sprint cycles with live demos. You see real progress every fortnight.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-circle">4</div>
+        <h4>Test & QA</h4>
+        <p>Automated + manual testing. Performance audit. Security review. Zero bugs policy.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-circle">5</div>
+        <h4>Launch & Support</h4>
+        <p>App store submission, server deploy, monitoring setup, and 3 months free support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech-stack">
+  <div class="inner">
+    <p class="section-label">Technology</p>
+    <h2 class="section-title">Our Tech Stack</h2>
+    <p class="section-desc">We pick the right tool for your project — not the trendy one. Here's what we work with.</p>
+    <div class="tech-categories">
+      <div class="tech-cat fade-up">
+        <div class="tech-cat-title">Frontend</div>
+        <div class="tech-items">
+          <div class="tech-item"><div class="tech-dot"></div> React / Next.js</div>
+          <div class="tech-item"><div class="tech-dot"></div> React Native</div>
+          <div class="tech-item"><div class="tech-dot"></div> Flutter</div>
+          <div class="tech-item"><div class="tech-dot"></div> TypeScript</div>
+          <div class="tech-item"><div class="tech-dot"></div> Tailwind CSS</div>
+        </div>
+      </div>
+      <div class="tech-cat fade-up">
+        <div class="tech-cat-title">Backend</div>
+        <div class="tech-items">
+          <div class="tech-item"><div class="tech-dot"></div> Node.js / Express</div>
+          <div class="tech-item"><div class="tech-dot"></div> Python / FastAPI</div>
+          <div class="tech-item"><div class="tech-dot"></div> PostgreSQL / MongoDB</div>
+          <div class="tech-item"><div class="tech-dot"></div> Redis Cache</div>
+          <div class="tech-item"><div class="tech-dot"></div> GraphQL</div>
+        </div>
+      </div>
+      <div class="tech-cat fade-up">
+        <div class="tech-cat-title">Cloud & DevOps</div>
+        <div class="tech-items">
+          <div class="tech-item"><div class="tech-dot"></div> AWS / GCP</div>
+          <div class="tech-item"><div class="tech-dot"></div> Docker / Kubernetes</div>
+          <div class="tech-item"><div class="tech-dot"></div> GitHub Actions CI/CD</div>
+          <div class="tech-item"><div class="tech-dot"></div> Firebase</div>
+          <div class="tech-item"><div class="tech-dot"></div> Vercel / Netlify</div>
+        </div>
+      </div>
+      <div class="tech-cat fade-up">
+        <div class="tech-cat-title">AI & Integrations</div>
+        <div class="tech-items">
+          <div class="tech-item"><div class="tech-dot"></div> OpenAI / GPT-4o</div>
+          <div class="tech-item"><div class="tech-dot"></div> LangChain</div>
+          <div class="tech-item"><div class="tech-dot"></div> Razorpay / Stripe</div>
+          <div class="tech-item"><div class="tech-dot"></div> Twilio / WhatsApp</div>
+          <div class="tech-item"><div class="tech-dot"></div> Zapier / Make</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="inner">
+    <p class="section-label">Results</p>
+    <h2 class="section-title">Numbers That Speak</h2>
+    <div class="results-grid" style="margin-top:52px;">
+      <div class="result-kpi fade-up"><strong>80+</strong><span>Apps Delivered</span></div>
+      <div class="result-kpi fade-up"><strong>14 Days</strong><span>Avg MVP Launch</span></div>
+      <div class="result-kpi fade-up"><strong>3×</strong><span>Average ROI in 90 Days</span></div>
+      <div class="result-kpi fade-up"><strong>98%</strong><span>Client Retention Rate</span></div>
+    </div>
+    <div class="case-grid" style="margin-top:52px;">
+      <div class="case-card fade-up">
+        <div class="case-top">
+          <div class="case-industry">🏥 Healthcare</div>
+          <div class="case-title">Clinic Appointment & Telemedicine App</div>
+          <div class="case-desc">Built a full patient booking + video consultation app for a multi-city clinic chain. AI symptom checker + automated reminders.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>40%</strong><span>No-shows Reduced</span></div>
+          <div class="case-metric"><strong>3×</strong><span>Bookings Up</span></div>
+          <div class="case-metric"><strong>12 days</strong><span>Launch Time</span></div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-top">
+          <div class="case-industry">🏠 Real Estate</div>
+          <div class="case-title">Property Listing & AI Valuation SaaS</div>
+          <div class="case-desc">SaaS platform for real estate agents — property listings, AI price prediction, virtual tours, and lead management CRM.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>5×</strong><span>Lead Volume</span></div>
+          <div class="case-metric"><strong>₹12L</strong><span>MRR in 60 Days</span></div>
+          <div class="case-metric"><strong>18 days</strong><span>Beta Launch</span></div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-top">
+          <div class="case-industry">🎓 EdTech</div>
+          <div class="case-title">Online Course Platform with AI Tutor</div>
+          <div class="case-desc">LMS platform with video hosting, live classes, AI doubt-solving chatbot, certificates, and Razorpay subscription billing.</div>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>2,000+</strong><span>Students Enrolled</span></div>
+          <div class="case-metric"><strong>60%</strong><span>Completion Rate</span></div>
+          <div class="case-metric"><strong>₹8L</strong><span>Revenue Month 1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="inner">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">Clients Who Scaled with Us</h2>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Our clinic app went live in under 2 weeks. Bookings tripled in the first month and no-shows dropped dramatically. Prodiga Infinity delivered what 3 other agencies couldn't."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DR</div>
+          <div><div class="testi-name">Dr. Rahul Mehta</div><div class="testi-role">Founder, MediQuick Clinics</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The SaaS platform they built scaled from 10 to 500 users without a single downtime. The AI valuation feature alone became our biggest selling point."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AN</div>
+          <div><div class="testi-name">Anita Nair</div><div class="testi-role">CEO, PropSmart India</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"From idea to launch in 18 days. The AI tutor integration has set us apart from every other EdTech competitor. Revenue hit ₹8 lakhs in month one."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div><div class="testi-name">Suresh Kumar</div><div class="testi-role">Founder, LearnFast Academy</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="inner">
+    <p class="section-label" style="color:var(--gold);">Pricing</p>
+    <h2 class="section-title">Transparent, Results-Driven Pricing</h2>
+    <p class="section-desc">No hidden fees. No surprise invoices. Just delivery.</p>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">₹49,999</div>
+        <div class="plan-period">One-time · MVP Build</div>
+        <ul class="plan-features">
+          <li>MVP with core features</li>
+          <li>Web or Mobile (one platform)</li>
+          <li>Basic UI/UX design</li>
+          <li>Payment integration</li>
+          <li>1 month support</li>
+          <li>Delivery in 14–21 days</li>
+        </ul>
+        <a href="book-strategy-call.html" class="plan-cta light">Book Free Call →</a>
+      </div>
+      <div class="price-card featured fade-up">
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">₹1,49,999</div>
+        <div class="plan-period">One-time · Full Product</div>
+        <ul class="plan-features">
+          <li>Full web + mobile app</li>
+          <li>Custom UI/UX + Design System</li>
+          <li>AI features included</li>
+          <li>Admin dashboard + analytics</li>
+          <li>3 months support</li>
+          <li>Delivery in 30–45 days</li>
+        </ul>
+        <a href="book-strategy-call.html" class="plan-cta dark">Book Free Call →</a>
+      </div>
+      <div class="price-card fade-up">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Custom</div>
+        <div class="plan-period">Monthly retainer available</div>
+        <ul class="plan-features">
+          <li>Full SaaS / enterprise platform</li>
+          <li>Multi-tenant architecture</li>
+          <li>Advanced AI integration</li>
+          <li>Dedicated dev team</li>
+          <li>12 months support</li>
+          <li>Ongoing iterations</li>
+        </ul>
+        <a href="book-strategy-call.html" class="plan-cta light">Book Free Call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="inner">
+    <h2>Ready to Build Your App?</h2>
+    <p>Let's turn your idea into a live, revenue-generating product. Free strategy call — no commitment.</p>
+    <div class="cta-btns">
+      <a href="book-strategy-call.html" class="btn-primary">Book Free Strategy Call →</a>
+      <a href="contact.html" class="btn-outline">Talk to Us First</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Prodiga Infinity</span>
+        <p>We build AI-powered apps, SaaS platforms, and automation systems that help Indian businesses scale faster.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="ai-marketing.html">AI Marketing</a></li>
+          <li><a href="app-software.html">App & Software</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Prodiga Infinity. All rights reserved.</p>
+      <p>Built in India 🇮🇳 · Powered by AI</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
