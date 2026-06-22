@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ | Prodiga AI Infinity Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#0A1F44;--navy-mid:#112a5a;--gold:#FFC928;--orange:#F28C00;--white:#fff;--gray:#6B7280;--light:#F8F9FA}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--navy);background:#fff;overflow-x:hidden}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,31,68,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,201,40,0.15)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-badge{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--orange));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--navy)}
+  .logo-text{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:#fff;line-height:1.2}
+  .logo-text span{display:block;font-size:10px;font-weight:400;color:var(--gold);font-family:'Inter',sans-serif;letter-spacing:.05em}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;transition:.2s}
+  .nav-links a:hover{color:#fff;background:rgba(255,201,40,0.12)}
+  .nav-links a.active{color:var(--gold)}
+  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy)!important;font-weight:600!important;border-radius:8px!important;padding:8px 16px!important}
+  /* More dropdown */
+  .nav-more{position:relative}
+  .nav-more-btn{color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:4px;background:none;border:none;transition:.2s}
+  .nav-more-btn:hover{color:#fff;background:rgba(255,201,40,0.12)}
+  .nav-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--navy);border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:180px;display:none;flex-direction:column;gap:2px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+  .nav-more:hover .nav-dropdown,.nav-more:focus-within .nav-dropdown{display:flex}
+  .nav-dropdown a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px;transition:.2s}
+  .nav-dropdown a:hover{color:var(--gold);background:rgba(255,201,40,0.08)}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .nav-toggle span{width:24px;height:2px;background:var(--gold);border-radius:2px}
+  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--navy);padding:20px 24px;flex-direction:column;gap:4px;z-index:998;border-bottom:2px solid var(--gold)}
+  .mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .mobile-menu.open{display:flex}
+
+  /* HERO */
+  .hero{min-height:52vh;background:linear-gradient(135deg,var(--navy) 0%,#0d2a5e 50%,var(--navy-mid) 100%);display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,201,40,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,201,40,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+  .hero-orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+  .hero-orb1{width:500px;height:500px;background:rgba(255,201,40,0.07);top:-150px;right:-100px}
+  .hero-orb2{width:300px;height:300px;background:rgba(242,140,0,0.06);bottom:-80px;left:-80px}
+  .hero-inner{max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,201,40,0.12);border:1px solid rgba(255,201,40,0.3);border-radius:100px;padding:6px 16px;margin-bottom:20px}
+  .hero-eyebrow span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  .hero-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero-sub{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:28px}
+  .hero-search{display:flex;gap:0;max-width:440px}
+  .hero-search input{flex:1;padding:13px 18px;border:2px solid rgba(255,201,40,0.3);border-right:none;border-radius:10px 0 0 10px;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:.2s}
+  .hero-search input::placeholder{color:rgba(255,255,255,0.4)}
+  .hero-search input:focus{border-color:var(--gold);background:rgba(255,255,255,0.1)}
+  .hero-search button{padding:13px 20px;background:linear-gradient(135deg,var(--gold),var(--orange));border:none;border-radius:0 10px 10px 0;cursor:pointer;font-size:16px;transition:.2s}
+  .hero-search button:hover{opacity:.9}
+
+  /* FAQ SECTION */
+  .faq-section{padding:80px 24px;background:#fff}
+  .faq-inner{max-width:1100px;margin:0 auto}
+  .faq-layout{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+  .faq-sidebar{position:sticky;top:88px}
+  .faq-sidebar h3{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+  .faq-cat{display:flex;flex-direction:column;gap:4px}
+  .faq-cat-btn{text-align:left;background:none;border:none;padding:10px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--gray);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px}
+  .faq-cat-btn:hover{background:var(--light);color:var(--navy)}
+  .faq-cat-btn.active{background:linear-gradient(135deg,rgba(255,201,40,0.12),rgba(242,140,0,0.06));color:var(--navy);font-weight:600;border-left:3px solid var(--gold)}
+  .faq-cat-btn span{font-size:16px}
+  .faq-count{margin-left:auto;font-size:11px;color:var(--gray);background:var(--light);border-radius:100px;padding:2px 8px}
+
+  .faq-content{display:flex;flex-direction:column;gap:0}
+  .faq-group{display:none}
+  .faq-group.active{display:block}
+  .faq-group-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .faq-group-sub{font-size:14px;color:var(--gray);margin-bottom:28px}
+
+  .faq-item{border:1.5px solid rgba(10,31,68,0.08);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:.3s}
+  .faq-item.open{border-color:rgba(255,201,40,0.35);box-shadow:0 4px 20px rgba(255,201,40,0.08)}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;gap:16px;background:#fff;transition:.2s}
+  .faq-q:hover{background:rgba(255,201,40,0.03)}
+  .faq-item.open .faq-q{background:rgba(255,201,40,0.04)}
+  .faq-q-text{font-size:15px;font-weight:600;color:var(--navy);line-height:1.4}
+  .faq-icon{width:28px;height:28px;background:var(--light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s;font-size:14px;color:var(--navy);font-weight:700}
+  .faq-item.open .faq-icon{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy);transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+  .faq-item.open .faq-a{max-height:600px;padding:0 24px 20px}
+  .faq-a p{font-size:15px;color:#374151;line-height:1.75}
+  .faq-a ul{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+  .faq-a ul li{font-size:14px;color:#374151;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
+  .faq-a ul li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px}
+  .faq-a .tag-link{display:inline-flex;align-items:center;gap:6px;background:rgba(255,201,40,0.1);border:1px solid rgba(255,201,40,0.3);border-radius:100px;padding:4px 12px;font-size:13px;color:var(--navy);text-decoration:none;margin-top:12px;font-weight:600;transition:.2s}
+  .faq-a .tag-link:hover{background:rgba(255,201,40,0.2)}
+
+  /* STILL HAVE QUESTIONS */
+  .still{background:var(--light);padding:72px 24px}
+  .still-inner{max-width:1000px;margin:0 auto}
+  .still-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:40px}
+  .still-card{background:#fff;border-radius:16px;padding:28px;text-align:center;border:1.5px solid rgba(10,31,68,0.07);transition:.3s}
+  .still-card:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(255,201,40,0.1);transform:translateY(-4px)}
+  .still-icon{font-size:36px;margin-bottom:14px;display:block}
+  .still-card h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);margin-bottom:8px}
+  .still-card p{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:18px}
+  .still-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:.3s}
+  .still-btn:hover{background:var(--navy-mid)}
+  .still-btn.gold{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy)}
+
+  /* CTA */
+  .cta-section{background:linear-gradient(135deg,var(--navy) 0%,#0d2a5e 50%,var(--navy-mid) 100%);padding:90px 24px;text-align:center;position:relative;overflow:hidden}
+  .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(255,201,40,0.1) 0%,transparent 70%);pointer-events:none}
+  .cta-section h2{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,48px);font-weight:700;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+  .cta-section h2 em{font-style:italic;color:var(--gold)}
+  .cta-section p{font-size:17px;color:rgba(255,255,255,0.7);margin-bottom:32px;position:relative;z-index:1}
+  .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+  .btn-primary{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy);font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,201,40,0.4)}
+  .btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff;font-weight:600;font-size:15px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* FOOTER */
+  footer{background:#060F22;padding:56px 24px 24px}
+  .footer-inner{max-width:1200px;margin:0 auto}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .footer-brand p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:14px;max-width:280px}
+  .footer-contact{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+  .footer-contact a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none}
+  .footer-contact a:hover{color:var(--gold)}
+  .footer-col h4{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col ul li a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:.2s}
+  .footer-col ul li a:hover{color:var(--gold)}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+  .footer-legal{display:flex;gap:20px}
+  .footer-legal a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+  .footer-legal a:hover{color:var(--gold)}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr}
+    .faq-layout{grid-template-columns:1fr}
+    .faq-sidebar{position:static}
+    .faq-cat{flex-direction:row;flex-wrap:wrap}
+    .still-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .nav-links{display:none}
+    .nav-toggle{display:flex}
+    .still-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-badge" style="background:none;padding:0;overflow:hidden"><img src="assets/logo.png" style="width:38px;height:38px;border-radius:50%;object-fit:cover"></div>
+      <div class="logo-text">Prodiga AI Infinity<span>Ventures</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="ai-marketing.html">AI Marketing</a>
+      <a href="app-software.html">App & Software</a>
+      <a href="industries.html">Industries</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="course.html">Course</a>
+      <div class="nav-more">
+        <button class="nav-more-btn">More ▾</button>
+        <div class="nav-dropdown">
+          <a href="faq.html">❓ FAQ</a>
+          <a href="case-studies.html">📊 Case Studies</a>
+          <a href="chatbot-demo.html">🤖 Chatbot Demo</a>
+          <a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a>
+          <a href="whatsapp-demo.html">📲 WhatsApp Demo</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+      <a href="book-strategy-call.html" class="nav-cta">Book Call — ₹999</a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="industries.html">Industries</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="course.html">Course</a>
+  <a href="faq.html">FAQ</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="contact.html">Contact</a>
+  <a href="book-strategy-call.html" style="color:var(--gold);font-weight:700">Book Strategy Call — ₹999</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb1"></div>
+  <div class="hero-orb hero-orb2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        <span>Frequently Asked Questions</span>
+      </div>
+      <h1>Got questions? We've got <em>answers.</em></h1>
+      <p class="hero-sub">Everything you need to know about working with Prodiga — our services, pricing, process, and what results to expect.</p>
+      <div class="hero-search">
+        <input type="text" id="faqSearch" placeholder="Search questions..." oninput="searchFAQ(this.value)"/>
+        <button>🔍</button>
+      </div>
+    </div>
+    <div>
+      <!-- FAQ SVG Illustration -->
+      <svg viewBox="0 0 440 380" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#112a5a"/>
+            <stop offset="100%" style="stop-color:#0A1F44"/>
+          </linearGradient>
+          <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFC928"/>
+            <stop offset="100%" style="stop-color:#F28C00"/>
+          </linearGradient>
+        </defs>
+        <rect width="440" height="380" rx="16" fill="url(#bg)"/>
+
+        <!-- Big question mark decoration -->
+        <text x="380" y="80" font-family="'Fraunces',serif" font-size="100" fill="rgba(255,201,40,0.05)" font-weight="700">?</text>
+
+        <!-- Chat bubble 1 (question) -->
+        <rect x="30" y="40" width="260" height="52" rx="14" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+        <polygon points="50,92 40,108 72,92" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+        <circle cx="54" cy="66" r="14" fill="rgba(255,255,255,0.08)"/>
+        <text x="54" y="71" text-anchor="middle" font-size="14">🧑</text>
+        <rect x="78" y="54" width="150" height="7" rx="3" fill="rgba(255,255,255,0.2)"/>
+        <rect x="78" y="66" width="120" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+
+        <!-- Chat bubble 2 (answer) -->
+        <rect x="150" y="122" width="260" height="64" rx="14" fill="rgba(74,222,128,0.06)" stroke="rgba(74,222,128,0.2)" stroke-width="1.5"/>
+        <polygon points="390,186 400,204 368,186" fill="rgba(74,222,128,0.06)" stroke="rgba(74,222,128,0.2)" stroke-width="1.5"/>
+        <circle cx="174" cy="154" r="14" fill="rgba(255,201,40,0.15)"/>
+        <text x="174" y="159" text-anchor="middle" font-size="14">🤖</text>
+        <rect x="198" y="138" width="180" height="7" rx="3" fill="rgba(255,255,255,0.18)"/>
+        <rect x="198" y="150" width="140" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+        <rect x="198" y="162" width="160" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+
+        <!-- Chat bubble 3 -->
+        <rect x="30" y="216" width="240" height="52" rx="14" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+        <polygon points="50,268 40,284 72,268" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.25)" stroke-width="1.5"/>
+        <circle cx="54" cy="242" r="14" fill="rgba(255,255,255,0.08)"/>
+        <text x="54" y="247" text-anchor="middle" font-size="14">🧑</text>
+        <rect x="78" y="230" width="120" height="7" rx="3" fill="rgba(255,255,255,0.18)"/>
+        <rect x="78" y="242" width="100" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+
+        <!-- Chat bubble 4 -->
+        <rect x="160" y="300" width="250" height="52" rx="14" fill="rgba(74,222,128,0.06)" stroke="rgba(74,222,128,0.2)" stroke-width="1.5"/>
+        <circle cx="184" cy="326" r="14" fill="rgba(255,201,40,0.15)"/>
+        <text x="184" y="331" text-anchor="middle" font-size="14">🤖</text>
+        <rect x="208" y="314" width="160" height="7" rx="3" fill="rgba(255,255,255,0.18)"/>
+        <rect x="208" y="326" width="130" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+        <rect x="208" y="338" width="110" height="6" rx="3" fill="rgba(255,255,255,0.07)"/>
+
+        <!-- Floating icons -->
+        <circle cx="400" cy="280" r="28" fill="rgba(255,201,40,0.08)" stroke="rgba(255,201,40,0.2)" stroke-width="1.5"/>
+        <text x="400" y="288" text-anchor="middle" font-size="20">💡</text>
+        <circle cx="50" cy="340" r="22" fill="rgba(74,222,128,0.08)" stroke="rgba(74,222,128,0.2)" stroke-width="1.5"/>
+        <text x="50" y="347" text-anchor="middle" font-size="14">✓</text>
+
+        <!-- Decorative dots -->
+        <circle cx="420" cy="150" r="4" fill="rgba(255,201,40,0.3)"/>
+        <circle cx="430" cy="164" r="2.5" fill="rgba(255,201,40,0.2)"/>
+        <circle cx="415" cy="170" r="2" fill="rgba(255,201,40,0.15)"/>
+        <circle cx="20" cy="180" r="3" fill="rgba(255,201,40,0.25)"/>
+        <circle cx="30" cy="196" r="2" fill="rgba(255,201,40,0.15)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-layout">
+
+      <!-- SIDEBAR -->
+      <div class="faq-sidebar">
+        <h3>Categories</h3>
+        <div class="faq-cat">
+          <button class="faq-cat-btn active" onclick="showCat('general',this)">
+            <span>💬</span> General
+            <span class="faq-count">6</span>
+          </button>
+          <button class="faq-cat-btn" onclick="showCat('marketing',this)">
+            <span>📣</span> AI Marketing
+            <span class="faq-count">7</span>
+          </button>
+          <button class="faq-cat-btn" onclick="showCat('software',this)">
+            <span>💻</span> App & Software
+            <span class="faq-count">7</span>
+          </button>
+          <button class="faq-cat-btn" onclick="showCat('pricing',this)">
+            <span>💰</span> Pricing
+            <span class="faq-count">5</span>
+          </button>
+          <button class="faq-cat-btn" onclick="showCat('process',this)">
+            <span>⚙️</span> Process
+            <span class="faq-count">5</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- FAQ CONTENT -->
+      <div class="faq-content">
+
+        <!-- GENERAL -->
+        <div class="faq-group active" id="cat-general">
+          <div class="faq-group-title">General Questions</div>
+          <div class="faq-group-sub">Learn about Prodiga, who we are, and how we help businesses grow.</div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What exactly does Prodiga AI Infinity Ventures do?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Prodiga is an AI-first growth company with two divisions: <strong>AI Marketing & Automation</strong> and <strong>App & Software Development</strong>. We help businesses grow faster using artificial intelligence — whether that's automating your marketing with chatbots and WhatsApp sequences, running paid ads campaigns, building mobile apps, or developing full SaaS platforms.</p>
+              <p style="margin-top:10px">We're based in West Bengal (Nadia district) and Delhi NCR, and we work with businesses across India.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Who is Prodiga best suited for?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Prodiga works best with businesses that are ready to grow and willing to invest in the right systems. Our sweet spot includes:</p>
+              <ul>
+                <li>Real estate developers and agents looking for qualified buyer leads</li>
+                <li>Healthcare clinics and diagnostic centres wanting more patient bookings</li>
+                <li>Coaches, trainers, and consultants selling high-ticket programs</li>
+                <li>Startup founders who need an MVP built fast</li>
+                <li>SMEs that want to replace manual marketing with AI automation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Is Prodiga a registered company?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Yes. Prodiga AI Infinity Ventures is a brand venture of <strong>Skybull E Learning OPC Pvt. Ltd.</strong>, a registered company in India. We operate from our offices in Dhubulia, Nadia, West Bengal and Newtown, Kolkata.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Do you work with businesses outside West Bengal?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Absolutely. While we have physical offices in West Bengal and Delhi NCR, the majority of our work is done remotely. We have active clients across India including Mumbai, Bangalore, Hyderabad, Chennai, and Pune. Everything — strategy calls, project updates, reporting — happens over video calls and our project management tools.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Can I do just marketing OR just software — or do I need both?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>You can choose either service completely independently. Many clients work with us for just AI Marketing — running their Meta ads, WhatsApp automation, and lead gen. Others hire us purely for software development. A growing number of clients use both because it's more effective when your website/app and marketing strategy are built by the same team who understands your business.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How do I get started with Prodiga?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>The best starting point is our <strong>45-Minute AI Strategy Call</strong> with P K Sarkar, Founder of Prodiga. In this call, we:</p>
+              <ul>
+                <li>Audit your current marketing and digital presence</li>
+                <li>Identify your top 3 growth bottlenecks</li>
+                <li>Build a custom AI marketing or software roadmap</li>
+                <li>Give you a clear next step — whether or not you hire us</li>
+              </ul>
+              <a href="book-strategy-call.html" class="tag-link">Book Strategy Call — ₹999 →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI MARKETING -->
+        <div class="faq-group" id="cat-marketing">
+          <div class="faq-group-title">AI Marketing & Automation</div>
+          <div class="faq-group-sub">Questions about our marketing services, automation, and what results to expect.</div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What is AI marketing and how is it different from regular marketing?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Traditional marketing is manual — someone writes a post, someone manages ads, someone follows up on leads. AI marketing automates all of this intelligently. Key differences:</p>
+              <ul>
+                <li>AI chatbots respond to leads in 2 seconds instead of 47 hours</li>
+                <li>AI voice agents call 1,000+ prospects a day without human staff</li>
+                <li>AI ad targeting continuously optimizes itself to reduce your cost-per-lead</li>
+                <li>Automated WhatsApp sequences nurture leads while you sleep</li>
+              </ul>
+              <p style="margin-top:10px">The result: more leads, lower costs, and a system that works 24/7 without human intervention.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How long before I see results from AI marketing?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>It depends on the service:</p>
+              <ul>
+                <li><strong>Meta/Google Ads:</strong> First leads typically within 3–7 days of launch</li>
+                <li><strong>WhatsApp Automation:</strong> Active within 7–14 days of setup</li>
+                <li><strong>AI Chatbot:</strong> Live and responding within 10–14 days</li>
+                <li><strong>SEO:</strong> Meaningful organic traffic growth in 60–90 days</li>
+                <li><strong>Full funnel optimization:</strong> Best results at the 60–90 day mark</li>
+              </ul>
+              <p style="margin-top:10px">We guarantee results conversations — you'll always know exactly what's working and what we're doing to improve it.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Do I need a big budget for Meta/Google ads?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>No. We've seen excellent results with ad budgets starting from ₹15,000/month. The key isn't the budget size — it's how well the targeting, creative, and funnel are built. A ₹15,000 well-optimised campaign will consistently outperform a ₹60,000 poorly run campaign.</p>
+              <p style="margin-top:10px">We'll recommend a budget based on your industry, target area, and goals during the Strategy Call.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What is a WhatsApp Voice Agent and how does it work?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>An AI Voice Agent is software that makes real phone calls to your leads — in a natural, human-sounding voice — to qualify them, answer questions, and schedule appointments. Here's how it works:</p>
+              <ul>
+                <li>A new lead comes in via your website, Meta ads, or WhatsApp</li>
+                <li>The AI Voice Agent calls them within minutes (not hours)</li>
+                <li>It has a natural conversation, asks qualifying questions</li>
+                <li>If qualified, it books them into your calendar automatically</li>
+                <li>Full transcript and CRM update happens instantly</li>
+              </ul>
+              <a href="voice-agent-demo.html" class="tag-link">See Live Voice Agent Demo →</a>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Will the AI chatbot really replace my customer support team?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>For most common queries — yes. In our experience, a well-built AI chatbot handles 85–94% of incoming questions without any human involvement. This includes FAQs, pricing inquiries, appointment booking, order status, and lead qualification.</p>
+              <p style="margin-top:10px">The remaining 5–15% of complex queries get seamlessly handed off to a human agent. Your team stops answering the same questions 50 times a day and focuses on high-value conversations that actually move deals forward.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Do you manage ads on an ongoing basis or just set them up?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We offer both:</p>
+              <ul>
+                <li><strong>Full management (retainer):</strong> We run, optimize, and report on your campaigns every month. You get weekly performance updates and monthly strategy reviews.</li>
+                <li><strong>Setup + handover:</strong> We build everything, train your team, and hand over control. Best for businesses with an in-house marketer.</li>
+              </ul>
+              <p style="margin-top:10px">Most clients choose full management because ongoing optimization makes a huge difference to cost-per-lead over time.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What industries have you worked with for AI marketing?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Our deepest experience is in:</p>
+              <ul>
+                <li>Real Estate (developers, agents, co-working spaces)</li>
+                <li>Healthcare (clinics, diagnostic centres, wellness brands)</li>
+                <li>Coaching & Education (business coaches, skill trainers, e-learning)</li>
+                <li>Startups (tech, D2C, services)</li>
+              </ul>
+              <p style="margin-top:10px">We've also worked with retail, manufacturing, and professional services businesses. If you're not sure whether we've worked in your industry, book a Strategy Call and we'll tell you exactly what's worked.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOFTWARE -->
+        <div class="faq-group" id="cat-software">
+          <div class="faq-group-title">App & Software Development</div>
+          <div class="faq-group-sub">Questions about how we build software, timelines, tech stack, and ownership.</div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How long does it take to build an app or website?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Depends on the complexity:</p>
+              <ul>
+                <li><strong>Business website:</strong> 7–14 days</li>
+                <li><strong>Landing page:</strong> 3–5 days</li>
+                <li><strong>E-commerce store:</strong> 14–21 days</li>
+                <li><strong>Mobile app (MVP):</strong> 21–30 days</li>
+                <li><strong>SaaS platform (MVP):</strong> 30–45 days</li>
+                <li><strong>Enterprise ERP/CRM:</strong> 60–90 days</li>
+              </ul>
+              <p style="margin-top:10px">These are for MVPs and first versions. Full-featured products may take longer — we'll give you a precise timeline after the discovery session.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Will I own the source code after the project is done?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>100% yes. Once payment is complete, you own everything — the source code, the design files, the database schemas, all assets. We transfer the complete codebase to your GitHub repository and you can take it to any developer in the future.</p>
+              <p style="margin-top:10px">We don't hold code hostage or charge licensing fees. Your product is yours completely.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What tech stack do you use?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We choose the right technology for each project, not just what we're comfortable with. Our core stack includes:</p>
+              <ul>
+                <li><strong>Frontend:</strong> React.js, Next.js, Flutter (mobile), Vue.js</li>
+                <li><strong>Backend:</strong> Node.js, Python, Django, FastAPI</li>
+                <li><strong>AI:</strong> OpenAI GPT, Google Gemini, LangChain, TensorFlow</li>
+                <li><strong>Cloud:</strong> AWS, Google Cloud, Vercel, Docker</li>
+                <li><strong>Database:</strong> PostgreSQL, MongoDB, Firebase</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Do you provide post-launch support?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Yes. Every software project includes <strong>90 days of free post-launch support</strong> covering bug fixes, minor changes, and server monitoring. After 90 days, you can opt for one of our maintenance plans:</p>
+              <ul>
+                <li>Basic: Bug fixes + security updates (₹5,000/month)</li>
+                <li>Standard: Bug fixes + feature updates + priority support (₹12,000/month)</li>
+                <li>Premium: Full dedicated developer hours (custom pricing)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Can you integrate AI into my existing software?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Yes, this is one of our most common projects. We can integrate AI into existing systems including:</p>
+              <ul>
+                <li>Adding a GPT-powered chatbot to your existing website</li>
+                <li>Building AI recommendation engines for e-commerce platforms</li>
+                <li>Adding document processing / OCR to existing workflows</li>
+                <li>Connecting AI voice agents to your existing CRM</li>
+                <li>Building AI analytics dashboards on top of your data</li>
+              </ul>
+              <p style="margin-top:10px">We'll need to review your existing codebase first. Book a discovery call and share your tech details — we'll tell you exactly what's possible.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How do you handle project communication and updates?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We follow a structured communication process:</p>
+              <ul>
+                <li>Weekly video demo calls (you see real progress every 7 days)</li>
+                <li>Dedicated WhatsApp group for daily updates</li>
+                <li>Project management board (you have full access to every task)</li>
+                <li>Monthly strategy review call</li>
+              </ul>
+              <p style="margin-top:10px">No black boxes. You always know exactly what stage we're at and what's coming next.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What if I need changes after the project is delivered?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Minor changes (text updates, color tweaks, small feature adjustments) within the agreed scope are covered during development. After delivery:</p>
+              <ul>
+                <li>Bug fixes are always free during the 90-day support period</li>
+                <li>New features are quoted separately and added in new sprint cycles</li>
+                <li>We've worked with clients on 5+ versions of the same product over multiple years</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRICING -->
+        <div class="faq-group" id="cat-pricing">
+          <div class="faq-group-title">Pricing & Payments</div>
+          <div class="faq-group-sub">Everything about our pricing, payment structure, and what's included.</div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How much does Prodiga's marketing retainer cost?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Our marketing retainers start from ₹15,000/month (Starter) and go up to ₹1,50,000/month (Infinity). Each tier includes different services and team resources. A quick breakdown:</p>
+              <ul>
+                <li><strong>Starter (₹15K):</strong> Social media + basic ads management</li>
+                <li><strong>Growth (₹30K):</strong> Ads + WhatsApp automation + chatbot</li>
+                <li><strong>Professional (₹60K):</strong> Full AI marketing stack</li>
+                <li><strong>Business (₹90K):</strong> Everything + voice agent + dedicated team</li>
+                <li><strong>Infinity (₹1.5L):</strong> Complete white-glove AI marketing department</li>
+              </ul>
+              <a href="pricing.html" class="tag-link">See Full Pricing Breakdown →</a>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Are there any hidden charges or setup fees?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>No. What you see in the pricing page is what you pay. There's no setup fee, no onboarding charge, no hidden costs. The only additional spend is your ad budget (which goes directly to Meta/Google — we don't touch it) and any third-party tool subscriptions required for your specific setup (which we'll always disclose upfront).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What is the ₹999 Strategy Call — is it worth it?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>The ₹999 Strategy Call is a 45-minute deep-dive with P K Sarkar, Founder of Prodiga. You walk away with:</p>
+              <ul>
+                <li>A custom AI marketing or software roadmap for your business</li>
+                <li>Identification of your top 3 growth bottlenecks</li>
+                <li>A clear action plan — even if you don't hire us</li>
+                <li>Honest feedback on your current marketing/digital presence</li>
+              </ul>
+              <p style="margin-top:10px">This ₹999 is deducted from your first invoice if you decide to work with us. It's essentially free if you onboard — and extremely valuable even if you don't.</p>
+              <a href="book-strategy-call.html" class="tag-link">Book the Call →</a>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What is the payment structure for software projects?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>For software development, we follow a milestone-based payment structure:</p>
+              <ul>
+                <li><strong>30%</strong> upfront at project kickoff</li>
+                <li><strong>30%</strong> at design approval (before coding starts)</li>
+                <li><strong>30%</strong> at beta delivery (live, working version)</li>
+                <li><strong>10%</strong> at final handover + source code transfer</li>
+              </ul>
+              <p style="margin-top:10px">You only pay for work that's been done and approved. No money changes hands for future work until the current milestone is complete.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Is there a minimum contract period for marketing retainers?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We recommend a minimum of 3 months for marketing retainers. Here's why: most AI marketing systems take 30–60 days to properly set up, test, and optimize. Judging results in the first month is like giving up on a gym membership after 2 workouts.</p>
+              <p style="margin-top:10px">Our contracts are structured as 3-month initial terms, then month-to-month. If after 3 months you're not seeing measurable improvement, we'll work with you to fix it or give you a clear plan — no lock-in beyond that.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROCESS -->
+        <div class="faq-group" id="cat-process">
+          <div class="faq-group-title">Working with Prodiga</div>
+          <div class="faq-group-sub">How engagements work, what we need from you, and what to expect day-to-day.</div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What information do I need to provide to get started?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>For marketing, we typically need:</p>
+              <ul>
+                <li>Access to your existing ad accounts (Meta Business Manager, Google Ads)</li>
+                <li>Brand assets (logo, colors, any existing creatives)</li>
+                <li>Your target customer profile and geography</li>
+                <li>Your monthly budget (for ad spend)</li>
+              </ul>
+              <p style="margin-top:10px">For software projects, we need your product requirements, any wireframes or references you have, and your preferred tech preferences (if any). We guide you through everything in the discovery session — you don't need to have everything ready beforehand.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">How much of my time will be required?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We've specifically designed our process to require minimum time from our clients:</p>
+              <ul>
+                <li>Onboarding: 2–4 hours in the first week (one-time)</li>
+                <li>Weekly check-ins: 30 minutes (optional, but recommended)</li>
+                <li>Approvals: We send you things to approve; you respond when convenient</li>
+                <li>Monthly review: 60 minutes</li>
+              </ul>
+              <p style="margin-top:10px">Total: roughly 3–5 hours per month after the initial setup. Most clients tell us this is the least hands-on agency relationship they've ever had.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">What if I'm not happy with the work?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>We have a structured feedback and revision process. For marketing, every strategy and creative goes through your approval before going live. For software, you approve every design before coding begins. We don't move to the next phase without your sign-off.</p>
+              <p style="margin-top:10px">If there's a genuine quality issue that we haven't been able to resolve after good-faith efforts, please refer to our <a href="refund.html" style="color:var(--orange)">Refund Policy</a>. We always aim to resolve issues — refunds are the last resort, not the first.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Do you work on weekends and public holidays?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Our standard working hours are Monday–Saturday, 10am–7pm IST. For urgent issues (ad campaigns going down, critical bugs), we have an emergency WhatsApp channel that's monitored 7 days a week.</p>
+              <p style="margin-top:10px">For Business and Infinity plan clients, we provide weekend support as part of the retainer.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">
+              <span class="faq-q-text">Can I see examples of work you've done before?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              <p>Yes. We have case studies available on our Case Studies page with detailed results from real client engagements. For software projects, we can share portfolio items (with client permission) during the Strategy Call.</p>
+              <ul>
+                <li>NDA-protected clients: We share anonymized case studies with specific numbers</li>
+                <li>Live references: Several clients have agreed to speak with prospects directly</li>
+              </ul>
+              <a href="case-studies.html" class="tag-link">View Case Studies →</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end faq-content -->
+    </div><!-- end faq-layout -->
+  </div>
+</section>
+
+<!-- STILL HAVE QUESTIONS -->
+<section class="still">
+  <div class="still-inner">
+    <div style="text-align:center;margin-bottom:8px">
+      <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Still Not Sure?</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--navy);margin-top:8px">We're here to help</h2>
+      <p style="font-size:16px;color:var(--gray);margin-top:8px">Can't find your answer above? Reach out directly.</p>
+    </div>
+    <div class="still-grid">
+      <div class="still-card">
+        <span class="still-icon">📞</span>
+        <h3>Talk to a Human</h3>
+        <p>Call or WhatsApp us directly. A real person (not a bot) will pick up and answer your question.</p>
+        <a href="https://wa.me/917001500000" class="still-btn">WhatsApp Us →</a>
+      </div>
+      <div class="still-card">
+        <span class="still-icon">📅</span>
+        <h3>Book a Strategy Call</h3>
+        <p>Get a 45-minute deep-dive with our founder. Walk away with a clear plan for your business.</p>
+        <a href="book-strategy-call.html" class="still-btn gold">Book for ₹999 →</a>
+      </div>
+      <div class="still-card">
+        <span class="still-icon">✉️</span>
+        <h3>Send a Message</h3>
+        <p>Drop us a message on our contact page. We respond within 4 business hours.</p>
+        <a href="contact.html" class="still-btn">Contact Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px;position:relative;z-index:1">Ready to Start?</span>
+  <h2>Stop wondering. Start <em>growing.</em></h2>
+  <p>One 45-minute call changes everything. Let's build your AI growth engine.</p>
+  <div class="cta-btns">
+    <a href="https://rzp.io/rzp/0EnJrDp" class="btn-primary" target="_blank">Book Strategy Call — ₹999 →</a>
+    <a href="contact.html" class="btn-outline">Send a Message</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="text-decoration:none">
+          <div class="logo-badge">P</div>
+          <div class="logo-text" style="color:#fff">Prodiga AI Infinity<span>Ventures</span></div>
+        </a>
+        <p>AI-powered marketing, automation & software for growth-focused businesses across India. A venture of Skybull E Learning OPC Pvt. Ltd.</p>
+        <div class="footer-contact">
+          <a href="mailto:hello@prodigainfinity.com">✉️ hello@prodigainfinity.com</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="ai-marketing.html">AI Marketing</a></li>
+          <li><a href="app-software.html">App & Software</a></li>
+          <li><a href="course.html">AI Course</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Prodiga AI Infinity Ventures. All rights reserved. A venture of Skybull E Learning OPC Pvt. Ltd.</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="refund.html">Refund</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+
+function toggleFAQ(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  // Close all in same group
+  item.closest('.faq-group').querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function showCat(id,btn){
+  document.querySelectorAll('.faq-group').forEach(g=>g.classList.remove('active'));
+  document.querySelectorAll('.faq-cat-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('cat-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function searchFAQ(val){
+  if(!val.trim()){
+    // restore current category
+    document.querySelectorAll('.faq-group').forEach(g=>g.querySelectorAll('.faq-item').forEach(i=>i.style.display=''));
+    return;
+  }
+  const q=val.toLowerCase();
+  // Show all groups during search
+  document.querySelectorAll('.faq-group').forEach(g=>g.classList.add('active'));
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const text=item.querySelector('.faq-q-text').textContent.toLowerCase()
+      + item.querySelector('.faq-a').textContent.toLowerCase();
+    item.style.display=text.includes(q)?'':'none';
+  });
+}
+
+// Scroll animation
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:0.1});
+document.querySelectorAll('.faq-item,.still-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .4s ease,transform .4s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
