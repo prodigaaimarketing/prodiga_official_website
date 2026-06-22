@@ -1,948 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prodiga AI Infinity Ventures | AI Marketing, Automation & Software for Growth-Focused Businesses</title>
-<meta name="description" content="AI-powered marketing, automation, software and learning ecosystems for real estate, healthcare, coaches and startups across West Bengal & Tripura.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy: #0A1F44;
-    --navy-deep: #071833;
-    --royal: #1E4FA8;
-    --gold: #FFC928;
-    --saffron: #F28C00;
-    --off-white: #FFFDF8;
-    --text-dark: #111827;
-    --text-gray: #5B6475;
-    --gradient: linear-gradient(135deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%);
-    --gradient-cta: linear-gradient(120deg, #FFC928 0%, #F28C00 100%);
-    --max: 1180px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Manrope',sans-serif;
-    color:var(--text-dark);
-    background:var(--off-white);
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    letter-spacing:-0.01em;
-    color:var(--navy);
-  }
-  a{text-decoration:none;color:inherit;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
-  .eyebrow{
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--saffron);
-    margin-bottom:14px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-  }
-  .eyebrow::before{
-    content:'';
-    width:18px;height:2px;
-    background:var(--saffron);
-    display:inline-block;
-  }
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:15px 28px;
-    border-radius:8px;
-    font-weight:700;
-    font-size:15px;
-    cursor:pointer;
-    border:none;
-    transition:transform .25s ease, box-shadow .25s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--gradient-cta);
-    color:var(--navy-deep);
-    box-shadow:0 8px 24px rgba(242,140,0,0.35);
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(242,140,0,0.45);}
-  .btn-secondary{
-    background:transparent;
-    color:var(--off-white);
-    border:1.5px solid rgba(255,253,248,0.4);
-  }
-  .btn-secondary:hover{background:rgba(255,253,248,0.1);border-color:var(--off-white);}
-  .btn-secondary.dark{color:var(--navy);border-color:rgba(10,31,68,0.3);}
-  .btn-secondary.dark:hover{background:rgba(10,31,68,0.06);border-color:var(--navy);}
-
-  /* ---------- Header ---------- */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:1000;
-    background:rgba(10,31,68,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:14px 24px;
-    max-width:var(--max);margin:0 auto;
-  }
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{height:42px;width:auto;}
-  .brand span{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:18px;
-    color:var(--off-white);
-    letter-spacing:0.02em;
-  }
-  .nav-links{display:flex;gap:8px;align-items:center;}
-  .nav-links a{
-    color:var(--navy-deep);
-    font-size:12px;
-    font-weight:700;
-    transition:all .2s ease;
-    padding:7px 12px;
-    border-radius:8px;
-    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%);
-    box-shadow:0 2px 6px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.15);
-    border:1px solid rgba(0,0,0,0.12);
-  }
-  .nav-links a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);}
-  .nav-more-btn{
-    color:var(--off-white) !important;
-    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%) !important;
-    border-radius:8px !important;
-    box-shadow:0 2px 6px rgba(0,0,0,0.18) !important;
-    border:1px solid rgba(0,0,0,0.12) !important;
-    font-weight:700 !important;
-    padding:7px 12px !important;
-    font-size:12px !important;
-  }
-  .nav-cta{display:flex;gap:12px;align-items:center;}
-  .nav-cta .btn{padding:12px 20px;font-size:13.5px;}
-  .nav-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:26px;cursor:pointer;}
-
-  @media (max-width:980px){
-    .nav-links{display:none;}
-    .nav-cta .btn-secondary{display:none;}
-    .nav-toggle{display:block;}
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    background:var(--navy);
-    background-image:
-      radial-gradient(ellipse 600px 500px at 85% -10%, rgba(255,201,40,0.18), transparent),
-      radial-gradient(ellipse 500px 400px at -5% 110%, rgba(242,140,0,0.14), transparent);
-    padding:170px 0 100px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:60px;
-    align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(34px,4.6vw,54px);
-    line-height:1.12;
-    color:var(--off-white);
-    margin-bottom:22px;
-  }
-  .hero h1 .accent{
-    background:var(--gradient-cta);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .hero p.sub{
-    font-size:18px;
-    color:rgba(255,253,248,0.78);
-    max-width:520px;
-    margin-bottom:34px;
-  }
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
-  .trust-mini{
-    display:flex;gap:22px;flex-wrap:wrap;
-    color:rgba(255,253,248,0.65);
-    font-size:13.5px;
-    font-weight:600;
-  }
-  .trust-mini span{display:flex;align-items:center;gap:6px;}
-  .trust-mini .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
-
-  .hero-visual{
-    position:relative;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-visual .ring{
-    position:relative;
-    width:100%;
-    max-width:420px;
-    aspect-ratio:1;
-    border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, rgba(255,201,40,0.25), rgba(10,31,68,0) 65%);
-    border:1px solid rgba(255,201,40,0.25);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-visual .ring::before{
-    content:'';
-    position:absolute;inset:14%;
-    border-radius:50%;
-    border:1px dashed rgba(255,201,40,0.3);
-  }
-  .hero-visual img{
-    width:62%;
-    filter:drop-shadow(0 20px 50px rgba(255,140,0,0.35));
-  }
-
-  @media (max-width:980px){
-    .hero{padding:140px 0 70px;}
-    .hero-grid{grid-template-columns:1fr;gap:50px;}
-    .hero-visual{order:-1;}
-    .hero-visual .ring{max-width:260px;}
-  }
-
-  /* growth-arrow divider (signature element) */
-  .divider{
-    display:flex;align-items:center;justify-content:center;
-    gap:14px;
-    margin:0 auto;
-    padding:46px 0 0;
-  }
-  .divider svg{width:90px;height:18px;opacity:0.55;}
-  .divider .label{
-    font-size:12px;font-weight:700;letter-spacing:0.14em;
-    text-transform:uppercase;color:var(--text-gray);
-  }
-
-  /* ---------- Trust strip ---------- */
-  .trust-strip{
-    background:var(--navy-deep);
-    padding:26px 0;
-  }
-  .trust-strip .wrap{
-    display:flex;justify-content:space-between;align-items:center;
-    flex-wrap:wrap;gap:18px;
-  }
-  .trust-strip p{
-    color:rgba(255,253,248,0.7);
-    font-size:13.5px;font-weight:600;
-  }
-  .trust-strip .stats{display:flex;gap:36px;flex-wrap:wrap;}
-  .trust-strip .stats div{text-align:center;}
-  .trust-strip .stats strong{
-    display:block;font-family:'Fraunces',serif;font-size:22px;color:var(--gold);
-  }
-  .trust-strip .stats span{font-size:11.5px;color:rgba(255,253,248,0.6);text-transform:uppercase;letter-spacing:.06em;}
-
-  /* ---------- Section generic ---------- */
-  section{padding:90px 0;}
-  .section-head{max-width:680px;margin-bottom:54px;}
-  .section-head h2{font-size:clamp(28px,3.2vw,38px);line-height:1.2;}
-  .section-head p{color:var(--text-gray);font-size:16.5px;margin-top:14px;}
-
-  /* ---------- Verticals ---------- */
-  .verticals{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .v-card{
-    background:#fff;
-    border:1px solid #EEE3CC;
-    border-radius:16px;
-    padding:34px 28px;
-    transition:transform .25s ease, box-shadow .25s ease;
-    position:relative;
-    overflow:hidden;
-  }
-  .v-card::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:4px;
-    background:var(--gradient-cta);
-  }
-  .v-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(10,31,68,0.1);}
-  .v-card .num{
-    font-family:'Fraunces',serif;font-size:13px;font-weight:700;
-    color:var(--saffron);letter-spacing:.08em;margin-bottom:18px;display:block;
-  }
-  .v-card h3{font-size:21px;margin-bottom:12px;}
-  .v-card ul{list-style:none;margin:18px 0 22px;}
-  .v-card li{
-    font-size:14.5px;color:var(--text-gray);padding:7px 0 7px 22px;position:relative;
-  }
-  .v-card li::before{
-    content:'';position:absolute;left:0;top:14px;width:8px;height:8px;
-    border-radius:50%;background:var(--gradient-cta);
-  }
-  .v-card a.link{
-    font-weight:700;font-size:14px;color:var(--royal);
-    display:inline-flex;align-items:center;gap:6px;
-  }
-  .v-card a.link:hover{color:var(--saffron);}
-
-  @media (max-width:900px){.verticals{grid-template-columns:1fr;}}
-
-  /* ---------- Industries ---------- */
-  .industries-section{background:var(--navy);}
-  .industries-section .section-head h2{color:var(--off-white);}
-  .industries-section .section-head p{color:rgba(255,253,248,0.65);}
-  .industries-section .eyebrow{color:var(--gold);}
-  .industries{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-  .i-card{
-    background:rgba(255,253,248,0.04);
-    border:1px solid rgba(255,253,248,0.12);
-    border-radius:14px;
-    padding:28px 22px;
-    transition:.25s;
-  }
-  .i-card:hover{background:rgba(255,253,248,0.08);border-color:rgba(255,201,40,0.4);}
-  .i-card .ic{font-size:26px;margin-bottom:16px;display:block;}
-  .i-card h4{color:var(--off-white);font-size:17px;margin-bottom:8px;font-family:'Fraunces',serif;font-weight:600;}
-  .i-card p{color:rgba(255,253,248,0.6);font-size:13.5px;}
-
-  @media (max-width:900px){.industries{grid-template-columns:repeat(2,1fr);}}
-
-  /* ---------- Why choose ---------- */
-  .why{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
-  .why-points{display:flex;flex-direction:column;gap:24px;}
-  .why-point{display:flex;gap:16px;}
-  .why-point .mark{
-    flex-shrink:0;width:36px;height:36px;border-radius:9px;
-    background:var(--gradient-cta);
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:var(--navy-deep);font-size:14px;
-  }
-  .why-point h4{font-size:16.5px;margin-bottom:4px;}
-  .why-point p{color:var(--text-gray);font-size:14.5px;}
-  .why-card{
-    background:var(--navy);
-    border-radius:18px;padding:40px 32px;
-    color:var(--off-white);
-  }
-  .why-card .quote-mark{font-family:'Fraunces',serif;font-size:48px;color:var(--gold);line-height:1;margin-bottom:6px;}
-  .why-card p{font-size:16px;color:rgba(255,253,248,0.85);margin-bottom:24px;line-height:1.65;}
-  .why-card .who{font-size:13.5px;font-weight:700;color:var(--gold);}
-  .why-card .who span{display:block;font-weight:500;color:rgba(255,253,248,0.6);font-size:12.5px;margin-top:2px;}
-
-  @media (max-width:900px){.why{grid-template-columns:1fr;}}
-
-  /* ---------- Process ---------- */
-  .process-strip{background:#F3EEE0;}
-  .process{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
-  .p-step{
-    text-align:left;padding:0 18px 0 0;position:relative;
-  }
-  .p-step:not(:last-child)::after{
-    content:'';position:absolute;top:20px;right:0;width:18px;height:2px;
-    background:var(--saffron);opacity:.5;
-  }
-  .p-step .pn{
-    font-family:'Fraunces',serif;font-size:34px;font-weight:700;
-    color:transparent;
-    -webkit-text-stroke:1.5px var(--saffron);
-    margin-bottom:14px;display:block;
-  }
-  .p-step h4{font-size:15.5px;margin-bottom:8px;}
-  .p-step p{font-size:13.5px;color:var(--text-gray);}
-
-  @media (max-width:900px){
-    .process{grid-template-columns:1fr;gap:30px;}
-    .p-step:not(:last-child)::after{display:none;}
-  }
-
-  /* ---------- Membership ---------- */
-  .membership{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .m-card{
-    border-radius:16px;padding:32px 26px;
-    border:1px solid #EEE3CC;background:#fff;
-    text-align:left;
-  }
-  .m-card.featured{
-    background:var(--navy);
-    border:none;
-    transform:translateY(-10px);
-    box-shadow:0 24px 48px rgba(10,31,68,0.22);
-  }
-  .m-card h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--saffron);margin-bottom:10px;font-family:'Manrope',sans-serif;font-weight:800;}
-  .m-card.featured h4{color:var(--gold);}
-  .m-card h3{font-size:22px;margin-bottom:6px;}
-  .m-card.featured h3{color:var(--off-white);}
-  .m-card .tagline{font-size:13.5px;color:var(--text-gray);margin-bottom:22px;}
-  .m-card.featured .tagline{color:rgba(255,253,248,0.65);}
-  .m-card ul{list-style:none;margin-bottom:24px;}
-  .m-card li{font-size:14px;color:var(--text-gray);padding:6px 0 6px 20px;position:relative;}
-  .m-card.featured li{color:rgba(255,253,248,0.8);}
-  .m-card li::before{content:'✓';position:absolute;left:0;color:var(--saffron);font-weight:800;}
-  .m-card.featured li::before{color:var(--gold);}
-
-  @media (max-width:900px){.membership{grid-template-columns:1fr;}.m-card.featured{transform:none;}}
-
-  /* ---------- Final CTA ---------- */
-  .final-cta{
-    background:var(--gradient);
-    text-align:center;
-    padding:90px 0;
-  }
-  .final-cta h2{color:var(--navy-deep);font-size:clamp(28px,3.6vw,42px);margin-bottom:16px;}
-  .final-cta p{color:rgba(10,31,68,0.75);font-size:17px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;}
-  .final-cta .btn-primary{background:var(--navy-deep);color:var(--off-white);box-shadow:0 10px 30px rgba(10,31,68,0.35);}
-  .final-cta .btn-primary:hover{background:var(--navy);}
-  .final-cta .btn-secondary.dark{border-color:rgba(10,31,68,0.4);color:var(--navy-deep);}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--navy-deep);color:rgba(255,253,248,0.7);padding:70px 0 28px;}
-  .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
-  .f-brand .brand{margin-bottom:14px;}
-  .f-brand p{font-size:13.5px;color:rgba(255,253,248,0.55);max-width:280px;margin-bottom:14px;}
-  .f-brand .powered{font-size:12px;color:rgba(255,201,40,0.8);font-weight:700;}
-  footer h5{color:var(--off-white);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;}
-  footer ul{list-style:none;}
-  footer li{margin-bottom:10px;font-size:14px;}
-  footer a:hover{color:var(--gold);}
-  .f-bottom{
-    border-top:1px solid rgba(255,253,248,0.1);
-    padding-top:24px;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
-    font-size:12.5px;color:rgba(255,253,248,0.45);
-  }
-  .f-bottom a{margin-left:18px;}
-
-  @media (max-width:900px){.f-grid{grid-template-columns:1fr 1fr;}}
-  @media (max-width:600px){.f-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Sticky mobile CTA ---------- */
-  .sticky-cta{
-    display:none;
-    position:fixed;bottom:0;left:0;right:0;z-index:999;
-    background:var(--navy-deep);
-    padding:12px 16px;
-    box-shadow:0 -8px 24px rgba(0,0,0,0.25);
-  }
-  .sticky-cta .btn-primary{width:100%;padding:14px;}
-  @media (max-width:980px){.sticky-cta{display:block;} body{padding-bottom:70px;}}
-
-  /* mobile nav drawer */
-  .mobile-menu{
-    display:none;
-    position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;
-    background:var(--navy);
-    z-index:1100;
-    padding:90px 28px 28px;
-    flex-direction:column;gap:22px;
-    box-shadow:-10px 0 30px rgba(0,0,0,0.3);
-    transform:translateX(100%);
-    transition:transform .3s ease;
-  }
-  .mobile-menu.open{transform:translateX(0);display:flex;}
-  .mobile-menu a{
-    color:var(--off-white);
-    font-size:15px;
-    font-weight:700;
-    padding:12px 16px;
-    border-radius:8px;
-    background:linear-gradient(120deg, #0A1F44 0%, #FFC928 52%, #F28C00 100%);
-    box-shadow:0 2px 8px rgba(0,0,0,0.25);
-    border:1px solid rgba(0,0,0,0.15);
-  }
-  .mobile-menu .btn{margin-top:10px;}
-  .menu-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050;}
-  .menu-backdrop.open{display:block;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike & Scooter – DS Automobiles Dealer | Second-Hand Bikes & Scooties in Dhubulia</title>
+  <meta name="description" content="Quality second-hand bikes and scooties at affordable prices. Trusted dealer in Dhubulia, West Bengal. Easy finance available. Call +91 99339 11941." />
+  <meta name="keywords" content="second hand bike dhubulia, used scooter west bengal, DS automobiles, bike dealer dhubulia, NH 12 bike showroom" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://bikescooter.in/" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bike & Scooter – DS Automobiles Dealer, Dhubulia" />
+  <meta property="og:description" content="Quality second-hand bikes and scooties. Easy finance available. Dhubulia, West Bengal." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <a href="/" class="brand">
-      <img src="assets/logo.png" alt="Prodiga AI Infinity Ventures logo">
-      <span>Prodiga AI Infinity</span>
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-name">🏍️ BIKE & SCOOTER</span>
+      <span class="brand-sub">DS Automobiles Dealer</span>
     </a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="ai-marketing.html">AI Marketing</a>
-      <a href="app-software.html">App & Software</a>
-      <a href="industries.html">Industries</a><a href="course.html">Course</a>
-      <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
     <div class="nav-cta">
-    
-      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call</a>
+      <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call Now</a>
+      <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20a%20bike%2Fscooter." target="_blank" class="btn btn-whatsapp btn-sm">WhatsApp</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
-  </nav>
-</header>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-btns">
+      <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call Now</a>
+      <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20a%20bike%2Fscooter." target="_blank" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+    </div>
+  </div>
+</nav>
 
-<div class="menu-backdrop" id="menuBackdrop"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#home">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="ai-marketing.html">AI Marketing</a>
-  <a href="app-software.html">App & Software</a>
-  <a href="industries.html">Industries</a><a href="pricing.html">Pricing</a>
-  <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
-  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
-</div>
-
-<!-- HERO -->
+<!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">AI Marketing · Automation · Software · Learning</span>
-      <h1>AI-powered growth systems for <span class="accent">businesses ready to scale</span></h1>
-      <p class="sub">We help real estate brands, healthcare professionals, coaches and startup founders grow with AI marketing, automation, websites, apps and learning ecosystems — built and run from West Bengal & Tripura.</p>
-      <div class="hero-ctas">
-        <a href="book-strategy-call.html" class="btn btn-primary">Book 45-Min Strategy Call — ₹999</a>
-        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">✅ Trusted Dealer in Dhubulia</div>
+        <h1>Quality Second-Hand<br /><span>Bikes & Scooties</span><br />at Affordable Prices</h1>
+        <p>Easy Finance Available &nbsp;·&nbsp; RC Transfer Support &nbsp;·&nbsp; Test Ride Before You Buy</p>
+        <div class="hero-btns">
+          <a href="tel:+919933911941" class="btn btn-call">📞 Call Now</a>
+          <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20a%20bike%2Fscooter." target="_blank" class="btn btn-whatsapp">💬 WhatsApp Now</a>
+          <a href="inventory.html" class="btn btn-primary">View Inventory →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">200+</div>
+            <div class="label">Bikes Sold</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">8+</div>
+            <div class="label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">100%</div>
+            <div class="label">Verified Vehicles</div>
+          </div>
+        </div>
       </div>
-      <div class="trust-mini">
-        <span><span class="dot"></span>Powered by Skybull E Learning (OPC) Pvt. Ltd.</span>
-        <span><span class="dot"></span>Serving West Bengal &amp; Tripura</span>
-        <span><span class="dot"></span>AI + Marketing + Software + Learning, one team</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="ring">
-        <img src="assets/logo.png" alt="Prodiga AI mark">
+      <div class="hero-visual">
+        <div class="hero-bike-illustration">
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="60" r="18" stroke="white" stroke-width="3" fill="none"/>
+            <circle cx="95" cy="60" r="18" stroke="white" stroke-width="3" fill="none"/>
+            <circle cx="25" cy="60" r="5" fill="white" opacity="0.5"/>
+            <circle cx="95" cy="60" r="5" fill="white" opacity="0.5"/>
+            <path d="M25 42 L45 20 L75 20 L95 42" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M45 20 L50 42 L70 42 L75 20" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+            <path d="M70 42 L95 42" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path d="M50 42 L25 42" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path d="M75 20 L85 15 L95 20" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span>Visit showroom for<br/>latest stock</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust-strip">
-  <div class="wrap">
-    <p>Powered by Skybull E Learning (OPC) Pvt. Ltd. — AI + Marketing + Software + Learning Ecosystem</p>
-    <div class="stats">
-      <div><strong>3</strong><span>Business Verticals</span></div>
-      <div><strong>4</strong><span>Industries Served</span></div>
-      <div><strong>2</strong><span>States Covered</span></div>
+<!-- ═══════════════ TRUST BAR ═══════════════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span class="trust-item">✅ All Documents Verified</span>
+      <span class="trust-item">🏦 Easy EMI Finance</span>
+      <span class="trust-item">🔄 RC Transfer Help</span>
+      <span class="trust-item">🛞 Free Test Ride</span>
     </div>
   </div>
 </div>
 
-<!-- VERTICALS -->
-<section id="verticals">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>Three businesses. One growth partner.</h2>
-      <p>Every Prodiga client gets access to all three verticals — strategy, execution and learning, under one roof, instead of juggling separate vendors.</p>
-    </div>
-    <div class="verticals">
-      <div class="v-card">
-        <span class="num">VERTICAL 01</span>
-        <h3>AI Marketing &amp; Automation</h3>
-        <ul>
-          <li>Content creation &amp; campaigns</li>
-          <li>Lead generation funnels</li>
-          <li>Marketing automation</li>
-          <li>AI chatbot &amp; voice agent</li>
-          <li>CRM / WhatsApp automation</li>
-        </ul>
-        <a href="ai-marketing.html" class="link">Explore Service →</a>
-      </div>
-      <div class="v-card">
-        <span class="num">VERTICAL 02</span>
-        <h3>Prodiga App &amp; Software</h3>
-        <ul>
-          <li>Web design &amp; development</li>
-          <li>Full-stack app development</li>
-          <li>Web &amp; mobile apps</li>
-          <li>MVP development for startups</li>
-          <li>Custom SaaS &amp; admin dashboards</li>
-        </ul>
-        <a href="app-software.html" class="link">Explore Service →</a>
-      </div>
-      <div class="v-card">
-        <span class="num">VERTICAL 03</span>
-        <h3>Prodiga AI Online Course</h3>
-        <ul>
-          <li>Silver membership</li>
-          <li>Gold membership</li>
-          <li>Diamond membership</li>
-          <li>Community &amp; mentorship</li>
-          <li>Practical AI &amp; growth curriculum</li>
-        </ul>
-        <a href="course.html" class="link">See Memberships →</a>
-      </div>
-    </div>
-  </div>
-  <div class="divider">
-    <svg viewBox="0 0 90 18" xmlns="http://www.w3.org/2000/svg"><path d="M2 14 L34 14 L40 4 L48 16 L58 6 L88 6" stroke="#F28C00" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-</section>
-
-<!-- INDUSTRIES -->
-<section class="industries-section" id="industries">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Who we serve</span>
-      <h2>Built for the businesses we understand best</h2>
-      <p>Industry-specific solutions instead of one-size-fits-all templates.</p>
-    </div>
-    <div class="industries">
-      <div class="i-card">
-        <span class="ic">🏠</span>
-        <h4>Real Estate</h4>
-        <p>Lead capture, automated follow-up and listing-ready websites for builders &amp; brokers.</p>
-      </div>
-      <div class="i-card">
-        <span class="ic">🩺</span>
-        <h4>Healthcare</h4>
-        <p>Appointment automation, AI voice receptionist and patient communication systems.</p>
-      </div>
-      <div class="i-card">
-        <span class="ic">🎓</span>
-        <h4>Coaches &amp; Trainers</h4>
-        <p>Funnels, membership platforms and automated enrollment for educators.</p>
-      </div>
-      <div class="i-card">
-        <span class="ic">🚀</span>
-        <h4>Startup Founders</h4>
-        <p>MVP builds, custom SaaS and dashboards to get from idea to launch faster.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE -->
-<section id="why">
-  <div class="wrap why">
-    <div>
-      <span class="eyebrow">Why Prodiga</span>
-      <h2 style="margin-bottom:28px;">Strategy and execution, under one roof</h2>
-      <div class="why-points">
-        <div class="why-point">
-          <div class="mark">01</div>
-          <div><h4>AI + marketing + software combined</h4><p>No more switching between three vendors who don't talk to each other.</p></div>
+<!-- ═══════════════ ABOUT US ═══════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="big-number">8+</div>
+        <div class="big-label">Years Serving Dhubulia</div>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">⭐</div>
+            <p>Authorized DS Automobiles dealer trusted by hundreds of families in West Bengal</p>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🔍</div>
+            <p>Every vehicle inspected for engine condition, documents, and road-fitness before listing</p>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">📄</div>
+            <p>Complete paperwork assistance — RC transfer, insurance, NOC — all handled in-house</p>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🏦</div>
+            <p>Easy finance options with low down payment for qualified buyers</p>
+          </div>
         </div>
-        <div class="why-point">
-          <div class="mark">02</div>
-          <div><h4>Industry-focused approach</h4><p>Solutions designed around real estate, healthcare, coaching and startup workflows.</p></div>
-        </div>
-        <div class="why-point">
-          <div class="mark">03</div>
-          <div><h4>Founder-led strategic guidance</h4><p>Direct access to decision-makers, not a rotating account-manager queue.</p></div>
-        </div>
-        <div class="why-point">
-          <div class="mark">04</div>
-          <div><h4>Local understanding, scalable systems</h4><p>Built for West Bengal &amp; Tripura businesses, engineered to scale beyond them.</p></div>
+      </div>
+      <div class="about-content">
+        <span class="section-eyebrow">About Us</span>
+        <h2>Dhubulia's Most Trusted Second-Hand Vehicle Dealer</h2>
+        <p>At Bike & Scooter — DS Automobiles Dealer, we believe everyone deserves reliable, affordable personal transport. Since our founding, we've been helping families, students, and professionals across Dhubulia and nearby areas find the perfect pre-owned bike or scooter.</p>
+        <p>Located conveniently on NH 12, Dhubulia, we stock a wide range of verified bikes and scooties from trusted brands. Our team personally inspects each vehicle for engine health, body condition, and proper documentation before it reaches our showroom floor.</p>
+        <p>We're not just selling vehicles — we handle RC transfer, insurance renewal, and finance paperwork so your purchase is smooth from first inquiry to final handover.</p>
+        <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+          <a href="inventory.html" class="btn btn-primary">Browse Stock →</a>
         </div>
       </div>
     </div>
-    <div class="why-card">
-      <span class="quote-mark">"</span>
-      <p>We built Prodiga because growing businesses kept hiring a marketer, a developer and a course platform separately — and nothing connected. Here, your website, automation and growth strategy come from the same team.</p>
-      <div class="who">P K Sarkar<span>Founder, AI Specialist — Prodiga AI Infinity Ventures</span></div>
-    </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process-strip">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">How we work</span>
-      <h2>From first call to a live growth system</h2>
+<!-- ═══════════════ FEATURED BIKES ═══════════════ -->
+<section id="inventory">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Available Stock</span>
+      <h2>Featured Bikes & Scooties</h2>
+      <p>Handpicked vehicles — verified, road-ready, and fairly priced</p>
+      <div class="divider"></div>
     </div>
-    <div class="process">
-      <div class="p-step"><span class="pn">01</span><h4>Discovery Call</h4><p>Understand your business, goals and current bottlenecks.</p></div>
-      <div class="p-step"><span class="pn">02</span><h4>Audit &amp; Strategy</h4><p>We map what's missing and what will move the needle fastest.</p></div>
-      <div class="p-step"><span class="pn">03</span><h4>Proposal &amp; Roadmap</h4><p>Clear scope, pricing and timeline — no surprises.</p></div>
-      <div class="p-step"><span class="pn">04</span><h4>Build &amp; Launch</h4><p>Website, automation or software, built and shipped in phases.</p></div>
-      <div class="p-step"><span class="pn">05</span><h4>Optimize &amp; Scale</h4><p>Ongoing support to improve performance as you grow.</p></div>
-    </div>
-  </div>
-</section>
+    <div class="bikes-grid">
 
-<!-- MEMBERSHIP HIGHLIGHT -->
-<section id="membership">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Prodiga AI Online Course</span>
-      <h2>Learn the systems we build for clients</h2>
-      <p>Three membership tiers designed for different stages of AI &amp; growth learning.</p>
-    </div>
-    <div class="membership">
-      <div class="m-card">
-        <h4>Silver</h4>
-        <h3>Getting Started</h3>
-        <p class="tagline">For beginners learning AI &amp; automation basics.</p>
-        <ul><li>Foundational AI training</li><li>Community access</li><li>Monthly live sessions</li></ul>
-        <a href="course.html" class="btn btn-secondary dark">View Details</a>
+      <div class="bike-card" data-type="bike">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="95" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M25 44 L45 22 L73 22 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M47 22 L52 44 L68 44 L73 22" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+              <path d="M68 44 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M52 44 L25 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">Hero Splendor Plus</div>
+          </div>
+          <span class="bike-badge">Hot Deal</span>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">Hero Splendor Plus</div>
+          <div class="bike-meta">2021 Model · 18,400 km · Petrol</div>
+          <div class="bike-price">₹38,000 <span class="orig">₹44,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20Hero%20Splendor%20Plus%202021." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
       </div>
-      <div class="m-card featured">
-        <h4>Gold</h4>
-        <h3>Most Popular</h3>
-        <p class="tagline">For business owners ready to implement.</p>
-        <ul><li>Everything in Silver</li><li>Hands-on automation templates</li><li>Priority Q&amp;A access</li></ul>
-        <a href="course.html" class="btn btn-primary">View Details</a>
+
+      <div class="bike-card" data-type="scooter">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="98" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M20 48 L35 30 L85 30 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M35 30 L55 30 L55 48 L35 48" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.07)"/>
+              <path d="M55 48 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M35 48 L20 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="60" y="22" width="30" height="10" rx="3" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(255,255,255,0.05)"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">Honda Activa 6G</div>
+          </div>
+          <span class="bike-badge">Best Seller</span>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">Honda Activa 6G</div>
+          <div class="bike-meta">2022 Model · 11,200 km · Petrol</div>
+          <div class="bike-price">₹62,000 <span class="orig">₹70,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20Honda%20Activa%206G%202022." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
       </div>
-      <div class="m-card">
-        <h4>Diamond</h4>
-        <h3>Full Mentorship</h3>
-        <p class="tagline">For founders who want direct guidance.</p>
-        <ul><li>Everything in Gold</li><li>1-on-1 mentorship calls</li><li>Done-with-you implementation</li></ul>
-        <a href="course.html" class="btn btn-secondary dark">View Details</a>
+
+      <div class="bike-card" data-type="bike">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="95" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M25 44 L45 22 L73 22 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M47 22 L52 44 L68 44 L73 22" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+              <path d="M68 44 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M52 44 L25 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">Bajaj Pulsar 150</div>
+          </div>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">Bajaj Pulsar 150</div>
+          <div class="bike-meta">2020 Model · 24,600 km · Petrol</div>
+          <div class="bike-price">₹52,000 <span class="orig">₹58,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20Bajaj%20Pulsar%20150%202020." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bike-card" data-type="scooter">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="98" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M20 48 L35 30 L85 30 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M35 30 L55 30 L55 48 L35 48" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.07)"/>
+              <path d="M55 48 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="60" y="22" width="30" height="10" rx="3" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(255,255,255,0.05)"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">TVS Jupiter</div>
+          </div>
+          <span class="bike-badge">New Arrival</span>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">TVS Jupiter 125</div>
+          <div class="bike-meta">2023 Model · 7,800 km · Petrol</div>
+          <div class="bike-price">₹68,000 <span class="orig">₹76,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20TVS%20Jupiter%20125%202023." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bike-card" data-type="bike">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="95" cy="60" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M25 44 L45 22 L73 22 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M47 22 L52 44 L68 44 L73 22" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+              <path d="M68 44 L93 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M52 44 L25 44" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">Honda CB Shine</div>
+          </div>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">Honda CB Shine</div>
+          <div class="bike-meta">2021 Model · 20,100 km · Petrol</div>
+          <div class="bike-price">₹44,000 <span class="orig">₹50,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20Honda%20CB%20Shine%202021." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bike-card" data-type="scooter">
+        <div class="bike-card-image">
+          <div class="bike-placeholder">
+            <svg width="80" height="60" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <circle cx="98" cy="62" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"/>
+              <path d="M20 48 L35 30 L85 30 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M35 30 L55 30 L55 48 L35 48" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="rgba(255,255,255,0.07)"/>
+              <path d="M55 48 L98 48" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="60" y="22" width="30" height="10" rx="3" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(255,255,255,0.05)"/>
+            </svg>
+            <div style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.35)">Suzuki Access 125</div>
+          </div>
+        </div>
+        <div class="bike-card-body">
+          <div class="bike-name">Suzuki Access 125</div>
+          <div class="bike-meta">2022 Model · 14,300 km · Petrol</div>
+          <div class="bike-price">₹58,000 <span class="orig">₹65,000</span></div>
+          <div class="bike-actions">
+            <a href="tel:+919933911941" class="btn btn-call btn-sm">📞 Call</a>
+            <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20the%20Suzuki%20Access%20125%202022." target="_blank" class="btn btn-whatsapp btn-sm">💬 Enquire</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="inventory.html" class="btn btn-primary" style="font-size:1rem; padding:16px 36px;">View Full Inventory →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Why Choose Us</span>
+      <h2>The Bike & Scooter Difference</h2>
+      <p>We do things others don't — so your purchase is worry-free</p>
+      <div class="divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <h3>Full Vehicle Inspection</h3>
+        <p>Engine, chassis, electrical, and documents — every bike checked before it's listed for sale.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏦</div>
+        <h3>Easy Finance</h3>
+        <p>Low down payment, flexible EMI options. We help you get finance quickly with minimal paperwork.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📄</div>
+        <h3>RC & Insurance Help</h3>
+        <p>Full RC transfer assistance and insurance guidance included with every purchase.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛞</div>
+        <h3>Test Ride First</h3>
+        <p>Always test ride any bike before buying. No pressure, no rush — your comfort matters.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📍</div>
+        <h3>Local & Trusted</h3>
+        <p>Based in Dhubulia on NH 12. Walk in, call, or WhatsApp — we're always here for you.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>After-Sale Support</h3>
+        <p>Questions after purchase? Call us anytime. We stand behind every vehicle we sell.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="wrap">
-    <h2>Ready to build your AI-powered growth system?</h2>
-    <p>Start with a 45-minute 1-on-1 strategy call — walk away with a clear plan, even if you don't work with us.</p>
-    <div class="hero-ctas" style="justify-content:center;">
-      <a href="book-strategy-call.html" class="btn btn-primary">Book 45-Min Strategy Call — ₹999</a>
-      <a href="contact.html" class="btn btn-secondary dark">Get Proposal</a>
+<!-- ═══════════════ CUSTOMER REVIEWS ═══════════════ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Customer Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p>Real feedback from real buyers in Dhubulia and nearby areas</p>
+      <div class="divider"></div>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Bought a Honda Activa from here last month. The bike was in excellent condition, price was very fair, and they handled all the RC transfer paperwork. Highly recommended!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">R</div>
+          <div class="reviewer-info">
+            <div class="name">Rajesh Mondal</div>
+            <div class="sub">Dhubulia, WB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Very trustworthy dealer. I was worried about buying a used bike but they showed me the full service history and let me test ride it. Finance process was also smooth."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">S</div>
+          <div class="reviewer-info">
+            <div class="name">Supriya Das</div>
+            <div class="sub">Krishnanagar, WB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Got a Splendor Plus at a great price. The owner is very honest and helpful. No hidden charges, all documents were clear. Will buy again from here!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">A</div>
+          <div class="reviewer-info">
+            <div class="name">Amit Biswas</div>
+            <div class="sub">Dhubulia, WB</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════ CONTACT CTA BAND ═══════════════ -->
+<div class="contact-band">
+  <div class="container">
+    <div class="contact-band-inner">
+      <div>
+        <h2>Ready to Find Your Bike?</h2>
+        <p>Call us or WhatsApp for current stock, prices, and test ride bookings</p>
+      </div>
+      <div class="contact-band-btns">
+        <a href="tel:+919933911941" class="btn btn-call">📞 +91 99339 11941</a>
+        <a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20interested%20in%20a%20bike%2Fscooter." target="_blank" class="btn btn-whatsapp">💬 WhatsApp Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTACT INFO ═══════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Contact Us</span>
+      <h2>Visit Us or Get in Touch</h2>
+      <p>We're open 6 days a week. Drop in, call, or send a WhatsApp</p>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-info-icon phone">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+919933911941">+91 99339 11941</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon wa">💬</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/919933911941" target="_blank">+91 99339 11941</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon map">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>DHUBULIA NH 12, Dhubulia,<br />West Bengal 741139</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:rgba(245,158,11,0.1);color:#D97706">🕐</div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Mon–Sat: 9:00 AM – 7:00 PM<br />Sunday: 10:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Dhubulia+NH+12+West+Bengal+741139&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Send an Enquiry</h3>
+        <div id="formSuccess" class="form-success">
+          <h3>✅ Message Sent!</h3>
+          <p>We'll get back to you on WhatsApp or phone within a few hours.</p>
+        </div>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 00000 00000" required />
+          </div>
+          <div class="form-group">
+            <label for="interest">Interested In</label>
+            <select id="interest">
+              <option value="">Select vehicle type</option>
+              <option>Bike (100cc–125cc)</option>
+              <option>Bike (150cc+)</option>
+              <option>Scooter / Scooty</option>
+              <option>Not sure – need advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget">
+              <option value="">Select budget</option>
+              <option>Under ₹30,000</option>
+              <option>₹30,000 – ₹50,000</option>
+              <option>₹50,000 – ₹75,000</option>
+              <option>₹75,000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" placeholder="Any specific model or requirements?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GOOGLE MAP FULL WIDTH ═══════════════ -->
+<section class="map-section">
+  <iframe
+    src="https://maps.google.com/maps?q=Dhubulia+NH+12+West+Bengal+741139&t=&z=14&ie=UTF8&iwloc=&output=embed"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="DS Automobiles Dhubulia">
+  </iframe>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <div class="wrap">
-    <div class="f-grid">
-      <div class="f-brand">
-        <a href="/" class="brand">
-          <img src="assets/logo.png" alt="Prodiga logo" style="height:38px;">
-          <span>Prodiga AI Infinity</span>
-        </a>
-        <p>AI marketing, automation, software and learning ecosystems for growth-focused businesses across West Bengal &amp; Tripura.</p>
-        <p class="powered">Powered by Skybull E Learning (OPC) Pvt. Ltd.</p>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">🏍️ BIKE & SCOOTER</div>
+        <div class="brand-sub">DS Automobiles Dealer</div>
+        <p>Dhubulia's most trusted second-hand bike and scooter showroom. Quality vehicles, fair prices, complete documentation support.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/919933911941" target="_blank" class="social-btn" aria-label="WhatsApp">💬</a>
+          <a href="tel:+919933911941" class="social-btn" aria-label="Call">📞</a>
+          <a href="https://maps.google.com/?q=Dhubulia+NH12+WB" target="_blank" class="social-btn" aria-label="Map">📍</a>
+        </div>
       </div>
-      <div>
-        <h5>Services</h5>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
         <ul>
-          <li><a href="services.html#marketing">AI Marketing &amp; Automation</a></li>
-          <li><a href="services.html#software">App &amp; Software</a></li>
-          <li><a href="course.html">AI Online Course</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <h5>Industries</h5>
+      <div class="footer-col">
+        <h4>Contact</h4>
         <ul>
-          <li><a href="industries.html">Real Estate</a></li>
-          <li><a href="industries.html">Healthcare</a></li>
-          <li><a href="industries.html">Coaches &amp; Trainers</a></li>
-          <li><a href="industries.html">Startup Founders</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li>Dhubulia, 6 No. Nadia, West Bengal – 741139</li>
-          <li>Mani Casadona, Newtown, Kolkata – 700160</li>
-          <li><a href="tel:+916294645885">6294645885</a> / <a href="tel:+919903022477">9903022477</a></li>
-          <li><a href="mailto:info@prodigainfinity.com">info@prodigainfinity.com</a></li>
+          <li><a href="tel:+919933911941">📞 +91 99339 11941</a></li>
+          <li><a href="https://wa.me/919933911941" target="_blank">💬 WhatsApp Us</a></li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.875rem">📍 DHUBULIA NH 12,<br>&nbsp;&nbsp;&nbsp;&nbsp;West Bengal 741139</li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.875rem">🕐 Mon–Sat: 9AM – 7PM</li>
         </ul>
       </div>
     </div>
-    <div class="f-bottom">
-      <span>© 2026 Prodiga AI Infinity Ventures. All rights reserved.</span>
-      <span>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms</a>
-        <a href="refund.html">Refund Policy</a>
-      </span>
+    <div class="footer-bottom">
+      <span>© 2025 Bike & Scooter – DS Automobiles Dealer. All rights reserved.</span>
+      <span>DHUBULIA NH 12, West Bengal 741139</span>
     </div>
   </div>
 </footer>
 
-<!-- STICKY MOBILE CTA -->
-<div class="sticky-cta">
-  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
-</div>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuBackdrop = document.getElementById('menuBackdrop');
-  function closeMenu(){
-    mobileMenu.classList.remove('open');
-    menuBackdrop.classList.remove('open');
-  }
-  navToggle.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    menuBackdrop.classList.add('open');
-  });
-  menuBackdrop.addEventListener('click', closeMenu);
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-</script>
-
-<script>document.querySelectorAll(".nav-more-btn").forEach(b=>b.addEventListener("click",function(){this.closest(".nav-more").classList.toggle("active")}));</script><!-- ============================================================
-     PRODIGA AI CHATBOT WIDGET (floating, bottom-right)
-     ============================================================ -->
-<style>
-  #chat-bubble{
-    position:fixed;bottom:26px;right:26px;z-index:2000;
-    width:62px;height:62px;border-radius:50%;
-    background:linear-gradient(120deg,#FFC928 0%,#F28C00 100%);
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;border:none;
-    box-shadow:0 10px 30px rgba(242,140,0,0.45);
-    transition:transform .25s ease;
-  }
-  #chat-bubble:hover{transform:scale(1.08);}
-  #chat-bubble svg{width:28px;height:28px;}
-  #chat-bubble .bubble-badge{
-    position:absolute;top:-4px;right:-4px;
-    width:18px;height:18px;border-radius:50%;
-    background:#1FB05A;border:2px solid #FFFDF8;
-  }
-  #chat-window{
-    position:fixed;bottom:26px;right:26px;z-index:2001;
-    width:370px;max-width:92vw;height:540px;max-height:80vh;
-    background:#fff;border-radius:18px;
-    box-shadow:0 30px 70px rgba(10,31,68,0.35);
-    display:none;flex-direction:column;overflow:hidden;
-    border:1px solid #EEE3CC;font-family:'Manrope','Inter',sans-serif;
-  }
-  #chat-window.open{display:flex;}
-  .chat-header{
-    background:linear-gradient(120deg,#0A1F44 0%,#15305f 60%,#1a4a8a 100%);
-    padding:16px 18px;display:flex;align-items:center;gap:12px;
-    color:#fff;flex-shrink:0;
-  }
-  .chat-header .avatar{
-    width:38px;height:38px;border-radius:50%;
-    background:linear-gradient(120px,#FFC928 0%,#F28C00 100%);
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:#071833;font-size:14px;flex-shrink:0;
-  }
-  .chat-header .who{flex:1;}
-  .chat-header .who strong{display:block;font-size:14.5px;font-weight:600;}
-  .chat-header .who span{display:flex;align-items:center;gap:6px;font-size:11.5px;color:rgba(255,253,248,0.7);margin-top:2px;}
-  .chat-header .who .dot{width:6px;height:6px;border-radius:50%;background:#1FB05A;}
-  .chat-close{background:none;border:none;color:rgba(255,253,248,0.8);font-size:20px;cursor:pointer;padding:4px 8px;line-height:1;}
-  .chat-close:hover{color:#fff;}
-  .chat-body{
-    flex:1;overflow-y:auto;padding:18px;
-    display:flex;flex-direction:column;gap:14px;
-    background:#FBF8F0;
-  }
-  .cmsg{max-width:84%;font-size:14px;line-height:1.5;padding:11px 14px;border-radius:14px;word-wrap:break-word;}
-  .cmsg.bot{background:#fff;color:#111827;border:1px solid #EEE3CC;align-self:flex-start;border-bottom-left-radius:4px;}
-  .cmsg.user{background:linear-gradient(120deg,#FFC928 0%,#F28C00 100%);color:#071833;font-weight:600;align-self:flex-end;border-bottom-right-radius:4px;}
-  .cmsg.typing{display:flex;gap:4px;align-items:center;padding:13px 16px;}
-  .cmsg.typing span{width:6px;height:6px;border-radius:50%;background:#5B6475;opacity:.5;animation:cblink 1.2s infinite;}
-  .cmsg.typing span:nth-child(2){animation-delay:.2s;}
-  .cmsg.typing span:nth-child(3){animation-delay:.4s;}
-  @keyframes cblink{0%,80%,100%{opacity:.3;}40%{opacity:1;}}
-  .chat-suggest{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px;flex-shrink:0;background:#FBF8F0;}
-  .chat-suggest button{font-size:12px;font-weight:600;color:#1E4FA8;background:#fff;border:1px solid #E0D8C0;border-radius:999px;padding:7px 13px;cursor:pointer;transition:.2s;}
-  .chat-suggest button:hover{background:#FFF6E0;border-color:#F28C00;}
-  .chat-input-row{display:flex;gap:8px;padding:14px;border-top:1px solid #EEE3CC;background:#fff;flex-shrink:0;}
-  .chat-input-row input{flex:1;border:1px solid #E0D8C0;border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit;outline:none;}
-  .chat-input-row input:focus{border-color:#F28C00;}
-  .chat-send{width:42px;height:42px;border-radius:50%;border:none;flex-shrink:0;background:linear-gradient(120deg,#FFC928 0%,#F28C00 100%);color:#071833;display:flex;align-items:center;justify-content:center;cursor:pointer;}
-  .chat-send:disabled{opacity:.5;cursor:not-allowed;}
-  .chat-send svg{width:18px;height:18px;}
-  @media(max-width:600px){#chat-window{width:94vw;right:3vw;bottom:14px;height:74vh;}#chat-bubble{bottom:16px;right:16px;}}
-</style>
-
-<button id="chat-bubble" aria-label="Open chat">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 3C7.03 3 3 6.58 3 11c0 2.39 1.19 4.53 3.08 6.02-.07.78-.36 2.2-1.28 3.6a.5.5 0 00.58.75c2.1-.7 3.46-1.58 4.13-2.1.8.16 1.64.24 2.49.24 4.97 0 9-3.58 9-8s-4.03-8-9-8z" fill="#0A1F44"/>
+<!-- ═══════════════ FLOATING BUTTONS ═══════════════ -->
+<a href="https://wa.me/919933911941?text=Hi%2C%20I%27m%20looking%20for%20a%20second-hand%20bike%20or%20scooter." target="_blank" class="floating-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
-  <span class="bubble-badge"></span>
-</button>
+</a>
 
-<div id="chat-window">
-  <div class="chat-header">
-    <div class="avatar">PA</div>
-    <div class="who">
-      <strong>Prodiga AI Assistant</strong>
-      <span><span class="dot"></span>Online now</span>
-    </div>
-    <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="cmsg bot">Hi! 👋 I'm the Prodiga AI Assistant. Ask me about our services, pricing, or how we can help your business grow with AI.</div>
-  </div>
-  <div class="chat-suggest" id="chatSuggest">
-    <button onclick="prodChatSend('What services do you offer?')">Services?</button>
-    <button onclick="prodChatSend('Pricing?')">Pricing?</button>
-    <button onclick="prodChatSend('Book a call')">Book a call</button>
-  </div>
-  <div class="chat-input-row">
-    <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
-    <button class="chat-send" id="chatSend" aria-label="Send">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M3 11l18-8-8 18-2-8-8-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-</div>
+<a href="tel:+919933911941" class="floating-call" aria-label="Call Now">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+</a>
 
-<script>
-(function(){
-  const SYSTEM_PROMPT=`You are the friendly, knowledgeable AI sales assistant for Prodiga AI Infinity Ventures, a company based in West Bengal, India (offices in Dhubulia, Nadia and Mani Casadona, Newtown, Kolkata), powered by Skybull E Learning (OPC) Pvt. Ltd.\n\nCOMPANY OVERVIEW:\nProdiga has three business verticals:\n1. AI Marketing & Automation — content creation, campaigns, lead generation funnels, marketing automation, AI chatbots & voice agents, CRM/WhatsApp automation.\n2. Prodiga App & Software — web design & development, full-stack app development, web & mobile apps, MVP development for startups, custom SaaS & admin dashboards.\n3. Prodiga AI Online Course — Silver (₹25,000/year), Gold (₹50,000/year), and Diamond (₹1,00,000/year) memberships teaching practical AI & automation skills, with community access and mentorship.\n\nINDUSTRIES SERVED: Real Estate, Healthcare, Coaches & Trainers, Startup Founders — primarily across West Bengal & Tripura, but open to clients anywhere.\n\nKEY OFFER: A 45-minute 1-on-1 Strategy Call for ₹999 — visitors walk away with a clear growth plan even if they don't become clients. Contact: info@prodigainfinity.com, phone 6294645885 / 9903022477.\n\nYOUR STYLE:\n- Be warm, concise, and helpful — like a sharp sales rep who genuinely wants to help, not pushy.\n- Keep replies SHORT: 2-4 sentences max, chat-style, no long paragraphs.\n- If asked about specific pricing for marketing/software projects (not the course), say pricing depends on scope and recommend booking the ₹999 strategy call for an exact quote.\n- If asked something totally unrelated to business/Prodiga, answer briefly and helpfully, then gently steer back.\n- Always sound like a real human teammate, not a generic AI. Never mention you are Claude or an AI model — you are "the Prodiga AI Assistant."\n- You can reply in Bengali if the user writes in Bengali, otherwise reply in English.\n- End with a soft next step when relevant (e.g. suggest the strategy call) but don't do this in every single message — only when it feels natural.`;
-  const bubble=document.getElementById('chat-bubble');
-  const win=document.getElementById('chat-window');
-  const closeBtn=document.getElementById('chatClose');
-  const body=document.getElementById('chatBody');
-  const input=document.getElementById('chatInput');
-  const send=document.getElementById('chatSend');
-  const suggest=document.getElementById('chatSuggest');
-  let history=[];let busy=false;
-  function openChat(){win.classList.add('open');bubble.style.display='none';input.focus();}
-  function closeChat(){win.classList.remove('open');bubble.style.display='flex';}
-  bubble.addEventListener('click',openChat);
-  closeBtn.addEventListener('click',closeChat);
-  function appendMsg(text,who){
-    const d=document.createElement('div');
-    d.className='cmsg '+who;d.textContent=text;
-    body.appendChild(d);body.scrollTop=body.scrollHeight;return d;
-  }
-  function showTyping(){
-    const d=document.createElement('div');
-    d.className='cmsg bot typing';d.id='prodTyping';
-    d.innerHTML='<span></span><span></span><span></span>';
-    body.appendChild(d);body.scrollTop=body.scrollHeight;
-  }
-  function removeTyping(){const t=document.getElementById('prodTyping');if(t)t.remove();}
-  async function doSend(text){
-    if(!text||busy)return;
-    busy=true;send.disabled=true;suggest.style.display='none';
-    appendMsg(text,'user');
-    history.push({role:'user',content:text});
-    input.value='';showTyping();
-    try{
-      const res=await fetch('https://prodiga-chat-api.vercel.app/api/chat',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYSTEM_PROMPT,messages:history})
-      });
-      const data=await res.json();
-      removeTyping();
-      let reply="Sorry, I couldn't get a response right now — please try again or book a strategy call directly!";
-      if(data&&data.reply){reply=data.reply;}
-      appendMsg(reply,'bot');
-      history.push({role:'assistant',content:reply});
-    }catch(e){removeTyping();appendMsg('Connection hiccup — please try again in a moment.','bot');}
-    busy=false;send.disabled=false;input.focus();
-  }
-  window.prodChatSend=function(t){input.value=t;doSend(t);};
-  send.addEventListener('click',()=>doSend(input.value.trim()));
-  input.addEventListener('keydown',e=>{if(e.key==='Enter')doSend(input.value.trim());});
-  // Auto-open if chatbot-demo page
-  if(window.location.pathname.includes('chatbot-demo')){setTimeout(openChat,600);}
-})();
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>

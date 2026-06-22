@@ -534,7 +534,7 @@
       const res=await fetch('https://prodiga-chat-api.vercel.app/api/chat',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYSTEM_PROMPT,messages:history})
+        body:JSON.stringify({messages:history,system:SYSTEM_PROMPT})
       });
       const data=await res.json();
       removeTyping();
