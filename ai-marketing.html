@@ -33,7 +33,14 @@
   .nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;transition:.2s}
   .nav-links a:hover{color:#fff;background:rgba(255,201,40,0.12)}
   .nav-links a.active{color:var(--gold)}
-  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy)!important;font-weight:600!important;border-radius:8px!important}
+  .nav-cta{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--navy)!important;font-weight:600!important;border-radius:8px!important;padding:8px 16px!important}
+.nav-more{position:relative}
+.nav-more-btn{color:rgba(255,255,255,0.8);font-size:13px;font-weight:500;padding:6px 12px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:4px;background:none;border:none;transition:.2s}
+.nav-more-btn:hover{color:#fff;background:rgba(255,201,40,0.12)}
+.nav-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--navy);border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:180px;display:none;flex-direction:column;gap:2px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.nav-more:hover .nav-dropdown{display:flex}
+.nav-dropdown a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px;transition:.2s}
+.nav-dropdown a:hover{color:var(--gold);background:rgba(255,201,40,0.08)}
   .nav-cta:hover{opacity:.9;background:linear-gradient(135deg,var(--gold),var(--orange))!important}
   .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
   .nav-toggle span{width:24px;height:2px;background:var(--gold);border-radius:2px;transition:.3s}
@@ -241,7 +248,7 @@
       <a href="ai-marketing.html" class="active">AI Marketing</a>
       <a href="app-software.html">App & Software</a>
       <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
+      <div class="nav-more"><button class="nav-more-btn">More ▾</button><div class="nav-dropdown"><a href="faq.html">❓ FAQ</a><a href="case-studies.html">📊 Case Studies</a><a href="chatbot-demo.html">🤖 Chatbot Demo</a><a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
       <a href="book-strategy-call.html" class="nav-cta">Book Strategy Call — ₹999</a>
     </div>
     <div class="nav-toggle" onclick="toggleMenu()">
@@ -256,7 +263,7 @@
   <a href="ai-marketing.html">AI Marketing</a>
   <a href="app-software.html">App & Software</a>
   <a href="pricing.html">Pricing</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-more"><button class="nav-more-btn">More ▾</button><div class="nav-dropdown"><a href="faq.html">❓ FAQ</a><a href="case-studies.html">📊 Case Studies</a><a href="chatbot-demo.html">🤖 Chatbot Demo</a><a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>
   <a href="book-strategy-call.html" style="color:var(--gold);font-weight:700">Book Strategy Call — ₹999</a>
 </div>
 
@@ -956,7 +963,7 @@
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><div class="nav-more"><button class="nav-more-btn">More ▾</button><div class="nav-dropdown"><a href="faq.html">❓ FAQ</a><a href="case-studies.html">📊 Case Studies</a><a href="chatbot-demo.html">🤖 Chatbot Demo</a><a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a></li>
           <li><a href="book-strategy-call.html">Book Strategy Call</a></li>
         </ul>
       </div>

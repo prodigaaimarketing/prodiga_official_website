@@ -11,7 +11,7 @@ warning: in the working copy of 'index.html', LF will be replaced by CRLF the ne
 [32m+[m[32m      <a href="ai-marketing.html">AI Marketing</a>[m
 [32m+[m[32m      <a href="app-software.html">App & Software</a>[m
        <a href="pricing.html">Pricing</a>[m
-       <a href="contact.html">Contact</a>[m
+       <div class="nav-more"><button class="nav-more-btn">More ▾</button><div class="nav-dropdown"><a href="faq.html">❓ FAQ</a><a href="case-studies.html">📊 Case Studies</a><a href="chatbot-demo.html">🤖 Chatbot Demo</a><a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>[m
      </div>[m
 [36m@@ -463,7 +464,8 @@[m
    <a href="#home">Home</a>[m
@@ -21,7 +21,7 @@ warning: in the working copy of 'index.html', LF will be replaced by CRLF the ne
 [32m+[m[32m  <a href="ai-marketing.html">AI Marketing</a>[m
 [32m+[m[32m  <a href="app-software.html">App & Software</a>[m
    <a href="pricing.html">Pricing</a>[m
-   <a href="contact.html">Contact</a>[m
+   <div class="nav-more"><button class="nav-more-btn">More ▾</button><div class="nav-dropdown"><a href="faq.html">❓ FAQ</a><a href="case-studies.html">📊 Case Studies</a><a href="chatbot-demo.html">🤖 Chatbot Demo</a><a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html">📲 WhatsApp Demo</a></div></div><a href="contact.html">Contact</a>[m
    <a href="contact.html" class="btn btn-secondary">Get Proposal</a>[m
 [36m@@ -526,7 +528,7 @@[m
            <li>AI chatbot &amp; voice agent</li>[m
