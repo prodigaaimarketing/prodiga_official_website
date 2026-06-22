@@ -761,5 +761,7 @@
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 
-</body>
+<script>document.querySelectorAll(".nav-more-btn").forEach(b=>b.addEventListener("click",function(){this.closest(".nav-more").classList.toggle("active")}));</script></body>
 </html>
+
+
