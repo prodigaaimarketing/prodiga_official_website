@@ -708,7 +708,7 @@
       const data=await res.json();
       removeTyping();
       let reply="Sorry, I couldn't get a response right now — please try again or book a strategy call directly!";
-      if(data&&data.content){const b=data.content.find(x=>x.type==='text');if(b)reply=b.text;}
+      if(data&&data.reply){const b=data.reply.find(x=>x.type==='text');if(b)reply=b.text;}
       appendMsg(reply,'bot');
       history.push({role:'assistant',content:reply});
     }catch(e){removeTyping();appendMsg('Connection hiccup — please try again in a moment.','bot');}
