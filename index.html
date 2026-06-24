@@ -456,10 +456,19 @@
   .mobile-menu .btn{margin-top:10px;}
   .menu-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050;}
   .menu-backdrop.open{display:block;}
+
+  /* SOCIAL ICONS */
+  .social-links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+  .social-links a{
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+    transition:.25s;text-decoration:none;font-size:17px;
+  }
+  .social-links a:hover{background:rgba(255,201,40,0.18);border-color:rgba(255,201,40,0.5);transform:translateY(-2px);}
 </style>
 </head>
 <body>
-<div id="site-navbar"></div>
 
 <div id="site-navbar"></div>
 
@@ -692,6 +701,13 @@
         </a>
         <p>AI marketing, automation, software and learning ecosystems for growth-focused businesses across West Bengal &amp; Tripura.</p>
         <p class="powered">Powered by Skybull E Learning (OPC) Pvt. Ltd.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/careprodigaaimarketing/" target="_blank" rel="noopener" title="Instagram">📸</a>
+          <a href="https://www.youtube.com/@prodigaai" target="_blank" rel="noopener" title="YouTube">▶️</a>
+          <a href="https://www.linkedin.com/in/prodiga-ai-ventures-b72905417/" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+          <a href="#" title="Facebook (coming soon)">📘</a>
+          <a href="https://wa.me/916294645885" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+        </div>
       </div>
       <div>
         <h5>Services</h5>
