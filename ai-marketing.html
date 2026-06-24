@@ -233,6 +233,7 @@
 </style>
 </head>
 <body>
+<div id="site-navbar"></div>
 
 <!-- NAV -->
 <nav>
@@ -256,14 +257,7 @@
     </div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="ai-marketing.html">AI Marketing</a>
-  <a href="app-software.html">App & Software</a>
-  <a href="pricing.html">Pricing</a>
-  <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" style="color:rgba(255,255,255,0.8);font-size:13px;background:none;border:none;cursor:pointer;padding:6px 12px">More ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="contact.html" style="margin-left:-8px">Contact</a>
+</div><a href="contact.html" style="margin-left:-8px">Contact</a>
   <a href="book-strategy-call.html" style="color:var(--gold);font-weight:700">Book Strategy Call — ₹999</a>
 </div>
 
@@ -987,26 +981,7 @@
   </div>
 </footer>
 
-<script>
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
-  });
-});
-// Scroll animation
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
-},{threshold:0.1});
-document.querySelectorAll('.svc-card,.result-card,.testi-card,.case-card,.ind-card').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s ease,transform .5s ease';
-  observer.observe(el);
-});
-</script>
+
 <script>document.querySelectorAll(".nav-more-btn").forEach(b=>b.addEventListener("click",function(){this.closest(".nav-more").classList.toggle("active")}));</script><!-- ============================================================
      PRODIGA AI CHATBOT WIDGET (floating, bottom-right)
      ============================================================ -->
@@ -1166,6 +1141,7 @@ document.querySelectorAll('.svc-card,.result-card,.testi-card,.case-card,.ind-ca
 })();
 </script>
 
+<script src="navbar-loader.js"></script>
 </body>
 </html>
 

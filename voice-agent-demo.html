@@ -247,58 +247,12 @@ footer a:hover{color:var(--gold);}
 </style>
 </head>
 <body>
+<div id="site-navbar"></div>
 
-<header>
-  <nav class="nav">
-    <a href="/" class="brand">
-      <img src="assets/logo.png" alt="Prodiga AI Infinity Ventures logo">
-      <span>Prodiga AI Infinity</span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html#home">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="ai-marketing.html">AI Marketing</a>
-      <a href="app-software.html">App & Software</a>
-      <a href="industries.html">Industries</a>
-      <a href="course.html">Course</a>
-      <div class="nav-more" style="position:relative">
-        <button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'">More ▾</button>
-        <div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
-          <a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a>
-          <a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a>
-          <a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a>
-          <a href="voice-agent-demo.html" style="display:block;color:#FFC928;text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a>
-          <a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a>
-        </div>
-      </div>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
-  </nav>
-</header>
 
-<div class="menu-backdrop" id="menuBackdrop"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#home">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="ai-marketing.html">AI Marketing</a>
-  <a href="app-software.html">App & Software</a>
-  <a href="industries.html">Industries</a>
-  <a href="course.html">Course</a>
-  <a href="faq.html">FAQ</a>
-  <a href="case-studies.html">Case Studies</a>
-  <a href="chatbot-demo.html">Chatbot Demo</a>
-  <a href="voice-agent-demo.html">Voice Agent Demo</a>
-  <a href="whatsapp-demo.html">WhatsApp Demo</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
-  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
-</div>
+
+
+
 
 <!-- HERO -->
 <section class="hero">
@@ -603,135 +557,8 @@ footer a:hover{color:var(--gold);}
   </div>
 </footer>
 
-<script>
-// Mobile nav
-(function(){
-  const toggle=document.getElementById('navToggle');
-  const menu=document.getElementById('mobileMenu');
-  const backdrop=document.getElementById('menuBackdrop');
-  function open(){menu.classList.add('open');backdrop.classList.add('open');}
-  function close(){menu.classList.remove('open');backdrop.classList.remove('open');}
-  toggle.addEventListener('click',open);
-  backdrop.addEventListener('click',close);
-})();
 
-// Voice Agent Demo
-(function(){
-  const SYSTEM=`You are Prodiga's AI Voice Agent — a professional, warm, and efficient phone AI that helps callers get what they need fast.\n\nYou represent Prodiga AI Infinity Ventures, based in West Bengal, India. Your job is to sound like a real, helpful phone agent — not a chatbot.\n\nYour personality:\n- Warm but efficient — like a well-trained receptionist who respects the caller's time\n- Speak in short, conversational sentences (2-3 sentences max per turn)\n- Use natural spoken language — avoid bullet points or lists\n- If caller writes in Bengali, reply in Bengali\n- Never mention you are Claude or an AI model — you are "Prodiga's Voice Agent"\n\nWhat you handle:\n1. Appointment booking — for strategy calls (₹999, 45 minutes, with Prodiga's team)\n2. Service questions — AI Marketing & Automation, App & Software Development, AI Online Course (Silver ₹25k/yr, Gold ₹50k/yr, Diamond ₹1L/yr)\n3. Pricing questions — for projects, say pricing depends on scope and direct them to the ₹999 strategy call\n4. General questions about Prodiga — offices in Dhubulia, Nadia and Newtown Kolkata; contact info@prodigainfinity.com or 6294645885\n5. Industries served — Real Estate, Healthcare, Coaches & Trainers, Startups (mainly West Bengal & Tripura)\n\nFor bookings, say you'll connect them to the calendar link at prodigainfinity.com/book-strategy-call\n\nAlways guide the conversation toward a logical next step — usually the ₹999 strategy call. Keep it natural, never pushy.`;
 
-  const body=document.getElementById('vwBody');
-  const input=document.getElementById('vwInput');
-  const send=document.getElementById('vwSend');
-  const wave=document.getElementById('vwWave');
-  const status=document.getElementById('vwStatus');
-  const suggest=document.getElementById('vwSuggest');
-  let history=[];
-  let busy=false;
-
-  function appendMsg(text,who){
-    const d=document.createElement('div');
-    d.className='vmsg '+who;
-    d.textContent=text;
-    body.appendChild(d);
-    body.scrollTop=body.scrollHeight;
-    return d;
-  }
-
-  function showTyping(){
-    const d=document.createElement('div');
-    d.className='vmsg agent typing';
-    d.id='vwTyping';
-    d.innerHTML='<span></span><span></span><span></span>';
-    body.appendChild(d);
-    body.scrollTop=body.scrollHeight;
-  }
-
-  function removeTyping(){
-    const t=document.getElementById('vwTyping');
-    if(t)t.remove();
-  }
-
-  function setWave(mode){
-    wave.className='vw-waveform '+mode;
-    if(mode==='speaking'){
-      status.textContent='Agent is responding…';
-    } else if(mode==='listening'){
-      status.textContent='Agent is listening…';
-    } else {
-      status.textContent='Ready — type your message below';
-    }
-  }
-
-  async function doSend(text){
-    if(!text||busy)return;
-    busy=true;
-    send.disabled=true;
-    suggest.style.display='none';
-    appendMsg(text,'caller');
-    history.push({role:'user',content:text});
-    input.value='';
-    setWave('listening');
-    showTyping();
-
-    try{
-      const res=await fetch('https://prodiga-chat-api.vercel.app/api/chat',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({messages:history,system:SYSTEM})
-      });
-      const data=await res.json();
-      removeTyping();
-      setWave('speaking');
-      let reply="I'm sorry, I couldn't connect right now. Please call us directly at 6294645885 or visit prodigainfinity.com.";
-      if(data&&data.reply)reply=data.reply;
-      // Simulate voice "speaking" delay
-      await new Promise(r=>setTimeout(r,800));
-      appendMsg(reply,'agent');
-      history.push({role:'assistant',content:reply});
-      await new Promise(r=>setTimeout(r,1200));
-      setWave('idle');
-    } catch(e){
-      removeTyping();
-      setWave('idle');
-      appendMsg('Connection issue — please try again in a moment.','agent');
-    }
-    busy=false;
-    send.disabled=false;
-    input.focus();
-  }
-
-  window.voiceSend=function(t){input.value=t;doSend(t);};
-
-  send.addEventListener('click',()=>doSend(input.value.trim()));
-  input.addEventListener('keydown',e=>{if(e.key==='Enter')doSend(input.value.trim());});
-
-  window.handleMicClick=function(){
-    // Check for Web Speech API support
-    if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
-      alert('Your browser does not support microphone input. Please type your message instead.');
-      return;
-    }
-    const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-    const rec=new SpeechRecognition();
-    rec.lang='en-IN';
-    rec.interimResults=false;
-    const mic=document.getElementById('vwMic');
-    mic.classList.add('listening');
-    rec.start();
-    rec.onresult=function(e){
-      const transcript=e.results[0][0].transcript;
-      input.value=transcript;
-      mic.classList.remove('listening');
-      doSend(transcript);
-    };
-    rec.onerror=function(){
-      mic.classList.remove('listening');
-      alert('Could not capture audio. Please type your message.');
-    };
-    rec.onend=function(){mic.classList.remove('listening');};
-  };
-})();
-</script>
-
+<script src="navbar-loader.js"></script>
 </body>
 </html>
