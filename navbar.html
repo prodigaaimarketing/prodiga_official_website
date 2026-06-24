@@ -1,3 +1,101 @@
+<style>
+/* ── NAVBAR CSS ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,31,68,0.97); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,201,40,0.15);
+}
+.nav {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 24px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+.brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+.brand span { font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; }
+.nav-links {
+  display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.82); text-decoration: none;
+  font-size: 13px; font-weight: 500; padding: 6px 11px;
+  border-radius: 6px; transition: .2s; white-space: nowrap;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,201,40,0.12); }
+.nav-more { position: relative; }
+.nav-more-btn {
+  color: rgba(255,255,255,0.82); background: none; border: none;
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  padding: 6px 11px; border-radius: 6px; transition: .2s;
+  display: flex; align-items: center; gap: 3px;
+}
+.nav-more-btn:hover { color: #fff; background: rgba(255,201,40,0.12); }
+.nav-dropdown {
+  display: none; position: absolute; top: 44px; left: 0;
+  background: #0A1F44; border: 1px solid rgba(255,201,40,0.2);
+  border-radius: 10px; padding: 8px; min-width: 210px;
+  flex-direction: column; gap: 4px; z-index: 999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.nav-more.open .nav-dropdown { display: flex; }
+.nav-dropdown a {
+  display: block; color: rgba(255,255,255,0.8); text-decoration: none;
+  font-size: 13px; padding: 8px 12px; border-radius: 6px; transition: .2s;
+}
+.nav-dropdown a:hover { color: #FFC928; background: rgba(255,201,40,0.08); }
+.nav-cta { flex-shrink: 0; margin-left: 8px; }
+.btn {
+  display: inline-flex; align-items: center; text-decoration: none;
+  font-size: 13px; font-weight: 700; padding: 9px 18px;
+  border-radius: 8px; transition: .2s; cursor: pointer; border: none;
+}
+.btn-primary { background: linear-gradient(135deg,#FFC928,#F28C00); color: #0A1F44; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,201,40,0.35); }
+.btn-secondary { background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.25); }
+.nav-toggle {
+  display: none; background: none; border: none;
+  color: #FFC928; font-size: 22px; cursor: pointer; padding: 4px 8px;
+}
+.menu-backdrop {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 998;
+}
+.menu-backdrop.open { display: block; }
+.mobile-menu {
+  display: none; flex-direction: column; gap: 4px;
+  position: fixed; top: 68px; left: 0; right: 0;
+  background: #0A1F44; padding: 16px 20px 24px;
+  z-index: 999; border-bottom: 2px solid rgba(255,201,40,0.2);
+  max-height: calc(100vh - 68px); overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  font-size: 15px; padding: 12px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.06); transition: .2s;
+}
+.mobile-menu a:hover { color: #FFC928; }
+.mobile-menu .nav-more { position: static; }
+.mobile-menu .nav-more-btn {
+  width: 100%; justify-content: flex-start; font-size: 15px;
+  padding: 12px 4px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+}
+.mobile-menu .nav-dropdown {
+  position: static; box-shadow: none; border: none;
+  background: rgba(255,255,255,0.04); border-radius: 8px;
+  margin: 4px 0; padding: 4px 8px;
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-toggle { display: block; }
+}
+</style>
+
 <header>
   <nav class="nav">
     <a href="index.html" class="brand">
@@ -7,17 +105,28 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <div class="nav-more" style="position:relative">
-        <button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'">Services ▾</button>
-        <div style="display:none;position:absolute;top:40px;left:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:210px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
-          <a href="services.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🛠️ All Services</a>
-          <a href="ai-marketing.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 AI Marketing & Automation</a>
-          <a href="app-software.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">💻 App & Software</a>
-          <a href="pricing.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">💰 Pricing</a>
+      <div class="nav-more">
+        <button class="nav-more-btn" onclick="this.closest('.nav-more').classList.toggle('open')">Services ▾</button>
+        <div class="nav-dropdown">
+          <a href="services.html">🛠️ All Services</a>
+          <a href="ai-marketing.html">🤖 AI Marketing & Automation</a>
+          <a href="app-software.html">💻 App & Software</a>
+          <a href="pricing.html">💰 Pricing</a>
         </div>
       </div>
-      <a href="industries.html">Industries</a><a href="course.html">Course</a>
-      <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >AI Agent ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+      <a href="industries.html">Industries</a>
+      <a href="course.html">Course</a>
+      <div class="nav-more">
+        <button class="nav-more-btn" onclick="this.closest('.nav-more').classList.toggle('open')">AI Agent ▾</button>
+        <div class="nav-dropdown" style="left:auto;right:0;">
+          <a href="case-studies.html">📊 Case Studies</a>
+          <a href="chatbot-demo.html">🤖 Chatbot Demo</a>
+          <a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a>
+          <a href="whatsapp-demo.html">📲 WhatsApp Demo</a>
+        </div>
+      </div>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="nav-cta">
       <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call</a>
@@ -34,8 +143,19 @@
   <a href="ai-marketing.html">🤖 AI Marketing & Automation</a>
   <a href="app-software.html">💻 App & Software</a>
   <a href="pricing.html">💰 Pricing</a>
-  <a href="industries.html">Industries</a><a href="course.html">Course</a>
-  <div class="nav-more" style="position:relative"><button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" >AI Agent ▾</button><div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)"><a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a><a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a><a href="voice-agent-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a><a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a></div></div><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
-  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+  <a href="industries.html">Industries</a>
+  <a href="course.html">Course</a>
+  <div class="nav-more">
+    <button class="nav-more-btn" onclick="this.closest('.nav-more').classList.toggle('open')">AI Agent ▾</button>
+    <div class="nav-dropdown">
+      <a href="case-studies.html">📊 Case Studies</a>
+      <a href="chatbot-demo.html">🤖 Chatbot Demo</a>
+      <a href="voice-agent-demo.html">🎙️ Voice Agent Demo</a>
+      <a href="whatsapp-demo.html">📲 WhatsApp Demo</a>
+    </div>
+  </div>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-secondary" style="margin-top:8px">Get Proposal</a>
+  <a href="book-strategy-call.html" class="btn btn-primary" style="margin-top:6px">Book Strategy Call — ₹999</a>
 </div>
