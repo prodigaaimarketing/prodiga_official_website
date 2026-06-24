@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live AI Voice Agent Demo | Prodiga AI Infinity Ventures</title>
+<meta name="description" content="Experience a real AI voice agent — the same technology Prodiga builds for real estate, healthcare, coaching and startup clients. Type to talk, hear the difference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071833;
+  --royal:#1E4FA8;
+  --gold:#FFC928;
+  --saffron:#F28C00;
+  --off-white:#FFFDF8;
+  --text-dark:#111827;
+  --text-gray:#5B6475;
+  --gradient:linear-gradient(135deg,#0A1F44 0%,#FFC928 52%,#F28C00 100%);
+  --gradient-cta:linear-gradient(120deg,#FFC928 0%,#F28C00 100%);
+  --max:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;color:var(--text-dark);background:var(--off-white);line-height:1.6;overflow-x:hidden;}
+h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;color:var(--navy);}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--saffron);margin-bottom:14px;display:inline-flex;align-items:center;gap:8px;}
+.eyebrow::before{content:'';width:18px;height:2px;background:var(--saffron);display:inline-block;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease;white-space:nowrap;}
+.btn-primary{background:var(--gradient-cta);color:var(--navy-deep);box-shadow:0 8px 24px rgba(242,140,0,0.35);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(242,140,0,0.45);}
+.btn-secondary{background:transparent;color:var(--off-white);border:1.5px solid rgba(255,253,248,0.4);}
+.btn-secondary:hover{background:rgba(255,253,248,0.1);border-color:var(--off-white);}
+.btn-secondary.dark{color:var(--navy);border-color:rgba(10,31,68,0.3);}
+.btn-secondary.dark:hover{background:rgba(10,31,68,0.06);border-color:var(--navy);}
+
+/* Header */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,31,68,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--max);margin:0 auto;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand img{height:42px;width:auto;}
+.brand span{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--off-white);letter-spacing:0.02em;}
+.nav-links{display:flex;gap:8px;align-items:center;}
+.nav-links a{color:var(--navy-deep);font-size:12px;font-weight:700;transition:all .2s ease;padding:7px 12px;border-radius:8px;background:linear-gradient(120deg,#0A1F44 0%,#FFC928 52%,#F28C00 100%);box-shadow:0 2px 6px rgba(0,0,0,0.18),inset 0 1px 0 rgba(255,255,255,0.15);border:1px solid rgba(0,0,0,0.12);}
+.nav-links a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2);}
+.nav-more-btn{color:var(--off-white)!important;background:linear-gradient(120deg,#0A1F44 0%,#FFC928 52%,#F28C00 100%)!important;border-radius:8px!important;box-shadow:0 2px 6px rgba(0,0,0,0.18)!important;border:1px solid rgba(0,0,0,0.12)!important;font-weight:700!important;padding:7px 12px!important;font-size:12px!important;}
+.nav-cta{display:flex;gap:12px;align-items:center;}
+.nav-cta .btn{padding:12px 20px;font-size:13.5px;}
+.nav-toggle{display:none;background:none;border:none;color:var(--off-white);font-size:26px;cursor:pointer;}
+@media(max-width:980px){.nav-links{display:none;}.nav-cta .btn-secondary{display:none;}.nav-toggle{display:block;}}
+.mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--navy);z-index:1100;padding:90px 28px 28px;flex-direction:column;gap:14px;box-shadow:-10px 0 30px rgba(0,0,0,0.3);transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;}
+.mobile-menu.open{transform:translateX(0);display:flex;}
+.mobile-menu a{color:var(--off-white);font-size:15px;font-weight:700;padding:12px 16px;border-radius:8px;background:linear-gradient(120deg,#0A1F44 0%,#FFC928 52%,#F28C00 100%);box-shadow:0 2px 8px rgba(0,0,0,0.25);border:1px solid rgba(0,0,0,0.15);}
+.mobile-menu .btn{margin-top:10px;}
+.menu-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050;}
+.menu-backdrop.open{display:block;}
+
+/* HERO */
+.hero{background:var(--navy);background-image:radial-gradient(ellipse 700px 500px at 80% -10%,rgba(255,201,40,0.2),transparent),radial-gradient(ellipse 500px 400px at -5% 110%,rgba(242,140,0,0.15),transparent);padding:160px 0 80px;position:relative;overflow:hidden;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-text{}
+.hero-text .eyebrow{color:var(--gold);}
+.hero-text .eyebrow::before{background:var(--gold);}
+.hero-text h1{font-size:clamp(28px,4vw,50px);line-height:1.12;color:var(--off-white);margin-bottom:20px;}
+.hero-text h1 .accent{background:var(--gradient-cta);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-text p{font-size:17px;color:rgba(255,253,248,0.75);margin-bottom:30px;max-width:480px;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.live-badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:rgba(255,253,248,0.6);font-size:13px;font-weight:600;}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#1FB05A;box-shadow:0 0 0 0 rgba(31,176,90,0.6);animation:livepulse 2s infinite;}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(31,176,90,0.55);}70%{box-shadow:0 0 0 10px rgba(31,176,90,0);}100%{box-shadow:0 0 0 0 rgba(31,176,90,0);}}
+
+/* Phone mockup hero visual */
+.hero-visual{display:flex;justify-content:center;align-items:center;position:relative;}
+.phone-frame{width:260px;height:480px;background:#1a2a4a;border-radius:36px;border:3px solid rgba(255,255,255,0.12);box-shadow:0 40px 80px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.06);position:relative;overflow:hidden;flex-shrink:0;}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#0A1F44;border-radius:0 0 14px 14px;z-index:2;}
+.phone-screen{position:absolute;inset:0;display:flex;flex-direction:column;padding-top:30px;}
+.phone-header{background:linear-gradient(120deg,#0A1F44,#15305f);padding:14px 16px;display:flex;align-items:center;gap:10px;}
+.phone-avatar{width:32px;height:32px;border-radius:50%;background:var(--gradient-cta);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#071833;flex-shrink:0;}
+.phone-info strong{display:block;color:#fff;font-size:12px;font-weight:600;}
+.phone-info span{color:rgba(255,255,255,0.6);font-size:10px;display:flex;align-items:center;gap:4px;}
+.phone-info .pdot{width:5px;height:5px;border-radius:50%;background:#1FB05A;}
+.phone-body{flex:1;padding:12px;display:flex;flex-direction:column;gap:10px;overflow:hidden;background:#0f1e38;}
+.pmsg{font-size:10.5px;padding:9px 11px;border-radius:12px;max-width:85%;line-height:1.45;}
+.pmsg.agent{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.9);align-self:flex-start;border-bottom-left-radius:3px;}
+.pmsg.caller{background:linear-gradient(120deg,#FFC928,#F28C00);color:#071833;font-weight:600;align-self:flex-end;border-bottom-right-radius:3px;}
+.phone-wave{display:flex;align-items:center;justify-content:center;gap:3px;padding:14px;background:#0a1833;}
+.phone-wave span{display:inline-block;width:3px;border-radius:2px;background:var(--gold);animation:phonebar 1.2s ease-in-out infinite;}
+.phone-wave span:nth-child(1){animation-delay:0s;height:8px;}
+.phone-wave span:nth-child(2){animation-delay:0.1s;height:16px;}
+.phone-wave span:nth-child(3){animation-delay:0.2s;height:22px;}
+.phone-wave span:nth-child(4){animation-delay:0.3s;height:14px;}
+.phone-wave span:nth-child(5){animation-delay:0.4s;height:20px;}
+.phone-wave span:nth-child(6){animation-delay:0.5s;height:10px;}
+.phone-wave span:nth-child(7){animation-delay:0.6s;height:18px;}
+.phone-wave span:nth-child(8){animation-delay:0.7s;height:6px;}
+.phone-wave span:nth-child(9){animation-delay:0.8s;height:24px;}
+.phone-wave span:nth-child(10){animation-delay:0.9s;height:12px;}
+@keyframes phonebar{0%,100%{transform:scaleY(0.4);opacity:0.5;}50%{transform:scaleY(1);opacity:1;}}
+.float-badge{position:absolute;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);padding:10px 14px;font-size:11px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;}
+.float-badge.b1{top:60px;right:-20px;}
+.float-badge.b2{bottom:80px;left:-30px;}
+.float-badge .fic{font-size:18px;}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;}.hero-visual{display:none;}}
+
+/* Sections */
+section{padding:80px 0;}
+.section-head{max-width:680px;margin:0 auto 50px;text-align:center;}
+.section-head h2{font-size:clamp(26px,3vw,36px);line-height:1.2;}
+.section-head p{color:var(--text-gray);font-size:16px;margin-top:12px;}
+
+/* DEMO WIDGET SECTION */
+.demo-section{background:#F3EEE0;padding:80px 0;}
+.demo-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start;}
+.demo-info h2{font-size:clamp(24px,2.8vw,34px);margin-bottom:16px;}
+.demo-info p{color:var(--text-gray);font-size:15.5px;margin-bottom:20px;}
+.demo-steps{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.d-step{display:flex;align-items:flex-start;gap:14px;}
+.d-num{width:32px;height:32px;border-radius:50%;background:var(--gradient-cta);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#071833;flex-shrink:0;}
+.d-step p{font-size:14px;color:var(--text-gray);margin-top:6px;}
+.d-step strong{color:var(--text-dark);font-size:15px;}
+
+/* Voice Demo Widget */
+.voice-widget{background:#fff;border-radius:24px;box-shadow:0 20px 60px rgba(10,31,68,0.15);overflow:hidden;border:1px solid #EEE3CC;}
+.vw-header{background:linear-gradient(120deg,#0A1F44 0%,#15305f 60%,#1a4a8a 100%);padding:18px 20px;display:flex;align-items:center;gap:14px;color:#fff;}
+.vw-avatar{width:44px;height:44px;border-radius:50%;background:var(--gradient-cta);display:flex;align-items:center;justify-content:center;font-weight:800;color:#071833;font-size:15px;flex-shrink:0;}
+.vw-title strong{display:block;font-size:15px;font-weight:600;}
+.vw-title span{font-size:11.5px;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.vw-title .vdot{width:6px;height:6px;border-radius:50%;background:#1FB05A;}
+.vw-waveform{background:#0a1833;padding:20px;display:flex;align-items:center;justify-content:center;gap:3px;height:72px;position:relative;}
+.vw-waveform.idle .wbar{animation:none;transform:scaleY(0.2);opacity:0.3;}
+.vw-waveform.speaking .wbar{/* default animations run */}
+.wbar{display:inline-block;width:4px;border-radius:3px;background:linear-gradient(to top,#F28C00,#FFC928);animation:wavebar 0.9s ease-in-out infinite;}
+.wbar:nth-child(1){height:30px;animation-delay:0.0s;}
+.wbar:nth-child(2){height:45px;animation-delay:0.08s;}
+.wbar:nth-child(3){height:55px;animation-delay:0.16s;}
+.wbar:nth-child(4){height:35px;animation-delay:0.24s;}
+.wbar:nth-child(5){height:50px;animation-delay:0.32s;}
+.wbar:nth-child(6){height:60px;animation-delay:0.40s;}
+.wbar:nth-child(7){height:40px;animation-delay:0.48s;}
+.wbar:nth-child(8){height:55px;animation-delay:0.56s;}
+.wbar:nth-child(9){height:45px;animation-delay:0.64s;}
+.wbar:nth-child(10){height:30px;animation-delay:0.72s;}
+.wbar:nth-child(11){height:50px;animation-delay:0.80s;}
+.wbar:nth-child(12){height:38px;animation-delay:0.88s;}
+.wbar:nth-child(13){height:52px;animation-delay:0.96s;}
+.wbar:nth-child(14){height:42px;animation-delay:1.04s;}
+.wbar:nth-child(15){height:28px;animation-delay:1.12s;}
+@keyframes wavebar{0%,100%{transform:scaleY(0.25);opacity:0.5;}50%{transform:scaleY(1);opacity:1;}}
+.vw-status{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:10.5px;color:rgba(255,255,255,0.45);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;}
+.vw-body{padding:16px;display:flex;flex-direction:column;gap:12px;max-height:260px;overflow-y:auto;background:#FBF8F0;}
+.vmsg{max-width:86%;font-size:13.5px;line-height:1.5;padding:10px 14px;border-radius:14px;word-wrap:break-word;}
+.vmsg.agent{background:#fff;color:#111827;border:1px solid #EEE3CC;align-self:flex-start;border-bottom-left-radius:4px;position:relative;padding-left:36px;}
+.vmsg.agent::before{content:'🎙️';position:absolute;left:10px;top:9px;font-size:13px;}
+.vmsg.caller{background:linear-gradient(120deg,#FFC928,#F28C00);color:#071833;font-weight:600;align-self:flex-end;border-bottom-right-radius:4px;}
+.vmsg.typing{display:flex;gap:4px;align-items:center;padding:12px 16px;}
+.vmsg.typing span{width:6px;height:6px;border-radius:50%;background:#5B6475;opacity:.5;animation:cblink 1.2s infinite;}
+.vmsg.typing span:nth-child(2){animation-delay:.2s;}
+.vmsg.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes cblink{0%,80%,100%{opacity:.3;}40%{opacity:1;}}
+.vw-suggest{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px;background:#FBF8F0;}
+.vw-suggest button{font-size:11.5px;font-weight:600;color:#1E4FA8;background:#fff;border:1px solid #E0D8C0;border-radius:999px;padding:6px 12px;cursor:pointer;transition:.2s;}
+.vw-suggest button:hover{background:#FFF6E0;border-color:#F28C00;}
+.vw-input-row{display:flex;gap:8px;padding:14px;border-top:1px solid #EEE3CC;background:#fff;align-items:center;}
+.vw-input-row input{flex:1;border:1px solid #E0D8C0;border-radius:999px;padding:11px 16px;font-size:13.5px;font-family:inherit;outline:none;}
+.vw-input-row input:focus{border-color:#F28C00;}
+.vw-mic{width:44px;height:44px;border-radius:50%;border:none;flex-shrink:0;background:linear-gradient(120deg,#FFC928,#F28C00);color:#071833;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-size:18px;}
+.vw-mic:hover{transform:scale(1.08);}
+.vw-mic.listening{animation:micpulse 1s ease-in-out infinite;background:linear-gradient(120deg,#ff4444,#cc0000);}
+@keyframes micpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,68,68,0.5);}50%{box-shadow:0 0 0 12px rgba(255,68,68,0);}}
+.vw-send{width:44px;height:44px;border-radius:50%;border:none;flex-shrink:0;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.vw-send:disabled{opacity:.4;cursor:not-allowed;}
+@media(max-width:860px){.demo-wrap{grid-template-columns:1fr;}}
+
+/* HOW IT WORKS */
+.how-section{background:var(--navy);}
+.how-section .section-head h2{color:var(--off-white);}
+.how-section .section-head p{color:rgba(255,253,248,0.6);}
+.how-section .eyebrow{color:var(--gold);}
+.how-section .eyebrow::before{background:var(--gold);}
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.flow-grid::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,#FFC928,#F28C00);z-index:0;}
+.flow-item{text-align:center;position:relative;z-index:1;padding:0 16px;}
+.flow-icon{width:80px;height:80px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;}
+.flow-icon.c1{background:rgba(255,201,40,0.15);border:2px solid rgba(255,201,40,0.4);}
+.flow-icon.c2{background:rgba(242,140,0,0.15);border:2px solid rgba(242,140,0,0.4);}
+.flow-icon.c3{background:rgba(30,79,168,0.3);border:2px solid rgba(30,79,168,0.5);}
+.flow-icon.c4{background:rgba(31,176,90,0.15);border:2px solid rgba(31,176,90,0.4);}
+.flow-item h4{color:var(--off-white);font-size:15px;margin-bottom:8px;font-family:'Fraunces',serif;}
+.flow-item p{color:rgba(255,253,248,0.55);font-size:13px;}
+@media(max-width:700px){.flow-grid{grid-template-columns:repeat(2,1fr);gap:30px;}.flow-grid::before{display:none;}}
+
+/* STATS */
+.stats-section{background:var(--off-white);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.stat-card{text-align:center;padding:36px 20px;background:#fff;border-radius:16px;border:1px solid #EEE3CC;transition:.3s;}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(10,31,68,0.1);}
+.stat-num{font-family:'Fraunces',serif;font-size:clamp(32px,4vw,48px);font-weight:700;background:var(--gradient-cta);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1;margin-bottom:8px;}
+.stat-label{font-size:14px;color:var(--text-gray);font-weight:600;}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* USE CASES */
+.usecase-section{background:#F3EEE0;}
+.uc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.uc-card{background:#fff;border-radius:16px;border:1px solid #EEE3CC;padding:28px;display:flex;gap:18px;align-items:flex-start;transition:.25s;}
+.uc-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(10,31,68,0.09);}
+.uc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.uc-icon.re{background:rgba(255,201,40,0.15);}
+.uc-icon.hc{background:rgba(31,176,90,0.12);}
+.uc-icon.co{background:rgba(30,79,168,0.1);}
+.uc-icon.st{background:rgba(242,140,0,0.12);}
+.uc-body h4{font-size:16px;margin-bottom:6px;font-family:'Fraunces',serif;}
+.uc-body p{font-size:13.5px;color:var(--text-gray);}
+.uc-body ul{margin-top:10px;list-style:none;display:flex;flex-direction:column;gap:5px;}
+.uc-body ul li{font-size:13px;color:var(--text-gray);display:flex;align-items:center;gap:7px;}
+.uc-body ul li::before{content:'✓';color:var(--saffron);font-weight:800;font-size:11px;}
+@media(max-width:700px){.uc-grid{grid-template-columns:1fr;}}
+
+/* CTA Section */
+.final-cta{background:var(--gradient);text-align:center;padding:90px 0;}
+.final-cta h2{color:var(--navy-deep);font-size:clamp(26px,3.4vw,42px);margin-bottom:14px;}
+.final-cta p{color:rgba(10,31,68,0.72);font-size:17px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.final-cta .btn-navy{background:var(--navy-deep);color:var(--off-white);box-shadow:0 10px 30px rgba(10,31,68,0.35);display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:.25s;}
+.final-cta .btn-navy:hover{transform:translateY(-2px);background:var(--navy);}
+.final-cta .btn-outline{background:transparent;color:var(--navy-deep);border:2px solid rgba(10,31,68,0.35);display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:.25s;}
+.final-cta .btn-outline:hover{background:rgba(10,31,68,0.08);}
+
+/* Footer */
+footer{background:var(--navy-deep);color:rgba(255,253,248,0.7);padding:60px 0 28px;}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:40px;}
+.f-brand .brand{margin-bottom:14px;}
+.f-brand p{font-size:13.5px;color:rgba(255,253,248,0.55);max-width:280px;margin-bottom:14px;}
+.f-brand .powered{font-size:12px;color:rgba(255,201,40,0.8);font-weight:700;}
+footer h5{color:var(--off-white);font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px;}
+footer ul{list-style:none;}
+footer li{margin-bottom:10px;font-size:14px;}
+footer a:hover{color:var(--gold);}
+.f-bottom{border-top:1px solid rgba(255,253,248,0.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,253,248,0.45);}
+.f-bottom a{margin-left:18px;}
+@media(max-width:900px){.f-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.f-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="/" class="brand">
+      <img src="assets/logo.png" alt="Prodiga AI Infinity Ventures logo">
+      <span>Prodiga AI Infinity</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="ai-marketing.html">AI Marketing</a>
+      <a href="app-software.html">App & Software</a>
+      <a href="industries.html">Industries</a>
+      <a href="course.html">Course</a>
+      <div class="nav-more" style="position:relative">
+        <button class="nav-more-btn" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'">More ▾</button>
+        <div style="display:none;position:absolute;top:40px;right:0;background:#0A1F44;border:1px solid rgba(255,201,40,0.2);border-radius:10px;padding:8px;min-width:190px;flex-direction:column;gap:4px;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+          <a href="faq.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">❓ FAQ</a>
+          <a href="case-studies.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📊 Case Studies</a>
+          <a href="chatbot-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🤖 Chatbot Demo</a>
+          <a href="voice-agent-demo.html" style="display:block;color:#FFC928;text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">🎙️ Voice Agent Demo</a>
+          <a href="whatsapp-demo.html" style="display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:6px">📲 WhatsApp Demo</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+  </nav>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#home">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="ai-marketing.html">AI Marketing</a>
+  <a href="app-software.html">App & Software</a>
+  <a href="industries.html">Industries</a>
+  <a href="course.html">Course</a>
+  <a href="faq.html">FAQ</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="chatbot-demo.html">Chatbot Demo</a>
+  <a href="voice-agent-demo.html">Voice Agent Demo</a>
+  <a href="whatsapp-demo.html">WhatsApp Demo</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-secondary">Get Proposal</a>
+  <a href="book-strategy-call.html" class="btn btn-primary">Book Strategy Call — ₹999</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Live Demo · AI Voice Agent</span>
+        <h1>Your business, on the phone <span class="accent">24 hours a day.</span></h1>
+        <p>This AI voice agent answers calls, qualifies leads, books appointments — in the customer's own language, at any hour. Type below and experience it yourself.</p>
+        <div class="hero-ctas">
+          <a href="#demo" class="btn btn-primary">🎙️ Try the Demo</a>
+          <a href="book-strategy-call.html" class="btn btn-secondary">Book Strategy Call</a>
+        </div>
+        <div class="live-badge"><span class="live-dot"></span> Agent is online — responding in real time</div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div class="phone-avatar">PA</div>
+              <div class="phone-info">
+                <strong>Prodiga Voice Agent</strong>
+                <span><span class="pdot"></span> Active call</span>
+              </div>
+            </div>
+            <div class="phone-body">
+              <div class="pmsg agent">Hello! You've reached Prodiga AI. How can I help you today?</div>
+              <div class="pmsg caller">I need to book an appointment</div>
+              <div class="pmsg agent">Of course! I can schedule that for you right now. What date works best?</div>
+              <div class="pmsg caller">Tomorrow afternoon please</div>
+              <div class="pmsg agent">Perfect — I've got 2 PM or 4 PM available. Which do you prefer?</div>
+            </div>
+            <div class="phone-wave">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="float-badge b1">
+          <span class="fic">⚡</span>
+          <div><strong style="font-size:13px">0.8s</strong><br><span style="font-weight:500;color:#5B6475;">response time</span></div>
+        </div>
+        <div class="float-badge b2">
+          <span class="fic">🌐</span>
+          <div><strong style="font-size:13px">50+ Languages</strong><br><span style="font-weight:500;color:#5B6475;">including Bengali</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO WIDGET -->
+<section class="demo-section" id="demo">
+  <div class="wrap">
+    <div class="demo-wrap">
+      <div class="demo-info">
+        <span class="eyebrow">Interactive Demo</span>
+        <h2>Talk to the voice agent right now</h2>
+        <p>This is the same AI technology we build for our clients. Type any question a real customer might ask — about appointments, pricing, services, anything. Watch it respond like a trained human agent.</p>
+        <div class="demo-steps">
+          <div class="d-step">
+            <div class="d-num">1</div>
+            <div>
+              <strong>Type your message</strong>
+              <p>Pretend you're a customer calling a real estate agency, clinic, or coaching centre.</p>
+            </div>
+          </div>
+          <div class="d-step">
+            <div class="d-num">2</div>
+            <div>
+              <strong>Watch the waveform</strong>
+              <p>The animated voice waveform shows the agent "speaking" — just like on a real phone call.</p>
+            </div>
+          </div>
+          <div class="d-step">
+            <div class="d-num">3</div>
+            <div>
+              <strong>See what's possible</strong>
+              <p>Every response is real AI — not a script. Imagine this running for your business, round the clock.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="voice-widget">
+        <div class="vw-header">
+          <div class="vw-avatar">PA</div>
+          <div class="vw-title">
+            <strong>Prodiga Voice Agent</strong>
+            <span><span class="vdot"></span> Online · Responding instantly</span>
+          </div>
+        </div>
+        <div class="vw-waveform idle" id="vwWave">
+          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          <div class="vw-status" id="vwStatus">Ready — type your message below</div>
+        </div>
+        <div class="vw-body" id="vwBody">
+          <div class="vmsg agent">Namaste! 🙏 You've reached Prodiga's AI Voice Agent. I can help with appointments, services, pricing, or any questions about your business. How can I help you today?</div>
+        </div>
+        <div class="vw-suggest" id="vwSuggest">
+          <button onclick="voiceSend('I want to book an appointment')">📅 Book appointment</button>
+          <button onclick="voiceSend('What services do you offer?')">🛠️ Services</button>
+          <button onclick="voiceSend('What are your charges?')">💰 Pricing</button>
+        </div>
+        <div class="vw-input-row">
+          <input type="text" id="vwInput" placeholder="Type what a customer would say..." autocomplete="off">
+          <button class="vw-mic" id="vwMic" title="Mic (type instead)" onclick="handleMicClick()">🎙️</button>
+          <button class="vw-send" id="vwSend" aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M3 11l18-8-8 18-2-8-8-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Under the hood</span>
+      <h2>How the voice agent works</h2>
+      <p>From the first ring to the booked appointment — fully automated, fully intelligent.</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-item">
+        <div class="flow-icon c1">📞</div>
+        <h4>Customer Calls</h4>
+        <p>A real or WhatsApp call connects to the AI agent — no hold music, no waiting.</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-icon c2">🧠</div>
+        <h4>AI Understands</h4>
+        <p>Understands the caller's intent — even accents, casual language, and Bengali.</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-icon c3">💬</div>
+        <h4>Agent Responds</h4>
+        <p>Replies naturally in under a second — trained on your business, products, and tone.</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-icon c4">✅</div>
+        <h4>Action Taken</h4>
+        <p>Books the appointment, captures the lead, or escalates — logged automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">By the numbers</span>
+      <h2>What AI voice agents deliver</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Always available — no missed calls</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">&lt;1s</div>
+        <div class="stat-label">Average response time per turn</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Languages including Bengali & Hindi</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">More leads captured vs missed calls</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecase-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Industry use cases</span>
+      <h2>We build this for your exact industry</h2>
+      <p>Every voice agent is trained on your business — not a generic template.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <div class="uc-icon re">🏠</div>
+        <div class="uc-body">
+          <h4>Real Estate</h4>
+          <p>Never miss a site visit enquiry again — even at midnight.</p>
+          <ul>
+            <li>Answers property & pricing questions</li>
+            <li>Books site visits automatically</li>
+            <li>Captures buyer details & intent</li>
+          </ul>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon hc">🩺</div>
+        <div class="uc-body">
+          <h4>Healthcare & Clinics</h4>
+          <p>Reduce front-desk load while patients get instant help.</p>
+          <ul>
+            <li>Books & reschedules appointments</li>
+            <li>Answers clinic timings & FAQ</li>
+            <li>Directs emergencies to the right person</li>
+          </ul>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon co">🎓</div>
+        <div class="uc-body">
+          <h4>Coaches & Trainers</h4>
+          <p>Convert interested callers into enrolled students automatically.</p>
+          <ul>
+            <li>Explains course details & fees</li>
+            <li>Qualifies leads before your call</li>
+            <li>Books discovery sessions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-icon st">🚀</div>
+        <div class="uc-body">
+          <h4>Startups & E-commerce</h4>
+          <p>Scale customer support without scaling your headcount.</p>
+          <ul>
+            <li>Handles order & delivery queries</li>
+            <li>Qualifies inbound sales leads</li>
+            <li>Routes hot prospects to your team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Ready for an AI agent that never sleeps?</h2>
+    <p>In one 45-minute call we'll map out exactly how a voice agent would work for your business — and what it would cost.</p>
+    <div class="cta-btns">
+      <a href="book-strategy-call.html" class="btn-navy">📞 Book Strategy Call — ₹999</a>
+      <a href="contact.html" class="btn-outline">Get a Custom Proposal</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="/" class="brand">
+          <img src="assets/logo.png" alt="Prodiga logo" style="height:38px;">
+          <span>Prodiga AI Infinity</span>
+        </a>
+        <p>AI marketing, automation, software and learning ecosystems for growth-focused businesses across West Bengal &amp; Tripura.</p>
+        <p class="powered">Powered by Skybull E Learning (OPC) Pvt. Ltd.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#marketing">AI Marketing &amp; Automation</a></li>
+          <li><a href="services.html#software">App &amp; Software</a></li>
+          <li><a href="course.html">AI Online Course</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Demos</h5>
+        <ul>
+          <li><a href="chatbot-demo.html">Chatbot Demo</a></li>
+          <li><a href="voice-agent-demo.html">Voice Agent Demo</a></li>
+          <li><a href="whatsapp-demo.html">WhatsApp Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Dhubulia, 6 No. Nadia, West Bengal – 741139</li>
+          <li>Mani Casadona, Newtown, Kolkata – 700160</li>
+          <li><a href="tel:+916294645885">6294645885</a> / <a href="tel:+919903022477">9903022477</a></li>
+          <li><a href="mailto:info@prodigainfinity.com">info@prodigainfinity.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Prodiga AI Infinity Ventures. All rights reserved.</span>
+      <span>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="refund.html">Refund Policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+(function(){
+  const toggle=document.getElementById('navToggle');
+  const menu=document.getElementById('mobileMenu');
+  const backdrop=document.getElementById('menuBackdrop');
+  function open(){menu.classList.add('open');backdrop.classList.add('open');}
+  function close(){menu.classList.remove('open');backdrop.classList.remove('open');}
+  toggle.addEventListener('click',open);
+  backdrop.addEventListener('click',close);
+})();
+
+// Voice Agent Demo
+(function(){
+  const SYSTEM=`You are Prodiga's AI Voice Agent — a professional, warm, and efficient phone AI that helps callers get what they need fast.\n\nYou represent Prodiga AI Infinity Ventures, based in West Bengal, India. Your job is to sound like a real, helpful phone agent — not a chatbot.\n\nYour personality:\n- Warm but efficient — like a well-trained receptionist who respects the caller's time\n- Speak in short, conversational sentences (2-3 sentences max per turn)\n- Use natural spoken language — avoid bullet points or lists\n- If caller writes in Bengali, reply in Bengali\n- Never mention you are Claude or an AI model — you are "Prodiga's Voice Agent"\n\nWhat you handle:\n1. Appointment booking — for strategy calls (₹999, 45 minutes, with Prodiga's team)\n2. Service questions — AI Marketing & Automation, App & Software Development, AI Online Course (Silver ₹25k/yr, Gold ₹50k/yr, Diamond ₹1L/yr)\n3. Pricing questions — for projects, say pricing depends on scope and direct them to the ₹999 strategy call\n4. General questions about Prodiga — offices in Dhubulia, Nadia and Newtown Kolkata; contact info@prodigainfinity.com or 6294645885\n5. Industries served — Real Estate, Healthcare, Coaches & Trainers, Startups (mainly West Bengal & Tripura)\n\nFor bookings, say you'll connect them to the calendar link at prodigainfinity.com/book-strategy-call\n\nAlways guide the conversation toward a logical next step — usually the ₹999 strategy call. Keep it natural, never pushy.`;
+
+  const body=document.getElementById('vwBody');
+  const input=document.getElementById('vwInput');
+  const send=document.getElementById('vwSend');
+  const wave=document.getElementById('vwWave');
+  const status=document.getElementById('vwStatus');
+  const suggest=document.getElementById('vwSuggest');
+  let history=[];
+  let busy=false;
+
+  function appendMsg(text,who){
+    const d=document.createElement('div');
+    d.className='vmsg '+who;
+    d.textContent=text;
+    body.appendChild(d);
+    body.scrollTop=body.scrollHeight;
+    return d;
+  }
+
+  function showTyping(){
+    const d=document.createElement('div');
+    d.className='vmsg agent typing';
+    d.id='vwTyping';
+    d.innerHTML='<span></span><span></span><span></span>';
+    body.appendChild(d);
+    body.scrollTop=body.scrollHeight;
+  }
+
+  function removeTyping(){
+    const t=document.getElementById('vwTyping');
+    if(t)t.remove();
+  }
+
+  function setWave(mode){
+    wave.className='vw-waveform '+mode;
+    if(mode==='speaking'){
+      status.textContent='Agent is responding…';
+    } else if(mode==='listening'){
+      status.textContent='Agent is listening…';
+    } else {
+      status.textContent='Ready — type your message below';
+    }
+  }
+
+  async function doSend(text){
+    if(!text||busy)return;
+    busy=true;
+    send.disabled=true;
+    suggest.style.display='none';
+    appendMsg(text,'caller');
+    history.push({role:'user',content:text});
+    input.value='';
+    setWave('listening');
+    showTyping();
+
+    try{
+      const res=await fetch('https://prodiga-chat-api.vercel.app/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({messages:history,system:SYSTEM})
+      });
+      const data=await res.json();
+      removeTyping();
+      setWave('speaking');
+      let reply="I'm sorry, I couldn't connect right now. Please call us directly at 6294645885 or visit prodigainfinity.com.";
+      if(data&&data.reply)reply=data.reply;
+      // Simulate voice "speaking" delay
+      await new Promise(r=>setTimeout(r,800));
+      appendMsg(reply,'agent');
+      history.push({role:'assistant',content:reply});
+      await new Promise(r=>setTimeout(r,1200));
+      setWave('idle');
+    } catch(e){
+      removeTyping();
+      setWave('idle');
+      appendMsg('Connection issue — please try again in a moment.','agent');
+    }
+    busy=false;
+    send.disabled=false;
+    input.focus();
+  }
+
+  window.voiceSend=function(t){input.value=t;doSend(t);};
+
+  send.addEventListener('click',()=>doSend(input.value.trim()));
+  input.addEventListener('keydown',e=>{if(e.key==='Enter')doSend(input.value.trim());});
+
+  window.handleMicClick=function(){
+    // Check for Web Speech API support
+    if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
+      alert('Your browser does not support microphone input. Please type your message instead.');
+      return;
+    }
+    const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+    const rec=new SpeechRecognition();
+    rec.lang='en-IN';
+    rec.interimResults=false;
+    const mic=document.getElementById('vwMic');
+    mic.classList.add('listening');
+    rec.start();
+    rec.onresult=function(e){
+      const transcript=e.results[0][0].transcript;
+      input.value=transcript;
+      mic.classList.remove('listening');
+      doSend(transcript);
+    };
+    rec.onerror=function(){
+      mic.classList.remove('listening');
+      alert('Could not capture audio. Please type your message.');
+    };
+    rec.onend=function(){mic.classList.remove('listening');};
+  };
+})();
+</script>
+
+</body>
+</html>
